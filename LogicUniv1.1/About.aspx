@@ -16,7 +16,7 @@
         </p>
 
         <p>        
-            Use this area to provide additional information.111111
+            Use this area to provide additional information
         </p>
     </article>
 
