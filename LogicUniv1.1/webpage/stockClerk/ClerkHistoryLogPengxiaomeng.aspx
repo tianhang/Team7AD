@@ -17,7 +17,7 @@
     <script src="../js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
     <!-- bootstrap -->
     <link href="../css/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="../css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
     <!-- libraries -->
     <link href="../css/lib/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />
     <link href="../css/lib/font-awesome.css" type="text/css" rel="stylesheet" />
@@ -28,7 +28,6 @@
     <!-- this page specific styles -->
     <link rel="stylesheet" href="../css/compiled/index.css" type="text/css" media="screen" />
     	<!-- scripts -->
-    <script src="../js/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-ui-1.10.2.custom.min.js"></script>
     <!-- knob -->
@@ -38,7 +37,38 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
-    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script>
+        $(function () {
+
+            $("#<%=startdate.ClientID %>").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                showOn: 'button',
+                buttonImage: '../../Images/Date.png',
+                buttonImageOnly: true,
+                onClose: function (selectedDate) {
+                    $("#<%=enddate.ClientID %>").datepicker("option", "minDate", selectedDate);
+                }
+                
+
+            });
+
+            $("#<%=enddate.ClientID %>").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                showOn: 'button',
+                buttonImage: '../../Images/Date.png',
+                buttonImageOnly: true,
+                onClose: function (selectedDate) {
+                    $("#<%=startdate.ClientID %>").datepicker("option", "minDate", selectedDate);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -196,6 +226,14 @@
                 <asp:ListItem>STORE</asp:ListItem>
                 <asp:ListItem>ZOOL</asp:ListItem>
             </asp:RadioButtonList>
+            <br />
+            <asp:TextBox ID="startdate" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label1" runat="server" Text="TO"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="enddate" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Submit" runat="server" Text="Submit" Width="74px" />
             <br />
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Height="197px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="577px">
                 <FooterStyle BackColor="#CCCCCC" />

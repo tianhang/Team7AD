@@ -11,9 +11,13 @@ namespace LogicUniv1._1.Test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+
         }
 
-       
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Write(TextBox1.Text);
+            Response.Write(TextBox2.Text);
+        }
     }
 }
