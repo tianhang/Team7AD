@@ -163,12 +163,11 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="index.html" class="active"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
-				  <li><a href="products.html"><i class="fa fa-shopping-cart fa-medium"></i>Products</a></li>
-				  <li><a href="services.html"><i class="fa fa-send-o fa-medium"></i>Services</a></li>
-				  <li><a href="testimonials.html"><i class="fa fa-comments-o fa-medium"></i>Testimonials</a></li>
-				  <li><a href="about.html"><i class="fa fa-gears fa-medium"></i>About Us</a></li>
-				  <li><a href="contact.html"><i class="fa fa-envelope-o fa-medium"></i>Contact</a></li>
+				  <li><a href="index.html" class="active"><i class="fa fa-home fa-medium"></i>Amout with Category</a></li>
+				  <li><a href="products.html"><i class="fa fa-shopping-cart fa-medium"></i>Compare 3 month</a></li>
+				  <li><a href="services.html"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
+				  <li><a href="testimonials.html"><i class="fa fa-comments-o fa-medium"></i>Inventory</a></li>
+				  
 				</ul>
 			</div>
 
@@ -183,20 +182,20 @@
            
 			<div class="tm-right-inner-container">
                 <div> 
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="SqlDataSource1">
-                    <Columns>
-                        <asp:BoundField DataField="itemId" HeaderText="itemId" InsertVisible="False" ReadOnly="True" SortExpression="itemId" />
-                        <asp:BoundField DataField="unit" HeaderText="unit" SortExpression="unit" />
-                        <asp:BoundField DataField="categoryId" HeaderText="categoryId" SortExpression="categoryId" />
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
-                        <asp:BoundField DataField="reorderlevel" HeaderText="reorderlevel" SortExpression="reorderlevel" />
-                        <asp:BoundField DataField="reorderQty" HeaderText="reorderQty" SortExpression="reorderQty" />
-                        <asp:BoundField DataField="balance" HeaderText="balance" SortExpression="balance" />
-                        <asp:BoundField DataField="binNumber" HeaderText="binNumber" SortExpression="binNumber" />
-                        <asp:BoundField DataField="photourl" HeaderText="photourl" SortExpression="photourl" />
-                    </Columns>
-                </asp:GridView>
-				<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="select * from item"></asp:SqlDataSource>
+               <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None" Height="434px" OnPageIndexChanging="GridView1_PageIndexChanging1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="814px" CaptionAlign="Bottom" HorizontalAlign="Center" style="margin-left: 0px" ShowFooter="True">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        </asp:GridView>
+				<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="SELECT * FROM [discrepancy]"></asp:SqlDataSource>
               </div>
                  </div>
 

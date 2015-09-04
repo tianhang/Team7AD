@@ -64,7 +64,7 @@
                 buttonImage: '../../Images/Date.png',
                 buttonImageOnly: true,
                 onClose: function (selectedDate) {
-                    $("#<%=startdate.ClientID %>").datepicker("option", "minDate", selectedDate);
+                    $("#<%=startdate.ClientID %>").datepicker("option", "maxDate", selectedDate);
                 }
             });
         });
@@ -216,7 +216,7 @@
                 <asp:ListItem>View By Department</asp:ListItem>
                 <asp:ListItem Selected="True">View By Item</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:15%" Enabled="False" />            
+            <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:15%" OnClick="HistoryLog1_Click" />            
             <asp:Button ID="CurrentWeek" runat="server" Text="Current Week" OnClick="CurrentWeek_Click" />
             <asp:RadioButtonList ID="Department" runat="server" Height="16px" Width="141px" AutoPostBack="True" OnSelectedIndexChanged="Department_SelectedIndexChanged1" Visible="False">
                 <asp:ListItem>COMM</asp:ListItem>
@@ -226,6 +226,7 @@
                 <asp:ListItem>STORE</asp:ListItem>
                 <asp:ListItem>ZOOL</asp:ListItem>
             </asp:RadioButtonList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="startdate" ErrorMessage="Please Input Start Date!" OnDataBinding="Button1_Click1"></asp:RequiredFieldValidator>
             <br />
             <asp:TextBox ID="startdate" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -233,7 +234,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="enddate" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Submit" runat="server" Text="Submit" Width="74px" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Submit" Width="92px" />
             <br />
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Height="197px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="577px">
                 <FooterStyle BackColor="#CCCCCC" />

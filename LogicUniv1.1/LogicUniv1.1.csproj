@@ -353,6 +353,7 @@
     <Content Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx" />
     <Content Include="webpage\stockSupervisor\SSHome.aspx" />
     <Content Include="webpage\Master.aspx" />
+    <Content Include="webpage\stockSupervisor\StockSurpervisorDiscrepancyItem.aspx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -577,6 +578,13 @@
     </Compile>
     <Compile Include="webpage\Master.aspx.designer.cs">
       <DependentUpon>Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockSupervisor\StockSurpervisorDiscrepancyItem.aspx.cs">
+      <DependentUpon>StockSurpervisorDiscrepancyItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockSupervisor\StockSurpervisorDiscrepancyItem.aspx.designer.cs">
+      <DependentUpon>StockSurpervisorDiscrepancyItem.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
