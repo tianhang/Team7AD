@@ -10,7 +10,7 @@
 namespace LogicUniv1._1.webpage.stockClerk {
     
     
-    public partial class ClerkHome {
+    public partial class ClerkHistoryLogPengxiaomeng {
         
         /// <summary>
         /// form1 control.

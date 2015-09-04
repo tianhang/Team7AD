@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClerkHome.aspx.cs" Inherits="LogicUniv1._1.webpage.stockClerk.ClerkHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClerkHistoryLogPengxiaomeng.aspx.cs" Inherits="LogicUniv1._1.webpage.stockClerk.ClerkHistoryLogPengxiaomeng" %>
 
 <!DOCTYPE html>
 
@@ -13,7 +13,8 @@
 	<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="../css/templatemo_style.css" rel="stylesheet" type="text/css">	
-
+    <script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
     <!-- bootstrap -->
     <link href="../css/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="../css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
@@ -24,7 +25,6 @@
     <link rel="stylesheet" type="text/css" href="../css/compiled/layout.css">
     <link rel="stylesheet" type="text/css" href="../css/compiled/elements.css">
     <link rel="stylesheet" type="text/css" href="../css/compiled/icons.css">
-
     <!-- this page specific styles -->
     <link rel="stylesheet" href="../css/compiled/index.css" type="text/css" media="screen" />
     	<!-- scripts -->
@@ -38,7 +38,9 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
+    
 </head>
+
 <body>
     <header class="navbar navbar-inverse" role="banner">
         <ul class="nav navbar-nav pull-right hidden-xs">
@@ -184,7 +186,7 @@
                 <asp:ListItem>View By Department</asp:ListItem>
                 <asp:ListItem Selected="True">View By Item</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:15%" OnClick="HistoryLog_Click" />            
+            <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:15%" Enabled="False" />            
             <asp:Button ID="CurrentWeek" runat="server" Text="Current Week" OnClick="CurrentWeek_Click" />
             <asp:RadioButtonList ID="Department" runat="server" Height="16px" Width="141px" AutoPostBack="True" OnSelectedIndexChanged="Department_SelectedIndexChanged1" Visible="False">
                 <asp:ListItem>COMM</asp:ListItem>
@@ -205,10 +207,9 @@
                 <SortedAscendingHeaderStyle BackColor="#808080" />
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#383838" />
-            </asp:GridView>
-                <div> 
-
-              </div>
+            </asp:GridView>          
+    </div>
+</div>
             <div class="tm-right-inner-container">
                  </div>
 
