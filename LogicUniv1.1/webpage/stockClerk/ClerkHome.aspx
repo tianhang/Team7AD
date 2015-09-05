@@ -163,45 +163,57 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="index.html" class="active"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
-				  <li><a href="products.html"><i class="fa fa-shopping-cart fa-medium"></i>Products</a></li>
-				  <li><a href="services.html"><i class="fa fa-send-o fa-medium"></i>Services</a></li>
-				  <li><a href="testimonials.html"><i class="fa fa-comments-o fa-medium"></i>Testimonials</a></li>
-				  <li><a href="about.html"><i class="fa fa-gears fa-medium"></i>About Us</a></li>
-				  <li><a href="contact.html"><i class="fa fa-envelope-o fa-medium"></i>Contact</a></li>
+				  <li><a href="index.html" class="active"><i class="fa fa-home fa-medium"></i>Manage Requisition</a></li>
+				  <li><a href="products.html"><i class="fa fa-shopping-cart fa-medium"></i>Inventory</a></li>
+				  <li><a href="services.html"><i class="fa fa-send-o fa-medium"></i>Discrepancy</a></li>
+				  <li><a href="testimonials.html"><i class="fa fa-comments-o fa-medium"></i>Manage Supplier</a></li>
 				</ul>
 			</div>
 
 		</div> <!-- left section -->
-        <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
+        <div class="copyrights">Collect from <a href="http://www.mycodes.net/" >
+            
+            </a></div>
 		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
              <asp:Label ID="clerk" runat="server" Text="Label"></asp:Label>
             
-           
-			<div class="tm-right-inner-container">
+            <asp:DropDownList ID="viewby" runat="server" OnSelectedIndexChanged="viewby_SelectedIndexChanged" ValidateRequestMode="Enabled" AutoPostBack="True">
+                <asp:ListItem>View By Department</asp:ListItem>
+                <asp:ListItem Selected="True">View By Item</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:15%" OnClick="HistoryLog_Click" />            
+            <asp:Button ID="CurrentWeek" runat="server" Text="Current Week" OnClick="CurrentWeek_Click" />
+            <asp:RadioButtonList ID="Department" runat="server" Height="16px" Width="141px" AutoPostBack="True" OnSelectedIndexChanged="Department_SelectedIndexChanged1" Visible="False">
+                <asp:ListItem>COMM</asp:ListItem>
+                <asp:ListItem>CPSC</asp:ListItem>
+                <asp:ListItem>ENGL</asp:ListItem>
+                <asp:ListItem>REGR</asp:ListItem>
+                <asp:ListItem>STORE</asp:ListItem>
+                <asp:ListItem>ZOOL</asp:ListItem>
+            </asp:RadioButtonList>
+            <br />
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Height="197px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="577px">
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                <RowStyle BackColor="White" />
+                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#808080" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />
+            </asp:GridView>
                 <div> 
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="SqlDataSource1">
-                    <Columns>
-                        <asp:BoundField DataField="itemId" HeaderText="itemId" InsertVisible="False" ReadOnly="True" SortExpression="itemId" />
-                        <asp:BoundField DataField="unit" HeaderText="unit" SortExpression="unit" />
-                        <asp:BoundField DataField="categoryId" HeaderText="categoryId" SortExpression="categoryId" />
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
-                        <asp:BoundField DataField="reorderlevel" HeaderText="reorderlevel" SortExpression="reorderlevel" />
-                        <asp:BoundField DataField="reorderQty" HeaderText="reorderQty" SortExpression="reorderQty" />
-                        <asp:BoundField DataField="balance" HeaderText="balance" SortExpression="balance" />
-                        <asp:BoundField DataField="binNumber" HeaderText="binNumber" SortExpression="binNumber" />
-                        <asp:BoundField DataField="photourl" HeaderText="photourl" SortExpression="photourl" />
-                    </Columns>
-                </asp:GridView>
-				<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="select * from item"></asp:SqlDataSource>
+
               </div>
+            <div class="tm-right-inner-container">
                  </div>
 
 				<footer>
-					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
+					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 -lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
 					<p class="col-lg-9 col-md-9  templatemo-social">
 						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
 						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
