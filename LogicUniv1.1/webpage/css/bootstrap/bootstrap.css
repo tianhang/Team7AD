@@ -5159,7 +5159,7 @@ body.modal-open,
 }
 @media screen and (min-width: 768px) {
   .modal-dialog {
-    left: 50%;
+
     right: auto;
     width: 600px;
     padding-top: 30px;
@@ -5894,7 +5894,7 @@ td.visible-print {
   transition: opacity 0.15s linear;
 }
 .fade.in {
-  opacity: 1;
+
 }
 .collapse {
   display: none;

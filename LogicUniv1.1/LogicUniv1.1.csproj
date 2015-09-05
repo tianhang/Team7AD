@@ -241,23 +241,99 @@
     <Content Include="webpage\css\lib\select2.css" />
     <Content Include="webpage\css\lib\uniform.default.css" />
     <Content Include="webpage\css\templatemo_style.css" />
+    <Content Include="webpage\css\reqdetail.css" />
     <Content Include="webpage\deptEmpRep\DepRepHome.aspx" />
     <Content Include="webpage\deptEmp\EmpHome.aspx" />
+    <Content Include="webpage\DeptHead\ChangeCollectionPoint.aspx" />
+    <Content Include="webpage\DeptHead\ChangeRep.aspx" />
+    <Content Include="webpage\DeptHead\DelegateAuthority.aspx" />
     <Content Include="webpage\DeptHead\HeadHome.aspx" />
-    <Content Include="webpage\fonts\fontawesome-webfont.svg" />
-    <Content Include="webpage\images\contact-img.png" />
-    <Content Include="webpage\images\contact-img2.png" />
-    <Content Include="webpage\images\fujifilm.jpg" />
-    <Content Include="webpage\images\gutman-island.jpg" />
-    <Content Include="webpage\images\japan.jpg" />
-    <Content Include="webpage\images\team\1.jpg" />
-    <Content Include="webpage\images\team\2.jpg" />
-    <Content Include="webpage\images\team\3.jpg" />
-    <Content Include="webpage\images\testimonial01.jpg" />
-    <Content Include="webpage\images\testimonial02.jpg" />
-    <Content Include="webpage\images\testimonial03.jpg" />
-    <Content Include="webpage\images\testimonial04.jpg" />
-    <Content Include="webpage\images\wooden-desk.jpg" />
+    <Content Include="webpage\DeptHead\PreviousRequisition.aspx" />
+    <Content Include="webpage\DeptHead\RequisitionDetails.aspx" />
+    <Content Include="webpage\DeptHead\WebForm1.aspx" />
+    <Content Include="webpage\font\fontawesome-webfont.svg" />
+    <Content Include="webpage\images\2015 cute stationery.jpg" />
+    <Content Include="webpage\images\3A Rubber Eraser.jpg" />
+    <Content Include="webpage\images\6 pcs lot vintage.jpg" />
+    <Content Include="webpage\images\8cm pitch.jpg" />
+    <Content Include="webpage\images\99-BP16 sticky notes.jpg" />
+    <Content Include="webpage\images\A4 paper%28100%29.jpg" />
+    <Content Include="webpage\images\A4 paper%28150%29.jpg" />
+    <Content Include="webpage\images\A4 paper%28200%29.jpg" />
+    <Content Include="webpage\images\Bad Memories Eraser.jpg" />
+    <Content Include="webpage\images\bag1.jpg" />
+    <Content Include="webpage\images\bag2.jpg" />
+    <Content Include="webpage\images\bag3.jpg" />
+    <Content Include="webpage\images\bag4.jpg" />
+    <Content Include="webpage\images\bag5.jpg" />
+    <Content Include="webpage\images\bag6.jpg" />
+    <Content Include="webpage\images\bag7.jpg" />
+    <Content Include="webpage\images\Birthday Cards.jpg" />
+    <Content Include="webpage\images\Blank Note Cards.jpg" />
+    <Content Include="webpage\images\box seed Picture.jpg" />
+    <Content Include="webpage\images\Bubble Hardtop Pencil Case.jpg" />
+    <Content Include="webpage\images\Business Card.jpg" />
+    <Content Include="webpage\images\Calculator.jpg" />
+    <Content Include="webpage\images\Calculator2.jpg" />
+    <Content Include="webpage\images\Calculator3.jpg" />
+    <Content Include="webpage\images\Calculator4.jpg" />
+    <Content Include="webpage\images\Calculator5.jpg" />
+    <Content Include="webpage\images\China Pencil Case.jpg" />
+    <Content Include="webpage\images\chocolate.jpg" />
+    <Content Include="webpage\images\Compasses1.JPG" />
+    <Content Include="webpage\images\Compasses2.jpg" />
+    <Content Include="webpage\images\Compasses3.jpg" />
+    <Content Include="webpage\images\Compasses4.jpg" />
+    <Content Include="webpage\images\Computer Stationery Paper%28100%29.jpg" />
+    <Content Include="webpage\images\Computer Stationery Paper%28150%29.jpg" />
+    <Content Include="webpage\images\Cubbyhole1.jpg" />
+    <Content Include="webpage\images\Cubbyhole2.jpg" />
+    <Content Include="webpage\images\Cubbyhole3.jpg" />
+    <Content Include="webpage\images\Cubbyhole4.jpg" />
+    <Content Include="webpage\images\CUT PAPERS.jpg" />
+    <Content Include="webpage\images\cute Hello Kitty.jpg" />
+    <Content Include="webpage\images\Design Stationery Case.jpg" />
+    <Content Include="webpage\images\Diamine.jpg" />
+    <Content Include="webpage\images\DocumentBags.jpg" />
+    <Content Include="webpage\images\DocumentBags2.png" />
+    <Content Include="webpage\images\DocumentBags3.png" />
+    <Content Include="webpage\images\DocumentBags4.jpg" />
+    <Content Include="webpage\images\Duer Medium notepad.jpg" />
+    <Content Include="webpage\images\Ebb &amp; Flow %28dual notebook wrap%29.jpg" />
+    <Content Include="webpage\images\Fancy Notebook.jpg" />
+    <Content Include="webpage\images\Folder1.jpg" />
+    <Content Include="webpage\images\Folder2.jpg" />
+    <Content Include="webpage\images\Folder3.jpg" />
+    <Content Include="webpage\images\Folder4.jpg" />
+    <Content Include="webpage\images\foxtrot cute bunny.jpg" />
+    <Content Include="webpage\images\free business memo pads.jpg" />
+    <Content Include="webpage\images\Greeting Cards.jpg" />
+    <Content Include="webpage\images\iron Pencil Case.jpg" />
+    <Content Include="webpage\images\Jumbo Giant.jpg" />
+    <Content Include="webpage\images\kawaii red Disney.JPG" />
+    <Content Include="webpage\images\korea stationery memo pads.jpg" />
+    <Content Include="webpage\images\KW-Trio Punch 2 Hole Heavy.jpg" />
+    <Content Include="webpage\images\leather-belt-office-paper-metal-silver.jpg" />
+    <Content Include="webpage\images\LS43 Laser paper.jpg" />
+    <Content Include="webpage\images\Maped 4-Hole Metal Punch.jpg" />
+    <Content Include="webpage\images\Maped ergoLogic 2 Hole Punch.jpg" />
+    <Content Include="webpage\images\Nagasaka Case.jpg" />
+    <Content Include="webpage\images\Nagasawa ink.jpg" />
+    <Content Include="webpage\images\NiGHTS Stationery Paper.jpg" />
+    <Content Include="webpage\images\NORMAL 2 HOLE %28DP520%29.jpg" />
+    <Content Include="webpage\images\Office School NoteBook.jpg" />
+    <Content Include="webpage\images\Personalised notebooks.jpg" />
+    <Content Include="webpage\images\personalized cards.jpg" />
+    <Content Include="webpage\images\Regular sticky notes.jpg" />
+    <Content Include="webpage\images\spiral notebook.jpg" />
+    <Content Include="webpage\images\stationery fruit memo pads.jpg" />
+    <Content Include="webpage\images\Sticky Notepad.jpg" />
+    <Content Include="webpage\images\Stylish Stationery Cards.jpg" />
+    <Content Include="webpage\images\Thanksgiving Cards.jpg" />
+    <Content Include="webpage\images\Transparent sticky notes.jpg" />
+    <Content Include="webpage\images\wholesale Neon Sticky.jpg" />
+    <Content Include="webpage\images\Wholesale Notebooks.jpg" />
+    <Content Include="webpage\images\wooden pencil case.JPG" />
     <Content Include="webpage\img\bgs\10.jpg" />
     <Content Include="webpage\img\bgs\11.jpg" />
     <Content Include="webpage\img\bgs\7.jpg" />
@@ -318,6 +394,8 @@
     <Content Include="webpage\js\bootstrap.min.js" />
     <Content Include="webpage\js\fuelux.wizard.js" />
     <Content Include="webpage\js\fullcalendar.min.js" />
+    <Content Include="webpage\js\handlebars-v4.0.2.js" />
+    <Content Include="webpage\js\HeadRequisition.js" />
     <Content Include="webpage\js\jquery-1.11.1.min.js" />
     <Content Include="webpage\js\jquery-ui-1.10.2.custom.min.js" />
     <Content Include="webpage\js\jquery.dataTables.js" />
@@ -389,10 +467,10 @@
     <Content Include="webpage\Login\css\fonts\franchise-bold-webfont.eot" />
     <Content Include="webpage\Login\css\fonts\franchise-bold-webfont.ttf" />
     <Content Include="webpage\Login\css\fonts\franchise-bold-webfont.woff" />
-    <Content Include="webpage\fonts\fontawesome-webfont.eot" />
-    <Content Include="webpage\fonts\fontawesome-webfont.ttf" />
-    <Content Include="webpage\fonts\fontawesome-webfont.woff" />
-    <Content Include="webpage\fonts\FontAwesome.otf" />
+    <Content Include="webpage\font\fontawesome-webfont.eot" />
+    <Content Include="webpage\font\fontawesome-webfont.ttf" />
+    <Content Include="webpage\font\fontawesome-webfont.woff" />
+    <Content Include="webpage\font\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\_references.js" />
@@ -503,12 +581,54 @@
     <Compile Include="webpage\deptEmp\EmpHome.aspx.designer.cs">
       <DependentUpon>EmpHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webpage\DeptHead\ChangeCollectionPoint.aspx.cs">
+      <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\DeptHead\ChangeCollectionPoint.aspx.designer.cs">
+      <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\DeptHead\ChangeRep.aspx.cs">
+      <DependentUpon>ChangeRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\DeptHead\ChangeRep.aspx.designer.cs">
+      <DependentUpon>ChangeRep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\DeptHead\DelegateAuthority.aspx.cs">
+      <DependentUpon>DelegateAuthority.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\DeptHead\DelegateAuthority.aspx.designer.cs">
+      <DependentUpon>DelegateAuthority.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webpage\DeptHead\HeadHome.aspx.cs">
       <DependentUpon>HeadHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\DeptHead\HeadHome.aspx.designer.cs">
       <DependentUpon>HeadHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.cs">
+      <DependentUpon>PreviousRequisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.designer.cs">
+      <DependentUpon>PreviousRequisition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\DeptHead\RequisitionDetails.aspx.cs">
+      <DependentUpon>RequisitionDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\DeptHead\RequisitionDetails.aspx.designer.cs">
+      <DependentUpon>RequisitionDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\DeptHead\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\DeptHead\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\Login\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -548,6 +668,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="webpage\sharePage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

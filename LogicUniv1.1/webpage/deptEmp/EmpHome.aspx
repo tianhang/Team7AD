@@ -1,7 +1,7 @@
-﻿
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmpHome.aspx.cs" Inherits="LogicUnivTeam7.webpage.DeptHead.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmpHome.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmp.EmpHome" %>
 
 <!DOCTYPE html>
+
 <html>
 <head>
 	

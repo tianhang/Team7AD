@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
         <meta charset="UTF-8" />
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
         <title>Login and Registration Form with HTML5 and CSS3</title>

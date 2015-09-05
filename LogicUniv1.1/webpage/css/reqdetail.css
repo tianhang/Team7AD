@@ -1,0 +1,12 @@
+﻿
+
+.reqbox div strong > img {
+    height:100px;
+    width:100px;
+
+}
+.reqbox div {
+    border: 1px solid red;
+    border-radius: 10px ;
+}
+

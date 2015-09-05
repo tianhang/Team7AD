@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LogicUnivTeam7.webpage.DeptHead {
+namespace LogicUniv1._1.webpage.deptEmp {
     
     
-    public partial class index {
+    public partial class EmpHome {
         
         /// <summary>
         /// form1 control.
