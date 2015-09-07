@@ -17,7 +17,7 @@
             <PropertyRef Name="collectionPointId" />
           </Key>
           <Property Name="collectionPointId" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="time" Type="datetime" />
+          <Property Name="time" Type="nchar" MaxLength="10" />
           <Property Name="address" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="department">
@@ -567,7 +567,7 @@
             <PropertyRef Name="collectionPointId" />
           </Key>
           <Property Name="collectionPointId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="time" Type="DateTime" Precision="3" />
+          <Property Name="time" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="departments" Relationship="Self.FK_department_collectionPoint" FromRole="collectionPoint" ToRole="department" />
         </EntityType>

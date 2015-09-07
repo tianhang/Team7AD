@@ -24,13 +24,15 @@
     <link rel="stylesheet" type="text/css" href="../css/compiled/layout.css">
     <link rel="stylesheet" type="text/css" href="../css/compiled/elements.css">
     <link rel="stylesheet" type="text/css" href="../css/compiled/icons.css">
-
+         <%--  --%>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <%--  --%>
     <!-- this page specific styles -->
     <link rel="stylesheet" href="../css/compiled/index.css" type="text/css" media="screen" />
     	<!-- scripts -->
-    <script src="../js/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery-ui-1.10.2.custom.min.js"></script>
     <!-- knob -->
     <script src="../js/jquery.knob.js"></script>
     <!-- flot charts -->
@@ -38,6 +40,44 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+        .auto-style2 {
+            text-align: right;
+        }
+    </style>
+          <script>
+              $(function () {
+
+                  $("#<%=checkInDatePicker.ClientID %>").datepicker({
+                  dateFormat: 'dd/mm/yy',
+                  changeMonth: true,
+                  showOn: 'button',
+                  buttonImage: '../images/calendar_blk.png',
+                  buttonImageOnly: true,
+                  onSelect: function (selectedDate) {
+                      $("#<%=checkOutDatePicker.ClientID %>").datepicker("option", "minDate", selectedDate)
+
+                }
+
+              });
+
+              $("#<%=checkOutDatePicker.ClientID %>").datepicker({
+                  dateFormat: 'dd/mm/yy',
+                  changeMonth: true,
+                  showOn: 'button',
+                  buttonImage: '../images/calendar_blk.png',
+                  buttonImageOnly: true,
+                  onSelect: function (selectedDate) {
+                      $("#<%=checkOutDatePicker.ClientID %>").datepicker("option", "minDate", selectedDate)
+                }
+            });
+          });
+    </script>
+
+
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -178,12 +218,111 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-            <asp:Label ID="head" runat="server" Text="Label"></asp:Label>
-            
            
-			<div class="tm-right-inner-container">
+			<div class="tm-right-inner-container" style="padding-left:220px">
                 <div> 
 
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>
+                            <div class="auto-style1">
+                                <asp:GridView ID="GridEmp" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="table table-hover table-bordered" ForeColor="Black" OnPageIndexChanging="GridEmp_PageIndexChanging" OnSelectedIndexChanged="GridEmp_SelectedIndexChanged" AllowPaging="True">
+                                    <Columns>
+                                        <asp:BoundField DataField="name" HeaderText="Employee Name" />
+                                        <asp:BoundField DataField="userId" HeaderText="Employee Id" />
+                                        <asp:CommandField HeaderText="Action" SelectText="Assign" ShowSelectButton="True">
+                                        <ControlStyle CssClass="btn btn-success" />
+                                        </asp:CommandField>
+                                    </Columns>
+                                    <FooterStyle BackColor="#CCCCCC" />
+                                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                                    <RowStyle BackColor="White" />
+                                    <SelectedRowStyle BackColor="#3399FF" Font-Bold="True" ForeColor="White" />
+                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                    <SortedAscendingHeaderStyle BackColor="#808080" />
+                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                    <SortedDescendingHeaderStyle BackColor="#383838" />
+                                </asp:GridView>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <%--  --%>
+                    <%--  --%>
+                       <div class="auto-style2">
+                                        <%-- bootstrap --%>
+                                        <table class="table-products">
+                                            <tr>
+                                                <td class="auto-style2">
+                                                        &nbsp;</td>
+                                                </tr>
+                                            </table>
+
+                                       
+
+                                                        <asp:Label ID="Label2" runat="server" ForeColor="Red"></asp:Label>
+
+                                       
+
+                                        <button class="btn btn-primary btn-lg" data-target="#myModal" data-toggle="modal" type="button">
+                                            <div class="auto-style4">Delegate</div>
+                                        </button>
+                                        <!-- Modal -->
+                                        <div id="myModal" aria-labelledby="myModalLabel" class="modal fade" role="dialog" tabindex="-1">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                        <h4 id="myModalLabel" class="modal-title"><center>Are you sure to assign him as new Employee Representitive? </center>
+                                                            <h4></h4>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                       <%-- bootstrap --%>                                                     
+                                                        <%-- timepicker --%>
+                                                         <table class="table-products">
+                                                            <tr>
+                                                                <td style="text-align: center">
+ 
+                                                                    <p>StartDate</p>
+                                                                    <asp:TextBox ID="checkInDatePicker" runat="server" ToolTip="Enter Check-in Date" Font-Size="Small"></asp:TextBox></td>
+                                                                <td style="text-align: center">
+                                                                    <p >EndDate</p>
+                                                                    <asp:TextBox ID="checkOutDatePicker" runat="server" ToolTip="Enter Check-out Date"  Font-Size="Small"></asp:TextBox></td>
+                                                            </tr>
+                                                          </table>
+                                                        <%-- timepicker --%>
+                                                     <br />
+                                                       <p style="text-align: center"> Please Select the startDate and endDate for the new representitive. </p>
+                                                        
+                                                        <br />
+                                                        <p style="text-align: center">An  Email will be sent to your subordinates and StoreClerk as soon as you confirm.</p>
+                                                    
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-default" data-dismiss="modal" type="button">
+                                                            Close
+                                                        </button>
+                                                        
+                                                            <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Confirm" OnClick="ConfirmBtn_Click"/>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    <!-- Button trigger modal -->
+
+
+
+
+
+                    </div>
+
+                    <%--  --%>
+                    <%--  --%>
               </div>
                  </div>
 

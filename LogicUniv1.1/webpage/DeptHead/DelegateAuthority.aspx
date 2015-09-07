@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="../css/templatemo_style.css" rel="stylesheet" type="text/css">	
+	<link href="../css/templatemo_style.css" rel="stylesheet" type="text/css">
 
     <!-- bootstrap -->
     <link href="../css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -25,12 +25,15 @@
     <link rel="stylesheet" type="text/css" href="../css/compiled/elements.css">
     <link rel="stylesheet" type="text/css" href="../css/compiled/icons.css">
 
+    <%--  --%>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <%--  --%>
     <!-- this page specific styles -->
     <link rel="stylesheet" href="../css/compiled/index.css" type="text/css" media="screen" />
     	<!-- scripts -->
-    <script src="../js/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery-ui-1.10.2.custom.min.js"></script>
     <!-- knob -->
     <script src="../js/jquery.knob.js"></script>
     <!-- flot charts -->
@@ -48,6 +51,12 @@
         .auto-style4 {
             text-align: center;
         }
+        .auto-style5 {
+            text-align: center;
+        }
+        .auto-style6 {
+            text-align: center;
+        }
     </style>
 
       <script>
@@ -56,26 +65,24 @@
               $("#<%=checkInDatePicker.ClientID %>").datepicker({
                 dateFormat: 'dd/mm/yy',
                 changeMonth: true,
-                minDate: new Date(),
-                maxDate: '+3m',
                 showOn: 'button',
-                buttonImage: '../../Images/Date.png',
+                buttonImage: '../images/calendar_blk.png',
                 buttonImageOnly: true,
-                onSelect: function (selected) {
-                    var minDate = $(this).datepicker('getDate');
-                    minDate.setDate(minDate.getDate() + 1);
-                    $("#<%=checkOutDatePicker.ClientID %>").datepicker("option", "minDate", minDate)
+                onSelect: function (selectedDate) {
+                    $("#<%=checkOutDatePicker.ClientID %>").datepicker("option", "minDate", selectedDate)
+
                 }
 
             });
 
             $("#<%=checkOutDatePicker.ClientID %>").datepicker({
-                minDate: new Date(),
                 dateFormat: 'dd/mm/yy',
                 changeMonth: true,
                 showOn: 'button',
-                buttonImage: '../../Images/Date.png',
+                buttonImage: '../images/calendar_blk.png',
                 buttonImageOnly: true,
+                onSelect: function (selectedDate) {
+                    $("#<%=checkOutDatePicker.ClientID %>").datepicker("option", "minDate", selectedDate) }
             });
         });
     </script>
@@ -220,19 +227,19 @@
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
            
-			<div class="tm-right-inner-container"style="padding-left:120px">
+			<div class="tm-right-inner-container"style="padding-left:220px">
 
                 <div>
  
-                                                    <p>Check-in</p>
-                                <p><asp:TextBox ID="checkInDatePicker" runat="server" ToolTip="Enter Check-in Date" Width="120px" Font-Size="Small"></asp:TextBox></p>
-                                <p>Check-out</p>
-                                <p><asp:TextBox ID="checkOutDatePicker" runat="server" ToolTip="Enter Check-out Date" Width="120px" Font-Size="Small"></asp:TextBox></p>
+
+
+                   
+ 
+
 
                 </div>
 
                 <div class="auto-style2"> 
-
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <div class="auto-style4">
@@ -258,7 +265,6 @@
                             <table class="table-products">
                                 <tr>
                                     <td class="auto-style3">
-                                        <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
                                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                                         </asp:ScriptManager>
                                     </td>
@@ -266,20 +272,23 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
 
-
                     <div class="auto-style2">
+                                        <%-- bootstrap --%>
+                                        <table class="table-products">
+                                            <tr>
+                                                <td>
+                                                        &nbsp;</td>
+                                                </tr>
+                                            </table>
 
+                                       
 
-                    <%-- bootstrap --%>
-                        <table class="table-products">
-                            <tr>
-                                <td>
-                                        <asp:Label ID="Label2" runat="server" ForeColor="Red"></asp:Label>
-                                        </td>
-                                <td>
-                     <button class="btn btn-primary btn-lg" data-target="#myModal" data-toggle="modal" type="button">
-                                            <div class="auto-style4">
-                                            Delegate</div>
+                                                        <asp:Label ID="Label2" runat="server" ForeColor="Red"></asp:Label>
+
+                                       
+
+                                        <button class="btn btn-primary btn-lg" data-target="#myModal" data-toggle="modal" type="button">
+                                            <div class="auto-style4">Delegate</div>
                                         </button>
                                         <!-- Modal -->
                                         <div id="myModal" aria-labelledby="myModalLabel" class="modal fade" role="dialog" tabindex="-1">
@@ -289,15 +298,31 @@
                                                         <button aria-label="Close" class="close" data-dismiss="modal" type="button">
                                                             <span aria-hidden="true">×</span>
                                                         </button>
-                                                        <h4 id="myModalLabel" class="modal-title"><center>Are you sure to delegate your authority to him/her?</center>
+                                                        <h4 id="myModalLabel" class="modal-title"><center>Are you sure to delegate your authority to him ? </center>
                                                             <h4></h4>
                                                         </h4>
                                                     </div>
                                                     <div class="modal-body">
+                                       <%-- bootstrap --%>                                                     
                                                         <%-- timepicker --%>
-
+                                                         <table class="table-products">
+                                                            <tr>
+                                                                <td class="auto-style5">
+ 
+                                                                    <p>StartDate</p>
+                                                                    <asp:TextBox ID="checkInDatePicker" runat="server" ToolTip="Enter Check-in Date" Font-Size="Small"></asp:TextBox></td>
+                                                                <td class="auto-style6">
+                                                                    <p class="auto-style6">EndDate</p>
+                                                                    <asp:TextBox ID="checkOutDatePicker" runat="server" ToolTip="Enter Check-out Date"  Font-Size="Small"></asp:TextBox></td>
+                                                            </tr>
+                                                          </table>
                                                         <%-- timepicker --%>
-                                                        <center>A notification mail will be sent to your subordinates as soon as you confirm.</center>
+                                                     <br />
+                                                       <p style="text-align: center"> Please Select the startDate and endDate to delegate your authority to. </p>
+                                                        
+                                                        <br />
+                                                        <p style="text-align: center">An  Email will be sent to your subordinates and StoreClerk as soon as you confirm.</p>
+                                                    
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button class="btn btn-default" data-dismiss="modal" type="button">
@@ -315,9 +340,7 @@
 
 
 
-                                </td>
-                            </tr>
-                        </table>
+
                     </div>
 
 

@@ -26,7 +26,7 @@ namespace ClassLibraryBL
     	[DataMember]
         public string collectionPointId { get; set; }
     	[DataMember]
-        public Nullable<System.DateTime> time { get; set; }
+        public string time { get; set; }
     	[DataMember]
         public string address { get; set; }
     

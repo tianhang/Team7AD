@@ -13,18 +13,18 @@ namespace ClassLibraryBL.Controller.DeptHead
     {
         UserFacade uf = new UserFacade();
 
-        public void delegateAuthority(string rid)
+        public void delegateAuthority(string uid)
         {
-            uf.delegateAuthority(rid);
+            uf.delegateAuthority(uid);
         }
         public List<user> getAllEmployee(User u)
         {
             return uf.getAllEmployee(u);
         }
 
-        public void mailNotification(string dt0, string dt1, string name0)
+        public void mailNotification(string dt0, string dt1,User u,string name)
         {
-            uf.mailNotification(dt0,dt1,name0);
+            uf.mailNotification(dt0,dt1,u,name);
         }
     }
 }
