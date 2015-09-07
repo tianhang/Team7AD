@@ -67,6 +67,7 @@
     <Compile Include="Controller\DeptHead\ViewCurrentRequistionController.cs" />
     <Compile Include="Controller\DeptHead\ViewPastRequistionController.cs" />
     <Compile Include="Controller\loginController.cs" />
+    <Compile Include="Entities\RequisitionDetails.cs" />
     <Compile Include="Controller\stockClerk\MaintainSupplierController.cs" />
     <Compile Include="Controller\stockClerk\MaintainTenderInfoController.cs" />
     <Compile Include="Controller\stockClerk\PlaceOrderController.cs" />
@@ -93,7 +94,6 @@
     <Compile Include="discrepancy_item.cs">
       <DependentUpon>LogicUniv.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\RequisitionDetails.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityFacade\CatelogueFacade.cs" />
     <Compile Include="EntityFacade\CompareReportFacade.cs" />
