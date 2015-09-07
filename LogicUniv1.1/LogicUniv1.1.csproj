@@ -251,7 +251,6 @@
     <Content Include="webpage\DeptHead\ChangeRep.aspx" />
     <Content Include="webpage\DeptHead\DelegateAuthority.aspx" />
     <Content Include="webpage\DeptHead\HeadHome.aspx" />
-    <Content Include="webpage\DeptHead\PreviousRequisition.aspx" />
     <Content Include="webpage\DeptHead\RequisitionDetails.aspx" />
     <Content Include="webpage\font\fontawesome-webfont.svg" />
     <Content Include="webpage\images\2015 cute stationery.jpg" />
@@ -425,6 +424,7 @@
     <Content Include="webpage\Login\js\jquery-2.1.4.js" />
     <Content Include="webpage\Login\js\redirect.js" />
     <Content Include="webpage\Login\login.aspx" />
+    <Content Include="webpage\DeptHead\PreviousRequisition.aspx" />
     <Content Include="webpage\stockClerk\ClerkHistoryLogPengxiaomeng.aspx" />
     <Content Include="webpage\stockClerk\ClerkHome.aspx" />
     <Content Include="webpage\stockManager\SMHome.aspx" />
@@ -629,13 +629,6 @@
     <Compile Include="webpage\DeptHead\HeadHome.aspx.designer.cs">
       <DependentUpon>HeadHome.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.cs">
-      <DependentUpon>PreviousRequisition.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.designer.cs">
-      <DependentUpon>PreviousRequisition.aspx</DependentUpon>
-    </Compile>
     <Compile Include="webpage\DeptHead\RequisitionDetails.aspx.cs">
       <DependentUpon>RequisitionDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -649,6 +642,13 @@
     </Compile>
     <Compile Include="webpage\Login\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.cs">
+      <DependentUpon>PreviousRequisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.designer.cs">
+      <DependentUpon>PreviousRequisition.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\stockClerk\ClerkHistoryLogPengxiaomeng.aspx.cs">
       <DependentUpon>ClerkHistoryLogPengxiaomeng.aspx</DependentUpon>
