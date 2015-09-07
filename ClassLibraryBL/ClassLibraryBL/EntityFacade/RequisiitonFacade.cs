@@ -59,6 +59,7 @@ namespace ClassLibraryBL.EntityFacade
             req.rejectReason = reason;
             luse.SaveChanges();
 
+           
 
         }
         public List<requisition> getPreRequisition(User u)

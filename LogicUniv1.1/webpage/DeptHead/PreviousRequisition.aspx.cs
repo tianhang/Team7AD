@@ -39,7 +39,7 @@ namespace LogicUniv1._1.webpage.DeptHead
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Redirect("RequisitionDetails.aspx?rid=" + GridView2.SelectedRow.Cells[0].Text+"&idet=pre");
+            Response.Redirect("RequisitionDetails.aspx?rid=" + GridView2.SelectedRow.Cells[0].Text + "&idet=pre");
         }
 
 

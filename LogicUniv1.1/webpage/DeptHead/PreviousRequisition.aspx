@@ -1,8 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HeadHome.aspx.cs" Inherits="LogicUniv1._1.webpage.DeptHead.HeadHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PreviousRequisition.aspx.cs" Inherits="LogicUniv1._1.webpage.DeptHead.PreviousRequisition" %>
 
 <!DOCTYPE html>
+
+
+
 <html>
 <head>
+	
 	<title>Logic Unviersity Stationery Inventory System</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
@@ -36,11 +40,6 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: right;
-        }
-    </style>
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -166,8 +165,8 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="HeadHome.aspx" class="active"><i class="fa fa-list-alt fa-medium"></i>Current Requisition</a></li>
-				  <li><a href="PreviousRequisition.aspx"><i class="fa fa-book fa-medium"></i>Previous Requisition</a></li>
+				  <li><a href="HeadHome.aspx" ><i class="fa fa-list-alt fa-medium"></i>Current Requisition</a></li>
+				  <li><a href="PreviousRequisition.aspx" class="active"><i class="fa fa-book fa-medium"></i>Previous Requisition</a></li>
 				  <li><a href="DelegateAuthority.aspx"><i class="fa fa-gavel fa-medium"></i>Delegate Authority</a></li>
 				  <li><a href="ChangeRep.aspx"><i class="fa fa-user fa-medium"></i>Change Representitive</a></li>
 				  <li><a href="ChangeCollectionPoint.aspx"  ><i class="fa fa-flag-checkered fa-medium"></i>Change Collection Point</a></li>
@@ -181,53 +180,48 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-          
+            <asp:Label ID="head" runat="server" Text="Label"></asp:Label>
+            
+           
 			<div class="tm-right-inner-container" style="padding-left:80px">
+                <div> 
+
+
+
+
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <table class="table-products">
-                                <tr>
-                                    <td class="auto-style1">
-                                        <div class="text-justify">
-                                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CssClass="table table-hover" ForeColor="Black" Width="818px" AllowPaging="True" CellSpacing="2" OnPageIndexChanging="GridView1_PageIndexChanging1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSelectedIndexChanging="GridView1_SelectedIndexChanging1">
-                                                <Columns>
-                                                    <asp:BoundField DataField="RequisitionId" HeaderText="RequisitionId" />
-                                                    <asp:BoundField DataField="userId" HeaderText="Requested By" />
-                                                    <asp:BoundField DataField="requestDate" HeaderText="Requested Date" />
-                                                    <asp:BoundField DataField="Status" HeaderText="Status" />
-                                                    <asp:CommandField SelectText="Details" HeaderText="Details" ShowSelectButton="True" />
-                                                </Columns>
-                                                <FooterStyle BackColor="#CCCCCC" />
-                                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                                                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                                                <RowStyle BackColor="White" />
-                                                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                                <SortedAscendingHeaderStyle BackColor="#808080" />
-                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                                <SortedDescendingHeaderStyle BackColor="#383838" />
-                                            </asp:GridView>
-                                        </div>
-                                        <div class="auto-style1">
-                                            <br />
-                                            <asp:Label ID="flag" runat="server" ForeColor="Red"></asp:Label>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
+                            <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="table table-hover" ForeColor="Black" OnPageIndexChanging="GridView2_PageIndexChanging" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="818px">
+                                <Columns>
+                                    <asp:BoundField DataField="RequisitionId" HeaderText="RequisitionId" />
+                                    <asp:BoundField DataField="userId" HeaderText="Requested By" />
+                                    <asp:BoundField DataField="requestDate" HeaderText="Requested Date" />
+                                    <asp:BoundField DataField="Status" HeaderText="Status" />
+                                    <asp:CommandField HeaderText="Details" SelectText="Details" ShowSelectButton="True" />
+                                </Columns>
+                                <FooterStyle BackColor="#CCCCCC" />
+                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                                <RowStyle BackColor="White" />
+                                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                <SortedAscendingHeaderStyle BackColor="#808080" />
+                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                <SortedDescendingHeaderStyle BackColor="#383838" />
+                            </asp:GridView>
                         </ContentTemplate>
                     </asp:UpdatePanel>
 
-             </div>
-          
-              
 
+
+
+              </div>
+                 </div>
 
 				<footer>
-					<p class="col-lg-3 col-md-3  ">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
+					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
 					<p class="col-lg-9 col-md-9  templatemo-social">
 						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
 						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>

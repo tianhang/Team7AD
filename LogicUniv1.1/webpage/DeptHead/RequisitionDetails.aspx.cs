@@ -66,8 +66,5 @@ namespace LogicUniv1._1.webpage.DeptHead
             RejectBtn.Enabled = false;
             ApproveBtn.Enabled = false;
         }
-
-
-        
     }
 }

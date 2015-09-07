@@ -253,7 +253,6 @@
     <Content Include="webpage\DeptHead\HeadHome.aspx" />
     <Content Include="webpage\DeptHead\PreviousRequisition.aspx" />
     <Content Include="webpage\DeptHead\RequisitionDetails.aspx" />
-    <Content Include="webpage\DeptHead\WebForm1.aspx" />
     <Content Include="webpage\font\fontawesome-webfont.svg" />
     <Content Include="webpage\images\2015 cute stationery.jpg" />
     <Content Include="webpage\images\3A Rubber Eraser.jpg" />
@@ -295,6 +294,7 @@
     <Content Include="webpage\images\Cubbyhole4.jpg" />
     <Content Include="webpage\images\CUT PAPERS.jpg" />
     <Content Include="webpage\images\cute Hello Kitty.jpg" />
+    <Content Include="webpage\images\Date.png" />
     <Content Include="webpage\images\Design Stationery Case.jpg" />
     <Content Include="webpage\images\Diamine.jpg" />
     <Content Include="webpage\images\DocumentBags.jpg" />
@@ -642,13 +642,6 @@
     </Compile>
     <Compile Include="webpage\DeptHead\RequisitionDetails.aspx.designer.cs">
       <DependentUpon>RequisitionDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="webpage\DeptHead\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="webpage\DeptHead\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\Login\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
