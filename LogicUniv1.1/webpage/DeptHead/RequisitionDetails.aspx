@@ -377,9 +377,7 @@
 			</div>
         </div>	
 		<!-- right section -->
-
-
-        <script>
+    <script>
             $(function () {
                 var height = document.getElementById("prelayer").offsetHeight + 500;
                 console.log(height);
@@ -388,7 +386,5 @@
             });
     </script>
     </form>
-
-
-        </body>
+ </body>
     </html>

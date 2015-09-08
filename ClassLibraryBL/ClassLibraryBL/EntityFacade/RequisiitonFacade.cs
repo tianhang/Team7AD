@@ -36,7 +36,8 @@ namespace ClassLibraryBL.EntityFacade
                            Status = x.status,
                            CollectionPoint = m.address,
                            ReqDate = x.requestDate,
-                           Name = n.name
+                           Name = n.name,
+                           photourl = "../images/" + y.description.Trim() + ".jpg"
                          }).ToList();
             return ilist;
 
@@ -69,5 +70,29 @@ namespace ClassLibraryBL.EntityFacade
                      select x).ToList();
             return t;
         }
+
+
+        public List<requisition> getAllRequisitionEmployee(User u)
+        {
+            var t = (from a in luse.requisitions
+                     where a.userId == u.UserId
+                     select a).ToList();
+            return t;
+        }
+
+        public List<requisition> getPendingRequisitionEmployee(User u)
+        {
+            var t = (from a in luse.requisitions
+                     where a.userId == u.UserId && a.status.Trim() == "Pending"
+                     select a).ToList();
+            return t;
+        }
+
+
+
+
+        
+
+
     }
 }

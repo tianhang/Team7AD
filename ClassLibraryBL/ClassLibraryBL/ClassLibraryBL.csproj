@@ -94,6 +94,7 @@
     <Compile Include="discrepancy_item.cs">
       <DependentUpon>LogicUniv.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ShoppingItem.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityFacade\CatelogueFacade.cs" />
     <Compile Include="EntityFacade\CompareReportFacade.cs" />

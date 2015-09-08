@@ -246,7 +246,14 @@
     <Content Include="webpage\css\templatemo_style.css" />
     <Content Include="webpage\css\reqdetail.css" />
     <Content Include="webpage\deptEmpRep\DepRepHome.aspx" />
+    <Content Include="webpage\deptEmp\CurrentRequisition.aspx" />
     <Content Include="webpage\deptEmp\EmpHome.aspx" />
+    <Content Include="webpage\deptEmp\js\handlebars-v3.0.3.js" />
+    <Content Include="webpage\deptEmp\js\jquery-2.1.4.js" />
+    <Content Include="webpage\deptEmp\PreviousRequisition.aspx" />
+    <Content Include="webpage\deptEmp\PreviousRequisitonDetail.aspx" />
+    <Content Include="webpage\deptEmp\ShoppingCart2.aspx" />
+    <Content Include="webpage\deptEmp\WebForm1.aspx" />
     <Content Include="webpage\DeptHead\ChangeCollectionPoint.aspx" />
     <Content Include="webpage\DeptHead\ChangeRep.aspx" />
     <Content Include="webpage\DeptHead\DelegateAuthority.aspx" />
@@ -595,12 +602,47 @@
     <Compile Include="webpage\deptEmpRep\DepRepHome.aspx.designer.cs">
       <DependentUpon>DepRepHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webpage\deptEmp\CurrentRequisition.aspx.cs">
+      <DependentUpon>CurrentRequisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\deptEmp\CurrentRequisition.aspx.designer.cs">
+      <DependentUpon>CurrentRequisition.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webpage\deptEmp\EmpHome.aspx.cs">
       <DependentUpon>EmpHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmp\EmpHome.aspx.designer.cs">
       <DependentUpon>EmpHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmp\PreviousRequisition.aspx.cs">
+      <DependentUpon>PreviousRequisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\deptEmp\PreviousRequisition.aspx.designer.cs">
+      <DependentUpon>PreviousRequisition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmp\PreviousRequisitonDetail.aspx.cs">
+      <DependentUpon>PreviousRequisitonDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\deptEmp\PreviousRequisitonDetail.aspx.designer.cs">
+      <DependentUpon>PreviousRequisitonDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmp\ShoppingCart2.aspx.cs">
+      <DependentUpon>ShoppingCart2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\deptEmp\ShoppingCart2.aspx.designer.cs">
+      <DependentUpon>ShoppingCart2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmp\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\deptEmp\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\DeptHead\ChangeCollectionPoint.aspx.cs">
       <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>

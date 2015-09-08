@@ -49,65 +49,66 @@
         }
         #aaa {
             float:left;
-            width:220px;
-            height:290px;
+            width:150px;
+            height:200px;
             /*width:10%;*/
-            margin:15px;
+            margin:30px;
             
         }
         #aaa {
-            border: 1px solid gray;
+            border: 1px solid red;
             border-radius: 15px ;
             text-align:center;
         }
-        
+        #bbb {
+            margin-bottom:30px;
+            
+            
+        }
         
 
     </style>
 
 
-    <script id="resultTemplate" type="text/x-handlebars">
+        <script id="resultTemplate" type="text/x-handlebars">
+
         <div id="aaa">
-            <asp:Image class="resultdemo" runat="server" src="{{ m0 }}" width="180" height="180"/>
-            <br><br>
-            <div style="height:50px" >
-            <asp:Label runat="server" Text="Name:"></asp:Label>
-            <asp:Label runat="server" Text="{{ m2 }}"></asp:Label><br>
+            <asp:Image class="resultdemo" runat="server" src="{{ m0 }}" width="100" height="100"/>
+            <br>
+            <div style="height:50px">
             <asp:Label runat="server" Text="Left:"></asp:Label>
             <asp:Label runat="server" Text="{{ m1 }}"></asp:Label>
-            <br> 
+            <br>
+            <asp:Label runat="server" Text="Name:"></asp:Label>
+            <asp:Label runat="server" Text="{{ m2 }}"></asp:Label><br>
             </div>
             <div id="bbb">
             <input type="checkbox" name="choice" value="{{ m3 }}" >
-            <input type="text" id="{{ m3 }}" name="amount" style="width:130px">
+            <input type="text" id="{{ m3 }}" name="amount" style="width:80px">
             </div>
         </div>
-    </script>
 
-     <script>
-         var length;
+    </script>
+       <script>
            $(function () {
                var goodtemplate = Handlebars.compile($("#resultTemplate").html());
                //var itemList = '<%= Session["itemList"] %>';
-               var itemList = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Session["itemList"])%>;
-               //alert(itemList.length);
-               length= itemList.length;
-               for (var i = 0; i < itemList.length; i++) {
-                   var data = {
-                       m0: "../images/" + itemList[i].photourl.trim() + ".jpg"  ,
-                       m1: itemList[i].balance,
-                       m2: itemList[i].description,
-                       m3: itemList[i].itemId
+            var itemList = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Session["itemList"])%>;
+            //alert(itemList.length);
+            for (var i = 0; i < itemList.length; i++) {
+                var data = {
+                    m0: "../images/" + itemList[i].photourl.trim() + ".jpg"  ,
+                    m1: itemList[i].balance,
+                    m2: itemList[i].description,
+                    m3: itemList[i].itemId
 
-                   };
-                   $("#resultdemo").append(goodtemplate(data));
-
-               }
-
-               var a="/";
-               var b="/";
-               var c="";
-               $("#<%=Button2.ClientID%>").on("click",function(){
+                };
+                $("#resultdemo").append(goodtemplate(data));
+            }
+            var a="/";
+            var b="/";
+            var c="";
+            $("#<%=Button2.ClientID%>").on("click",function(){
                 $("input:checkbox[name=choice]:checked").each(function(){
                     console.log($(this).val());
                     a=a+$(this).val()+"/";
@@ -121,13 +122,10 @@
                 $("#<%=HiddenField1.ClientID %>").val(a);
                 $("#<%=HiddenField2.ClientID %>").val(b);
             });
-           }); 
+        });
+    
+        </script>
 
-
-
-
-
-      </script>
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -266,7 +264,7 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-			<div id="prelayer" style="padding-left:60px">
+			<div style="padding-left:250px" id="prelayer">
                 <div> 
                     <div>
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
@@ -274,18 +272,19 @@
                         <asp:DropDownList ID="DropDownList1" runat="server">
                             <asp:ListItem>catogoryName</asp:ListItem>
                         </asp:DropDownList>
+
                         <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="SearchByCategory" />
-                 
+
+                    </div>
+                    <div id="resultdemo">
+  
+                    </div>
+                    <div>
                         <asp:Button ID="Button2" runat="server" Text="AddToCart" OnClick="Button2_Click" />
                         <asp:HiddenField ID="HiddenField1" runat="server" />
                         <asp:HiddenField ID="HiddenField2" runat="server" />
                     </div>
                 </div>
-
-                                    <div id="resultdemo">
-  
-                                          </div>
-
             </div>
 
 
@@ -293,11 +292,8 @@
         </div>
     <script>
         $(function () {
-            
-
             var height = document.getElementById("prelayer").offsetHeight + 500;
             console.log(height);
-            console.log(length);
             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
         });

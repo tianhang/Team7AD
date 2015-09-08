@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmpHome.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmp.EmpHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PreviousRequisition.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmp.PreviousRequisition" %>
 
 <!DOCTYPE html>
 
@@ -38,96 +38,6 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
-
-    <script src="js/handlebars-v3.0.3.js" type="text/javascript"></script>
-    <script src="js/jquery-2.1.4.js"></script>
-    
- 
-    <style type="text/css">
-        #resultdemo {
-            height: 24px;
-        }
-        #aaa {
-            float:left;
-            width:220px;
-            height:290px;
-            /*width:10%;*/
-            margin:15px;
-            
-        }
-        #aaa {
-            border: 1px solid gray;
-            border-radius: 15px ;
-            text-align:center;
-        }
-        
-        
-
-    </style>
-
-
-    <script id="resultTemplate" type="text/x-handlebars">
-        <div id="aaa">
-            <asp:Image class="resultdemo" runat="server" src="{{ m0 }}" width="180" height="180"/>
-            <br><br>
-            <div style="height:50px" >
-            <asp:Label runat="server" Text="Name:"></asp:Label>
-            <asp:Label runat="server" Text="{{ m2 }}"></asp:Label><br>
-            <asp:Label runat="server" Text="Left:"></asp:Label>
-            <asp:Label runat="server" Text="{{ m1 }}"></asp:Label>
-            <br> 
-            </div>
-            <div id="bbb">
-            <input type="checkbox" name="choice" value="{{ m3 }}" >
-            <input type="text" id="{{ m3 }}" name="amount" style="width:130px">
-            </div>
-        </div>
-    </script>
-
-     <script>
-         var length;
-           $(function () {
-               var goodtemplate = Handlebars.compile($("#resultTemplate").html());
-               //var itemList = '<%= Session["itemList"] %>';
-               var itemList = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Session["itemList"])%>;
-               //alert(itemList.length);
-               length= itemList.length;
-               for (var i = 0; i < itemList.length; i++) {
-                   var data = {
-                       m0: "../images/" + itemList[i].photourl.trim() + ".jpg"  ,
-                       m1: itemList[i].balance,
-                       m2: itemList[i].description,
-                       m3: itemList[i].itemId
-
-                   };
-                   $("#resultdemo").append(goodtemplate(data));
-
-               }
-
-               var a="/";
-               var b="/";
-               var c="";
-               $("#<%=Button2.ClientID%>").on("click",function(){
-                $("input:checkbox[name=choice]:checked").each(function(){
-                    console.log($(this).val());
-                    a=a+$(this).val()+"/";
-                    c=$(this).val().toString();
-                    console.log($("#"+c).val());
-                    b=b+$("#"+c).val()+"/";
-                });
-                console.log(a);
-                console.log(b);
-                <%--$("#<%=TextBox1.ClientID %>").val(a);--%>
-                $("#<%=HiddenField1.ClientID %>").val(a);
-                $("#<%=HiddenField2.ClientID %>").val(b);
-            });
-           }); 
-
-
-
-
-
-      </script>
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -249,7 +159,7 @@
 	<form id="form1" runat="server">
         
 	<div class="templatemo-container">
-		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" style="background-color:#28303a" id="leftlayer">
+		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" style="background-color:#28303a">
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
@@ -262,47 +172,56 @@
 
 		</div> <!-- left section -->
         <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
-		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
+		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-			<div id="prelayer" style="padding-left:60px">
-                <div> 
-                    <div>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
-                        <asp:DropDownList ID="DropDownList1" runat="server">
-                            <asp:ListItem>catogoryName</asp:ListItem>
-                        </asp:DropDownList>
-                        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="SearchByCategory" />
-                 
-                        <asp:Button ID="Button2" runat="server" Text="AddToCart" OnClick="Button2_Click" />
-                        <asp:HiddenField ID="HiddenField1" runat="server" />
-                        <asp:HiddenField ID="HiddenField2" runat="server" />
-                    </div>
+          
+			<div class="tm-right-inner-container" style="padding-left:80px">
+                <div>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                      <ContentTemplate>
+                         <asp:ScriptManager ID="ScriptManager1" runat="server">
+                          </asp:ScriptManager> 
+                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="Black" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" Height="405px" Width="673px" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+                        <Columns>
+                            <asp:BoundField DataField="requisitionId" HeaderText="Requisition ID" />
+                            <asp:BoundField DataField="requestDate" HeaderText="Requisition Date" />
+                            <asp:BoundField DataField="status" HeaderText="Status" />
+                            <asp:CommandField HeaderText="Details" SelectText="Details" ShowSelectButton="True" />
+                        </Columns>
+                        <EmptyDataTemplate>
+                           <asp:Button ID="Button1" runat="server" Text="Detail" />
+                        </EmptyDataTemplate>
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                        <RowStyle BackColor="White" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="Gray" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                   </asp:GridView>
+                  </ContentTemplate>
+            </asp:UpdatePanel>
+				
                 </div>
-
-                                    <div id="resultdemo">
-  
-                                          </div>
-
             </div>
 
-
-            </div>
-        </div>
-    <script>
-        $(function () {
-            
-
-            var height = document.getElementById("prelayer").offsetHeight + 500;
-            console.log(height);
-            console.log(length);
-            document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-            document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-        });
-    </script>
+				<footer>
+					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
+					<p class="col-lg-9 col-md-9  templatemo-social">
+						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
+						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
+						<a href="#"><i class="fa fa-google-plus fa-medium"></i></a>
+						<a href="#"><i class="fa fa-youtube fa-medium"></i></a>
+						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
+					</p>
+				</footer>
+			</div>
+        </div>	
 		<!-- right section -->
     </form>
-</body>  
+</body>
     </html>
