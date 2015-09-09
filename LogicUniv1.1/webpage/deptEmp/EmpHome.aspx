@@ -130,7 +130,7 @@
       </script>
 </head>
 <body>
-    <header class="navbar navbar-inverse" role="banner">
+    <header class="navbar navbar-inverse" role="banner" id="headlayer">
         <ul class="nav navbar-nav pull-right hidden-xs">
             <li class="hidden-xs hidden-sm">
                 <input class="search" type="text" />
@@ -293,13 +293,22 @@
         </div>
     <script>
         $(function () {
-            
 
-            var height = document.getElementById("prelayer").offsetHeight + 500;
+            var x =(length/5);
+            var height = (x*290) + 800;
             console.log(height);
             console.log(length);
+
+            
             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+
+            //document.getElementById("leftlayer").setAttribute("style", "width:" + leftwidth + "px");
+
             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+            
+            //document.getElementById("rightlayer").setAttribute("style", "width:" + rightwidth + "px");
+
+
         });
     </script>
 		<!-- right section -->
