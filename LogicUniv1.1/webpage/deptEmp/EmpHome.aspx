@@ -38,9 +38,99 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
+
+    <script src="js/handlebars-v3.0.3.js" type="text/javascript"></script>
+    <script src="js/jquery-2.1.4.js"></script>
+    
+ 
+    <style type="text/css">
+        #resultdemo {
+            height: 24px;
+        }
+        #aaa {
+            float:left;
+            width:220px;
+            height:290px;
+            /*width:10%;*/
+            margin:15px;
+            
+        }
+        #aaa {
+            border: 1px solid gray;
+            border-radius: 15px ;
+            text-align:center;
+        }
+        
+        
+
+    </style>
+
+
+    <script id="resultTemplate" type="text/x-handlebars">
+        <div id="aaa">
+            <asp:Image class="resultdemo" runat="server" src="{{ m0 }}" width="180" height="180"/>
+            <br><br>
+            <div style="height:50px" >
+            <asp:Label runat="server" Text="Name:"></asp:Label>
+            <asp:Label runat="server" Text="{{ m2 }}"></asp:Label><br>
+            <asp:Label runat="server" Text="Left:"></asp:Label>
+            <asp:Label runat="server" Text="{{ m1 }}"></asp:Label>
+            <br> 
+            </div>
+            <div id="bbb">
+            <input type="checkbox" name="choice" value="{{ m3 }}" >
+            <input type="text" id="{{ m3 }}" name="amount" style="width:130px">
+            </div>
+        </div>
+    </script>
+
+     <script>
+         var length;
+           $(function () {
+               var goodtemplate = Handlebars.compile($("#resultTemplate").html());
+               //var itemList = '<%= Session["itemList"] %>';
+               var itemList = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Session["itemList"])%>;
+               //alert(itemList.length);
+               length= itemList.length;
+               for (var i = 0; i < itemList.length; i++) {
+                   var data = {
+                       m0: "../images/" + itemList[i].photourl.trim() + ".jpg"  ,
+                       m1: itemList[i].balance,
+                       m2: itemList[i].description,
+                       m3: itemList[i].itemId
+
+                   };
+                   $("#resultdemo").append(goodtemplate(data));
+
+               }
+
+               var a="/";
+               var b="/";
+               var c="";
+               $("#<%=Button2.ClientID%>").on("click",function(){
+                $("input:checkbox[name=choice]:checked").each(function(){
+                    console.log($(this).val());
+                    a=a+$(this).val()+"/";
+                    c=$(this).val().toString();
+                    console.log($("#"+c).val());
+                    b=b+$("#"+c).val()+"/";
+                });
+                console.log(a);
+                console.log(b);
+                <%--$("#<%=TextBox1.ClientID %>").val(a);--%>
+                $("#<%=HiddenField1.ClientID %>").val(a);
+                $("#<%=HiddenField2.ClientID %>").val(b);
+            });
+           }); 
+
+
+
+
+
+      </script>
 </head>
 <body>
-    <header class="navbar navbar-inverse" role="banner">
+    <header class="navbar navbar-inverse" role="banner" id="headlayer">
         <ul class="nav navbar-nav pull-right hidden-xs">
             <li class="hidden-xs hidden-sm">
                 <input class="search" type="text" />
@@ -159,58 +249,69 @@
 	<form id="form1" runat="server">
         
 	<div class="templatemo-container">
-		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" style="background-color:#28303a">
+		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" style="background-color:#28303a" id="leftlayer">
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="index.html" class="active"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
-				  <li><a href="products.html"><i class="fa fa-shopping-cart fa-medium"></i>Products</a></li>
-				  <li><a href="services.html"><i class="fa fa-send-o fa-medium"></i>Services</a></li>
-				  <li><a href="testimonials.html"><i class="fa fa-comments-o fa-medium"></i>Testimonials</a></li>
-				  <li><a href="about.html"><i class="fa fa-gears fa-medium"></i>About Us</a></li>
-				  <li><a href="contact.html"><i class="fa fa-envelope-o fa-medium"></i>Contact</a></li>
+				  <li><a href="EmpHome.aspx" class="active"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
+				  <li><a href="PreviousRequisition.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
+				  <li><a href="CurrentRequisition.aspx"><i class="fa fa-send-o fa-medium"></i>Current Requisition</a></li>
+				 
 				</ul>
 			</div>
 
 		</div> <!-- left section -->
         <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
-		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container">
+		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-           <asp:Label ID="emp" runat="server" Text="Label"></asp:Label>
-			<div class="tm-right-inner-container">
+			<div id="prelayer" style="padding-left:60px">
                 <div> 
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="SqlDataSource1">
-                    <Columns>
-                        <asp:BoundField DataField="itemId" HeaderText="itemId" InsertVisible="False" ReadOnly="True" SortExpression="itemId" />
-                        <asp:BoundField DataField="unit" HeaderText="unit" SortExpression="unit" />
-                        <asp:BoundField DataField="categoryId" HeaderText="categoryId" SortExpression="categoryId" />
-                        <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
-                        <asp:BoundField DataField="reorderlevel" HeaderText="reorderlevel" SortExpression="reorderlevel" />
-                        <asp:BoundField DataField="reorderQty" HeaderText="reorderQty" SortExpression="reorderQty" />
-                        <asp:BoundField DataField="balance" HeaderText="balance" SortExpression="balance" />
-                        <asp:BoundField DataField="binNumber" HeaderText="binNumber" SortExpression="binNumber" />
-                        <asp:BoundField DataField="photourl" HeaderText="photourl" SortExpression="photourl" />
-                    </Columns>
-                </asp:GridView>
-				<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="select * from item"></asp:SqlDataSource>
-              </div>
-                 </div>
+                    <div>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
+                        <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:ListItem>catogoryName</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="SearchByCategory" />
+                 
+                        <asp:Button ID="Button2" runat="server" Text="AddToCart" OnClick="Button2_Click" />
+                        <asp:HiddenField ID="HiddenField1" runat="server" />
+                        <asp:HiddenField ID="HiddenField2" runat="server" />
+                    </div>
+                </div>
 
-				<footer>
-					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
-					<p class="col-lg-9 col-md-9  templatemo-social">
-						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
-						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
-						<a href="#"><i class="fa fa-google-plus fa-medium"></i></a>
-						<a href="#"><i class="fa fa-youtube fa-medium"></i></a>
-						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
-					</p>
-				</footer>
-			</div>
-        </div>	
+                                    <div id="resultdemo">
+  
+                                          </div>
+
+            </div>
+
+
+            </div>
+        </div>
+    <script>
+        $(function () {
+
+            var x =(length/5);
+            var height = (x*290) + 800;
+            console.log(height);
+            console.log(length);
+
+            
+            document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+
+            //document.getElementById("leftlayer").setAttribute("style", "width:" + leftwidth + "px");
+
+            document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+            
+            //document.getElementById("rightlayer").setAttribute("style", "width:" + rightwidth + "px");
+
+
+        });
+    </script>
 		<!-- right section -->
     </form>
-</body>
+</body>  
     </html>

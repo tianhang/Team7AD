@@ -36,7 +36,8 @@ namespace ClassLibraryBL.EntityFacade
                            Status = x.status,
                            CollectionPoint = m.address,
                            ReqDate = x.requestDate,
-                           Name = n.name
+                           Name = n.name,
+                           photourl = "../images/" + y.description.Trim() + ".jpg"
                          }).ToList();
             return ilist;
 
@@ -69,5 +70,52 @@ namespace ClassLibraryBL.EntityFacade
                      select x).ToList();
             return t;
         }
+
+
+        public List<requisition> getAllRequisitionEmployee(User u)
+        {
+            var t = (from a in luse.requisitions
+                     where a.userId == u.UserId
+                     select a).ToList();
+            return t;
+        }
+
+        public List<requisition> getPendingRequisitionEmployee(User u)
+        {
+            var t = (from a in luse.requisitions
+                     where a.userId == u.UserId && a.status.Trim() == "Pending"
+                     select a).ToList();
+            return t;
+        }
+
+        public void addRequisition(User u, List<ShoppingItem> sclist)
+        {
+            requisition re = new requisition();
+            re.departmentId = u.DepartmentId;
+            re.userId = u.UserId;
+            re.rejectReason = null;
+            re.status = "Pending";
+            re.requestDate = DateTime.Now;
+            luse.requisitions.Add(re);
+            luse.SaveChanges();
+            for (int i = 0; i < sclist.Count; i++) {
+                requsiiton_item reItem = new requsiiton_item();
+                reItem.requisitionId = re.requisitionId;
+                reItem.itemId = sclist[i].ItemId;
+                reItem.requestQty = sclist[i].Amount;
+                luse.requsiiton_item.Add(reItem);
+                luse.SaveChanges();
+
+            }
+
+
+        }
+
+
+
+
+        
+
+
     }
 }

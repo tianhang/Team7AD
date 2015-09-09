@@ -63,5 +63,13 @@ namespace ClassLibraryBL.Entities
             get { return number; }
             set { number = value; }
         }
+
+          public string photourl;
+           [DataMember]
+          public string Photourl
+          {
+              get { return photourl; }
+              set { photourl = value; }
+          }
     }
 }
