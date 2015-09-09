@@ -81,7 +81,7 @@ namespace LogicUniv1._1.webpage.deptEmp
 
 
 
-            string s_url = "ShoppingCart2.aspx?idstr=" + b + "&amountstr=" + c;
+            string s_url = "ShoppingCart.aspx?idstr=" + b + "&amountstr=" + c;
             Response.Redirect(s_url);
 
 

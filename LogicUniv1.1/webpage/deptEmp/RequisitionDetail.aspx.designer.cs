@@ -10,7 +10,7 @@
 namespace LogicUniv1._1.webpage.deptEmp {
     
     
-    public partial class PreviousRequisitonDetail {
+    public partial class RequisitionDetail {
         
         /// <summary>
         /// form1 control.

@@ -1,4 +1,5 @@
-﻿
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShoppingCart.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmp.ShoppingCart" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -177,35 +178,36 @@
             
 			<div class="tm-right-inner-container" style="padding-left:80px">
                 <div> 
-                   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                     <ContentTemplate>
-                     <asp:ScriptManager ID="ScriptManager1" runat="server">
-                     </asp:ScriptManager>
-                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"  BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Height="212px" Width="617px">
-                      <Columns>
-                        <asp:ImageField DataImageUrlField="Photourl" HeaderText="Image">
-                            <ControlStyle Height="125px" Width="125px" />
-                        </asp:ImageField>
-                        <asp:BoundField DataField="Description" HeaderText="Description" />
-                        <asp:BoundField DataField="Amount" HeaderText="Amount" />
-                        <asp:CommandField SelectText="delete" ShowSelectButton="True" />
-                        <asp:CommandField HeaderText="Edit Amount" ShowEditButton="True" />
-                    </Columns>
-                        <FooterStyle BackColor="#CCCCCC" />
-                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                        <RowStyle BackColor="White" />
-                        <SelectedRowStyle BackColor="Silver" Font-Bold="True" ForeColor="White" />
-                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                        <SortedAscendingHeaderStyle BackColor="#808080" />
-                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                        <SortedDescendingHeaderStyle BackColor="#383838" />
-                </asp:GridView>
-            </ContentTemplate>
-        </asp:UpdatePanel>
-                    <asp:Button ID="Button1" runat="server" Text="Check out" />
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating" AllowPaging="True" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Height="182px" PageSize="6" Width="923px" >
+                                <Columns>
+                                    <asp:ImageField DataImageUrlField="Photourl" HeaderText="Image" ReadOnly="True">
+                                        <ControlStyle Height="125px" Width="125px" />
+                                    </asp:ImageField>
+                                    <asp:BoundField DataField="Description" HeaderText="Description" ReadOnly="True" />
+                                    <asp:BoundField DataField="Amount" HeaderText="Amount" />
+                                    <asp:CommandField SelectText="delete" ShowSelectButton="True" />
+                                    <asp:CommandField HeaderText="Edit Amount" ShowEditButton="True" />
+                                </Columns>
+                                <FooterStyle BackColor="#CCCCCC" />
+                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                                <RowStyle BackColor="White" />
+                                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                <SortedAscendingHeaderStyle BackColor="#808080" />
+                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                <SortedDescendingHeaderStyle BackColor="#383838" />
+                            </asp:GridView>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <asp:Button ID="Button1" runat="server" Text="Check Out" OnClick="Button1_Click" />
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 </div>
+
             </div>
 
 				<footer>
@@ -224,4 +226,3 @@
     </form>
 </body>
     </html>
-

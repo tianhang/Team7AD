@@ -57,7 +57,6 @@
     <Compile Include="Controller\deptEmpRep\ConfirmDisbursementListController.cs" />
     <Compile Include="Controller\deptEmpRep\MaintainCollectionPointController.cs" />
     <Compile Include="Controller\deptEmpRep\ViewPastDisbursementListController.cs" />
-    <Compile Include="Controller\deptEmp\RaiseNewRequisitonController.cs" />
     <Compile Include="Controller\deptEmp\ViewCurrentRequisitionController.cs" />
     <Compile Include="Controller\deptEmp\ViewPastRequisitionController.cs" />
     <Compile Include="Controller\DeptHead\DelegateAuthorityController.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="Controller\DeptHead\ViewCurrentRequistionController.cs" />
     <Compile Include="Controller\DeptHead\ViewPastRequistionController.cs" />
     <Compile Include="Controller\loginController.cs" />
+    <Compile Include="Controller\deptEmp\RaiseNewRequisitonController.cs" />
     <Compile Include="Entities\RequisitionDetails.cs" />
     <Compile Include="Controller\stockClerk\MaintainSupplierController.cs" />
     <Compile Include="Controller\stockClerk\MaintainTenderInfoController.cs" />

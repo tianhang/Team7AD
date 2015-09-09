@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace LogicUniv1._1.webpage.deptEmp
 {
-    public partial class PreviousRequisitonDetail : System.Web.UI.Page
+    public partial class RequisitionDetail : System.Web.UI.Page
     {
         LogicUnivSystemEntities lu = new LogicUnivSystemEntities();
         ViewCurrentRequisitionController vcrc = new ViewCurrentRequisitionController();
@@ -66,10 +66,12 @@ namespace LogicUniv1._1.webpage.deptEmp
             Response.Redirect("PreviousRequisition.aspx");
         }
 
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+
+        protected void GridView1_PageIndexChanging1(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
             GridView1.DataBind();
+
         }
 
     }

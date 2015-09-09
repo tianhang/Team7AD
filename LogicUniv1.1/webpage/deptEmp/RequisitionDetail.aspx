@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PreviousRequisitonDetail.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmp.PreviousRequisitonDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequisitionDetail.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmp.RequisitionDetail" %>
 
 <!DOCTYPE html>
 
@@ -159,7 +159,7 @@
 	<form id="form1" runat="server">
         
 	<div class="templatemo-container">
-		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" style="background-color:#28303a; top: 0px; left: 0px;">
+		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" style="background-color:#28303a">
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
@@ -179,26 +179,25 @@
 			<div class="tm-right-inner-container" style="padding-left:80px">
                 <div> 
                     <asp:Label ID="Label1" runat="server" Text="Requisition Id : "></asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="114px"></asp:TextBox>
-                    &nbsp&nbsp
+                    <asp:TextBox ID="TextBox1" runat="server" Width="111px"></asp:TextBox>
+                    &nbsp&nbsp&nbsp&nbsp
                     <asp:Label ID="Label2" runat="server" Text="Stutas:"></asp:Label>
-                    <asp:TextBox ID="TextBox2" runat="server" Width="120px"></asp:TextBox>
-                    &nbsp&nbsp
+                    <asp:TextBox ID="TextBox2" runat="server" Width="107px"></asp:TextBox>
+                    &nbsp&nbsp&nbsp&nbsp
                     <asp:Label ID="Label3" runat="server" Text="Collection Point :"></asp:Label>
-                    <asp:TextBox ID="TextBox3" runat="server" Width="117px"></asp:TextBox>
-                    <br>
-                    <br />
+                    <asp:TextBox ID="TextBox3" runat="server" Width="110px"></asp:TextBox>
+                    <br><br>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                       <ContentTemplate>
                          <asp:ScriptManager ID="ScriptManager1" runat="server">
                           </asp:ScriptManager> 
-                                <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Width="680px" Height="345px" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="6">
+                              <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" Height="378px" OnPageIndexChanging="GridView1_PageIndexChanging1" PageSize="5" Width="786px">
                                     <Columns>
                                         <asp:ImageField DataImageUrlField="photourl" HeaderText="Photo">
-                                            <ControlStyle Height="80px" Width="80px" />
+                                            <ControlStyle Height="70px" Width="70px" />
                                         </asp:ImageField>
-                                        <asp:BoundField DataField="Description" HeaderText="Item Name" />
-                                        <asp:BoundField DataField="Number" HeaderText="Quantity" />
+                                        <asp:BoundField DataField="Description" HeaderText="Name" />
+                                        <asp:BoundField DataField="Number" HeaderText="Number" />
                                     </Columns>
                                     <FooterStyle BackColor="#CCCCCC" />
                                     <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -209,12 +208,11 @@
                                     <SortedAscendingHeaderStyle BackColor="#808080" />
                                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                                     <SortedDescendingHeaderStyle BackColor="#383838" />
-                                </asp:GridView>
-                           </ContentTemplate>
-                 </asp:UpdatePanel>
-                    <br />
+                    </asp:GridView>
+                    </ContentTemplate>
+               </asp:UpdatePanel>
+                    <br><br>
                     <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" />
-               
                 </div>
             </div>
 

@@ -10,7 +10,7 @@
 namespace LogicUniv1._1.webpage.deptEmp {
     
     
-    public partial class ShoppingCart2 {
+    public partial class ShoppingCart {
         
         /// <summary>
         /// form1 control.
@@ -40,15 +40,6 @@ namespace LogicUniv1._1.webpage.deptEmp {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -65,5 +56,14 @@ namespace LogicUniv1._1.webpage.deptEmp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

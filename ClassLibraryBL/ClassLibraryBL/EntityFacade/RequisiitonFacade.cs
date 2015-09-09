@@ -88,6 +88,29 @@ namespace ClassLibraryBL.EntityFacade
             return t;
         }
 
+        public void addRequisition(User u, List<ShoppingItem> sclist)
+        {
+            requisition re = new requisition();
+            re.departmentId = u.DepartmentId;
+            re.userId = u.UserId;
+            re.rejectReason = null;
+            re.status = "Pending";
+            re.requestDate = DateTime.Now;
+            luse.requisitions.Add(re);
+            luse.SaveChanges();
+            for (int i = 0; i < sclist.Count; i++) {
+                requsiiton_item reItem = new requsiiton_item();
+                reItem.requisitionId = re.requisitionId;
+                reItem.itemId = sclist[i].ItemId;
+                reItem.requestQty = sclist[i].Amount;
+                luse.requsiiton_item.Add(reItem);
+                luse.SaveChanges();
+
+            }
+
+
+        }
+
 
 
 

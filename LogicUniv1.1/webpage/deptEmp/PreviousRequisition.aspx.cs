@@ -42,7 +42,7 @@ namespace LogicUniv1._1.webpage.deptEmp
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string s_url = "PreviousRequisitonDetail.aspx?rid=" + GridView1.SelectedRow.Cells[0].Text;
+            string s_url = "RequisitionDetail.aspx?rid=" + GridView1.SelectedRow.Cells[0].Text;
             Response.Redirect(s_url);
 
         }

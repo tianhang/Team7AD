@@ -183,7 +183,7 @@
                       <ContentTemplate>
                          <asp:ScriptManager ID="ScriptManager1" runat="server">
                           </asp:ScriptManager> 
-                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="Black" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" Height="405px" Width="673px" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="Black" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" Height="434px" Width="762px" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
                         <Columns>
                             <asp:BoundField DataField="requisitionId" HeaderText="Requisition ID" />
                             <asp:BoundField DataField="requestDate" HeaderText="Requisition Date" />
