@@ -103,5 +103,74 @@ namespace ClassLibraryBL.EntityFacade
                             int m = data.Count();
                             return data;
                         }
+
+        //Du du
+
+                        //This method belongs to "CheckCurrentDisbursementList.aspx"
+                        public Object getCurrentList(String value)
+                        {
+
+                            var data = from f in cntx.disbursements
+                                       join d in cntx.departments on f.departmentId equals d.departmentId
+                                       where d.deptName == value && f.status == "WaitingCollection"
+                                       select new { f.disbursementId, d.deptName, f.collectDate, f.status };
+
+
+                            Object o = data.ToList();
+                            return o;
+                        }
+
+                        //The following two methods belong to "CurrentDisbursementDetailItem.aspx"
+                        public Object getDetailedItem(int session)
+                        {
+                            var data = from f in cntx.disbursements
+                                       join fi in cntx.disbursement_item on f.disbursementId equals fi.disbursementId
+                                       where f.disbursementId == session
+                                       join i in cntx.items on fi.disburse_itemId equals i.itemId
+                                       orderby fi.collectQty
+                                       select new { fi.collectQty, i.description };
+                            return data.ToList();
+
+                        }
+
+                        public Object getCollectionPoint(String value)
+                        {
+                            var data = from d in cntx.departments
+                                       join c in cntx.collectionPoints on d.collectionPointId equals c.collectionPointId
+                                       where d.deptName == value
+                                       select c.address;
+                            return data.FirstOrDefault();
+                        }
+
+                        public Object getAllHistoryList()
+                        {
+                            var data = from d in cntx.disbursements
+                                       join dept in cntx.departments on d.departmentId equals dept.departmentId
+                                       select new { d.disbursementId, dept.deptName, d.collectDate, d.status };
+                            return data.ToList();
+                        }
+
+                        public Object getSelectedHistoryList(DateTime begin, DateTime end)
+                        {
+                            var data = from d in cntx.disbursements
+                                       join dept in cntx.departments on d.departmentId equals dept.departmentId
+                                       where d.collectDate >= begin
+                                       where d.collectDate <= end
+                                       select new { d.disbursementId, dept.deptName, d.collectDate, d.status };
+                            return data.ToList();
+                        }
+
+                        public Object getHistoryListDetails(String disbursementId)
+                        {
+                            int disId = Convert.ToInt32(disbursementId);
+                            var data = from d in cntx.disbursements
+                                       join di in cntx.disbursement_item on d.disbursementId equals di.disbursementId
+                                       join i in cntx.items on di.itemId equals i.itemId
+                                       where d.disbursementId == disId
+                                       select new { i.description, di.collectQty };
+                            return data.ToList();
+                        }
+        //Du du
+
     }
 }

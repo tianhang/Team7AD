@@ -10,7 +10,7 @@
 namespace LogicUniv1._1.webpage.stockClerk {
     
     
-    public partial class ClerkHome {
+    public partial class CheckCurrentDisbursementList {
         
         /// <summary>
         /// form1 control.
@@ -22,49 +22,58 @@ namespace LogicUniv1._1.webpage.stockClerk {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// clerk control.
+        /// btn_Current control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label clerk;
+        protected global::System.Web.UI.WebControls.Button btn_Current;
         
         /// <summary>
-        /// viewby control.
+        /// btn_History control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList viewby;
+        protected global::System.Web.UI.WebControls.Button btn_History;
         
         /// <summary>
-        /// HistoryLog1 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button HistoryLog1;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// CurrentWeek control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CurrentWeek;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Department control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList Department;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
         /// GridView1 control.

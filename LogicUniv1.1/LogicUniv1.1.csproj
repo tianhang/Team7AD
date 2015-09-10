@@ -435,10 +435,18 @@
     <Content Include="webpage\Login\js\jquery-2.1.4.js" />
     <Content Include="webpage\Login\js\redirect.js" />
     <Content Include="webpage\Login\login.aspx" />
-    <Content Include="webpage\stockClerk\ClerkHistoryLogPengxiaomeng.aspx" />
-    <Content Include="webpage\stockClerk\ClerkHome.aspx" />
-    <Content Include="webpage\stockManager\SMHome.aspx" />
-    <Content Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx" />
+    <Content Include="webpage\stockClerk\CheckCurrentDisbursementList.aspx" />
+    <Content Include="webpage\stockClerk\ClerkInventory.aspx" />
+    <Content Include="webpage\stockClerk\ClerkManageRequisition.aspx" />
+    <Content Include="webpage\stockClerk\ClerkReportDiscrepancy.aspx" />
+    <Content Include="webpage\stockClerk\CurrentDisbursementDetailItem.aspx" />
+    <Content Include="webpage\stockClerk\HistoryDisbursementList.aspx" />
+    <Content Include="webpage\stockClerk\HistoryDisbursementListDetails.aspx" />
+    <Content Include="webpage\stockClerk\ViewCurrentPendingByDept.aspx" />
+    <Content Include="webpage\stockClerk\ViewCurrentPendingByDeptDetails.aspx" />
+    <Content Include="webpage\stockClerk\ViewCurrentPendingByItems.aspx" />
+    <Content Include="webpage\stockClerk\ViewDiscrepancyHistory.aspx" />
+    <Content Include="webpage\stockClerk\ViewDiscrepancyHistoryDetails.aspx" />
     <Content Include="webpage\stockSupervisor\SSHome.aspx" />
     <Content Include="webpage\Master.aspx" />
     <Content Include="webpage\stockSupervisor\StockSurpervisorDiscrepancyItem.aspx" />
@@ -599,90 +607,105 @@
     </Compile>
     <Compile Include="webpage\deptEmpRep\ChangeCollectionPoint.aspx.cs">
       <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmpRep\ChangeCollectionPoint.aspx.designer.cs">
       <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmpRep\DepRepHome.aspx.cs">
       <DependentUpon>DepRepHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmpRep\DepRepHome.aspx.designer.cs">
       <DependentUpon>DepRepHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmpRep\DisbursementListDetails.aspx.cs">
       <DependentUpon>DisbursementListDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmpRep\DisbursementListDetails.aspx.designer.cs">
       <DependentUpon>DisbursementListDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmpRep\ViewHistoryDisbursement.aspx.cs">
       <DependentUpon>ViewHistoryDisbursement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmpRep\ViewHistoryDisbursement.aspx.designer.cs">
       <DependentUpon>ViewHistoryDisbursement.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmp\CurrentRequisition.aspx.cs">
       <DependentUpon>CurrentRequisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmp\CurrentRequisition.aspx.designer.cs">
       <DependentUpon>CurrentRequisition.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmp\EmpHome.aspx.cs">
       <DependentUpon>EmpHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmp\EmpHome.aspx.designer.cs">
       <DependentUpon>EmpHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmp\PreviousRequisition.aspx.cs">
       <DependentUpon>PreviousRequisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmp\PreviousRequisition.aspx.designer.cs">
       <DependentUpon>PreviousRequisition.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmp\RequisitionDetail.aspx.cs">
       <DependentUpon>RequisitionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmp\RequisitionDetail.aspx.designer.cs">
       <DependentUpon>RequisitionDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmp\ShoppingCart.aspx.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmp\ShoppingCart.aspx.designer.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\DeptHead\ChangeCollectionPoint.aspx.cs">
       <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\DeptHead\ChangeCollectionPoint.aspx.designer.cs">
       <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\DeptHead\ChangeRep.aspx.cs">
       <DependentUpon>ChangeRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\DeptHead\ChangeRep.aspx.designer.cs">
       <DependentUpon>ChangeRep.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\DeptHead\DelegateAuthority.aspx.cs">
       <DependentUpon>DelegateAuthority.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\DeptHead\DelegateAuthority.aspx.designer.cs">
       <DependentUpon>DelegateAuthority.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\DeptHead\HeadHome.aspx.cs">
       <DependentUpon>HeadHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\DeptHead\HeadHome.aspx.designer.cs">
       <DependentUpon>HeadHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.cs">
       <DependentUpon>PreviousRequisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\DeptHead\PreviousRequisition.aspx.designer.cs">
       <DependentUpon>PreviousRequisition.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\DeptHead\RequisitionDetails.aspx.cs">
       <DependentUpon>RequisitionDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\DeptHead\RequisitionDetails.aspx.designer.cs">
       <DependentUpon>RequisitionDetails.aspx</DependentUpon>
@@ -694,33 +717,89 @@
     <Compile Include="webpage\Login\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webpage\stockClerk\ClerkHistoryLogPengxiaomeng.aspx.cs">
-      <DependentUpon>ClerkHistoryLogPengxiaomeng.aspx</DependentUpon>
+    <Compile Include="webpage\stockClerk\CheckCurrentDisbursementList.aspx.cs">
+      <DependentUpon>CheckCurrentDisbursementList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="webpage\stockClerk\ClerkHistoryLogPengxiaomeng.aspx.designer.cs">
-      <DependentUpon>ClerkHistoryLogPengxiaomeng.aspx</DependentUpon>
+    <Compile Include="webpage\stockClerk\CheckCurrentDisbursementList.aspx.designer.cs">
+      <DependentUpon>CheckCurrentDisbursementList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webpage\stockClerk\ClerkHome.aspx.cs">
-      <DependentUpon>ClerkHome.aspx</DependentUpon>
+    <Compile Include="webpage\stockClerk\ClerkInventory.aspx.cs">
+      <DependentUpon>ClerkInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="webpage\stockClerk\ClerkHome.aspx.designer.cs">
-      <DependentUpon>ClerkHome.aspx</DependentUpon>
+    <Compile Include="webpage\stockClerk\ClerkInventory.aspx.designer.cs">
+      <DependentUpon>ClerkInventory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webpage\stockManager\SMHome.aspx.cs">
-      <DependentUpon>SMHome.aspx</DependentUpon>
+    <Compile Include="webpage\stockClerk\ClerkManageRequisition.aspx.cs">
+      <DependentUpon>ClerkManageRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="webpage\stockManager\SMHome.aspx.designer.cs">
-      <DependentUpon>SMHome.aspx</DependentUpon>
+    <Compile Include="webpage\stockClerk\ClerkManageRequisition.aspx.designer.cs">
+      <DependentUpon>ClerkManageRequisition.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx.cs">
-      <DependentUpon>StockManagerDiscrepancyItemPengxiaomeng.aspx</DependentUpon>
+    <Compile Include="webpage\stockClerk\ClerkReportDiscrepancy.aspx.cs">
+      <DependentUpon>ClerkReportDiscrepancy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx.designer.cs">
-      <DependentUpon>StockManagerDiscrepancyItemPengxiaomeng.aspx</DependentUpon>
+    <Compile Include="webpage\stockClerk\ClerkReportDiscrepancy.aspx.designer.cs">
+      <DependentUpon>ClerkReportDiscrepancy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\CurrentDisbursementDetailItem.aspx.cs">
+      <DependentUpon>CurrentDisbursementDetailItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\CurrentDisbursementDetailItem.aspx.designer.cs">
+      <DependentUpon>CurrentDisbursementDetailItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\HistoryDisbursementList.aspx.cs">
+      <DependentUpon>HistoryDisbursementList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\HistoryDisbursementList.aspx.designer.cs">
+      <DependentUpon>HistoryDisbursementList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\HistoryDisbursementListDetails.aspx.cs">
+      <DependentUpon>HistoryDisbursementListDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\HistoryDisbursementListDetails.aspx.designer.cs">
+      <DependentUpon>HistoryDisbursementListDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewCurrentPendingByDept.aspx.cs">
+      <DependentUpon>ViewCurrentPendingByDept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewCurrentPendingByDept.aspx.designer.cs">
+      <DependentUpon>ViewCurrentPendingByDept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewCurrentPendingByDeptDetails.aspx.cs">
+      <DependentUpon>ViewCurrentPendingByDeptDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewCurrentPendingByDeptDetails.aspx.designer.cs">
+      <DependentUpon>ViewCurrentPendingByDeptDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewCurrentPendingByItems.aspx.cs">
+      <DependentUpon>ViewCurrentPendingByItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewCurrentPendingByItems.aspx.designer.cs">
+      <DependentUpon>ViewCurrentPendingByItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewDiscrepancyHistory.aspx.cs">
+      <DependentUpon>ViewDiscrepancyHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewDiscrepancyHistory.aspx.designer.cs">
+      <DependentUpon>ViewDiscrepancyHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewDiscrepancyHistoryDetails.aspx.cs">
+      <DependentUpon>ViewDiscrepancyHistoryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ViewDiscrepancyHistoryDetails.aspx.designer.cs">
+      <DependentUpon>ViewDiscrepancyHistoryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\stockSupervisor\SSHome.aspx.cs">
       <DependentUpon>SSHome.aspx</DependentUpon>
@@ -747,6 +826,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="webpage\sharePage\" />
+    <Folder Include="webpage\stockManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
