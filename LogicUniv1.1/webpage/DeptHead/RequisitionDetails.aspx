@@ -262,7 +262,7 @@
 	<form id="form1" runat="server">
         
 	<div class="templatemo-container">
-		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" id="leftlayer" style="background-color:#28303a">
+<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" id="leftlayer">
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
@@ -277,7 +277,7 @@
 
 		</div> <!-- left section -->
         <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
-		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer" >
+<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
@@ -377,14 +377,16 @@
 			</div>
         </div>	
 		<!-- right section -->
-    <script>
-            $(function () {
-                var height = document.getElementById("prelayer").offsetHeight + 500;
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-    </script>
+   <script>
+       $(function () {
+           console.log(window.innerHeight);
+           var height = (window.innerHeight);
+           console.log(height);
+           document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+           document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+       });
+</script>
+
     </form>
  </body>
     </html>

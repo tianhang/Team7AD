@@ -159,12 +159,12 @@
 	<form id="form1" runat="server">
         
 	<div class="templatemo-container">
-		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" style="background-color:#28303a">
+<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" id="leftlayer">
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="EmpHome.aspx" class="active"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
-				  <li><a href="PreviousRequisition.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
+				  <li><a href="EmpHome.aspx"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
+				  <li><a href="PreviousRequisition.aspx" class="active"><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
 				  <li><a href="CurrentRequisition.aspx"><i class="fa fa-send-o fa-medium"></i>Current Requisition</a></li>
 				 
 				</ul>
@@ -172,12 +172,12 @@
 
 		</div> <!-- left section -->
         <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
-		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container">
+  		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
           
-			<div class="tm-right-inner-container" style="padding-left:80px">
+			<div class="tm-right-inner-container" style="padding-left:80px" >
                 <div>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                       <ContentTemplate>
@@ -223,5 +223,17 @@
         </div>	
 		<!-- right section -->
     </form>
+
+
+<script>
+    $(function () {
+        console.log(window.innerHeight);
+        var height = (window.innerHeight);
+                console.log(height);
+                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+            });
+</script>
+
 </body>
     </html>

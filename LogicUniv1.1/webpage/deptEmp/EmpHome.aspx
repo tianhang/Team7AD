@@ -28,9 +28,11 @@
     <!-- this page specific styles -->
     <link rel="stylesheet" href="../css/compiled/index.css" type="text/css" media="screen" />
     	<!-- scripts -->
+
     <script src="../js/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="js/handlebars-v3.0.3.js" type="text/javascript"></script>
     <!-- knob -->
     <script src="../js/jquery.knob.js"></script>
     <!-- flot charts -->
@@ -39,8 +41,7 @@
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
 
-    <script src="js/handlebars-v3.0.3.js" type="text/javascript"></script>
-    <script src="js/jquery-2.1.4.js"></script>
+
     
  
     <style type="text/css">
@@ -89,12 +90,13 @@
            $(function () {
                var goodtemplate = Handlebars.compile($("#resultTemplate").html());
                //var itemList = '<%= Session["itemList"] %>';
-               var itemList = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Session["itemList"])%>;
+               var itemList = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Session["itemList"])%>
                //alert(itemList.length);
+               console.log(itemList[0].description.trim());
                length= itemList.length;
                for (var i = 0; i < itemList.length; i++) {
                    var data = {
-                       m0: "../images/" + itemList[i].photourl.trim() + ".jpg"  ,
+                       m0: "../images/" + itemList[i].description.trim() + ".jpg",
                        m1: itemList[i].balance,
                        m2: itemList[i].description,
                        m3: itemList[i].itemId
@@ -122,11 +124,6 @@
                 $("#<%=HiddenField2.ClientID %>").val(b);
             });
            }); 
-
-
-
-
-
       </script>
 </head>
 <body>
@@ -285,12 +282,18 @@
                                     <div id="resultdemo">
   
                                           </div>
-
             </div>
 
 
             </div>
+
+
+
+
+
         </div>
+
+
     <script>
         $(function () {
 
@@ -313,5 +316,6 @@
     </script>
 		<!-- right section -->
     </form>
+
 </body>  
     </html>
