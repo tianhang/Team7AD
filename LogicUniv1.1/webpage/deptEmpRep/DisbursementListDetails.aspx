@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepRepHome.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmpRep.DepEmpHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DisbursementListDetails.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmpRep.DisbursementListDetails" %>
 
 <!DOCTYPE html>
+
 <html>
 <head>
 	
@@ -46,7 +47,7 @@
         }
         .auto-style4 {
             width: 249px;
-            height: 3px;
+            height: 4px;
         }
     </style>
 </head>
@@ -177,8 +178,8 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="DepRepHome.aspx" class="active"><i class="fa fa-list-alt fa-medium"></i>Current Disbursement</a></li>
-				  <li><a href="ViewHistoryDisbursement.aspx"><i class="fa fa-book fa-medium"></i>History Disbursement</a></li>
+				  <li><a href="DepRepHome.aspx" ><i class="fa fa-list-alt fa-medium"></i>Current Disbursement</a></li>
+				  <li><a href="ViewHistoryDisbursement.aspx" class="active"><i class="fa fa-book fa-medium"></i>History Disbursement</a></li>
 				  <li><a href="ChangeCollectionPoint.aspx"><i class="fa fa-flag-checkered fa-medium"></i>Change Collection Point</a></li> 
 				</ul>
 			</div>
@@ -197,57 +198,44 @@
                    
 			<div class="tm-right-inner-container" id="prelayer" style="padding-left:200px">
                
-    <div>
+
+
     <div>
 
-    </div>
+        <div style="text-align: center">
+
+
+
+            <asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Font-Size="Medium"></asp:Label>
+
+
+
+        </div>
+        <div style="text-align: center">
+            <div style="text-align: center">
+            &nbsp;</div>
+
+    <div style="text-align: left">
+
         <table class="table-products">
             <tr>
                 <td>
                     <table class="table-products">
                         <tr>
-                            <td>
-                                <table class="table-products">
-                                    <tr>
-                                        <td>
-
-        <asp:Label ID="Label1" runat="server" ForeColor="#CC0000" style="text-align: center" Font-Size="Medium"></asp:Label>
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table class="table-products">
-                        <tr>
-                            <td class="auto-style3">
-                                <asp:Label ID="contacName" runat="server"></asp:Label>
+                            <td class="auto-style4">
+                                <asp:Label ID="contacName" runat="server" style="text-align: left"></asp:Label>
                             </td>
                             <td class="auto-style1" rowspan="3">
-               <asp:Button ID="confirmBtn" runat="server" CssClass="btn btn-success" position="relative" Text="Confirm Receive" top="10px" Width="135px" OnClick="confirmBtn_Click" />
-                            </td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="auto-style4">
+                            <td class="auto-style3">
                     <asp:Label ID="address" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style3">
-                                <asp:Label ID="colldate" runat="server"></asp:Label>
-                                <br />
-                                <table class="table-products">
-                                    <tr>
-                                        <td>
-                                <asp:Label ID="time" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <asp:Label ID="time" runat="server" style="text-align: left"></asp:Label>
                             </td>
                         </tr>
                     </table>
@@ -260,12 +248,12 @@
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    &nbsp;</td>
-            </tr>
-        </table>
+            </table>
     
+    </div>
+    
+        </div>
+
     </div>
                 <div> 
                     
@@ -273,7 +261,7 @@
                         <ContentTemplate>
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
-                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="table table-hover table-bordered" ForeColor="Black" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="table table-hover table-bordered" ForeColor="Black" OnPageIndexChanging="GridView1_PageIndexChanging">
                                 <Columns>
                                     <asp:ImageField DataImageUrlField="Photourl" HeaderText="Photo">
                                         <ControlStyle Height="100px" Width="100px" />

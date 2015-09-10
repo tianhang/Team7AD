@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepRepHome.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmpRep.DepEmpHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewHistoryDisbursement.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmpRep.ViewHistoryDisbursement" %>
 
 <!DOCTYPE html>
+
 <html>
 <head>
 	
@@ -37,18 +38,6 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: right;
-        }
-        .auto-style3 {
-            width: 249px;
-        }
-        .auto-style4 {
-            width: 249px;
-            height: 3px;
-        }
-    </style>
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -177,8 +166,8 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="DepRepHome.aspx" class="active"><i class="fa fa-list-alt fa-medium"></i>Current Disbursement</a></li>
-				  <li><a href="ViewHistoryDisbursement.aspx"><i class="fa fa-book fa-medium"></i>History Disbursement</a></li>
+				  <li><a href="DepRepHome.aspx" ><i class="fa fa-list-alt fa-medium"></i>Current Disbursement</a></li>
+				  <li><a href="ViewHistoryDisbursement.aspx" class="active"><i class="fa fa-book fa-medium"></i>History Disbursement</a></li>
 				  <li><a href="ChangeCollectionPoint.aspx"><i class="fa fa-flag-checkered fa-medium"></i>Change Collection Point</a></li> 
 				</ul>
 			</div>
@@ -192,79 +181,14 @@
 <!-- Start your part from here  -->
             
            
-
+             
 
                    
 			<div class="tm-right-inner-container" id="prelayer" style="padding-left:200px">
                
     <div>
-    <div>
-
-    </div>
-        <table class="table-products">
-            <tr>
-                <td>
-                    <table class="table-products">
-                        <tr>
-                            <td>
-                                <table class="table-products">
-                                    <tr>
-                                        <td>
-
-        <asp:Label ID="Label1" runat="server" ForeColor="#CC0000" style="text-align: center" Font-Size="Medium"></asp:Label>
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table class="table-products">
-                        <tr>
-                            <td class="auto-style3">
-                                <asp:Label ID="contacName" runat="server"></asp:Label>
-                            </td>
-                            <td class="auto-style1" rowspan="3">
-               <asp:Button ID="confirmBtn" runat="server" CssClass="btn btn-success" position="relative" Text="Confirm Receive" top="10px" Width="135px" OnClick="confirmBtn_Click" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style4">
-                    <asp:Label ID="address" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style3">
-                                <asp:Label ID="colldate" runat="server"></asp:Label>
-                                <br />
-                                <table class="table-products">
-                                    <tr>
-                                        <td>
-                                <asp:Label ID="time" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                    <table class="table-products">
-                        <tr>
-                            <td>
-               <asp:Label ID="Labelflag" runat="server" ForeColor="Red"></asp:Label>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;</td>
-            </tr>
-        </table>
+    
+        <asp:Label ID="Label1" runat="server"></asp:Label>
     
     </div>
                 <div> 
@@ -275,17 +199,19 @@
                             </asp:ScriptManager>
                             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="table table-hover table-bordered" ForeColor="Black" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                 <Columns>
-                                    <asp:ImageField DataImageUrlField="Photourl" HeaderText="Photo">
-                                        <ControlStyle Height="100px" Width="100px" />
-                                    </asp:ImageField>
-                                    <asp:BoundField DataField="Description" HeaderText="Stationery Description" />
-                                    <asp:BoundField DataField="CollectQty" HeaderText="Item Quantity " />
+                                    <asp:BoundField HeaderText="Disbursement ID" DataField="DisbusementId" />
+                                    <asp:BoundField DataField="Address" HeaderText="Collection Point" />
+                                    <asp:BoundField DataField="CollectionDate" HeaderText="Collection Date" HtmlEncode="false" DataFormatString="{0:yyyy-MM-dd}" />
+                                    <asp:BoundField HeaderText="Status" DataField="Status" />
+                                    <asp:CommandField HeaderText="Select" SelectText="Details" ShowSelectButton="True" >
+                                    <ControlStyle CssClass="btn btn-success" />
+                                    </asp:CommandField>
                                 </Columns>
                                 <FooterStyle BackColor="#CCCCCC" />
                                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
                                 <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
                                 <RowStyle BackColor="White" />
-                                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                                <SelectedRowStyle BackColor="#99CCFF" Font-Bold="True" ForeColor="White" />
                                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
                                 <SortedAscendingHeaderStyle BackColor="#808080" />
                                 <SortedDescendingCellStyle BackColor="#CAC9C9" />

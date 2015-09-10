@@ -245,7 +245,10 @@
     <Content Include="webpage\css\lib\uniform.default.css" />
     <Content Include="webpage\css\templatemo_style.css" />
     <Content Include="webpage\css\reqdetail.css" />
+    <Content Include="webpage\deptEmpRep\ChangeCollectionPoint.aspx" />
     <Content Include="webpage\deptEmpRep\DepRepHome.aspx" />
+    <Content Include="webpage\deptEmpRep\DisbursementListDetails.aspx" />
+    <Content Include="webpage\deptEmpRep\ViewHistoryDisbursement.aspx" />
     <Content Include="webpage\deptEmp\CurrentRequisition.aspx" />
     <Content Include="webpage\deptEmp\EmpHome.aspx" />
     <Content Include="webpage\deptEmp\js\handlebars-v3.0.3.js" />
@@ -594,12 +597,29 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="webpage\deptEmpRep\ChangeCollectionPoint.aspx.cs">
+      <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmpRep\ChangeCollectionPoint.aspx.designer.cs">
+      <DependentUpon>ChangeCollectionPoint.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webpage\deptEmpRep\DepRepHome.aspx.cs">
       <DependentUpon>DepRepHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="webpage\deptEmpRep\DepRepHome.aspx.designer.cs">
       <DependentUpon>DepRepHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmpRep\DisbursementListDetails.aspx.cs">
+      <DependentUpon>DisbursementListDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmpRep\DisbursementListDetails.aspx.designer.cs">
+      <DependentUpon>DisbursementListDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmpRep\ViewHistoryDisbursement.aspx.cs">
+      <DependentUpon>ViewHistoryDisbursement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmpRep\ViewHistoryDisbursement.aspx.designer.cs">
+      <DependentUpon>ViewHistoryDisbursement.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmp\CurrentRequisition.aspx.cs">
       <DependentUpon>CurrentRequisition.aspx</DependentUpon>
