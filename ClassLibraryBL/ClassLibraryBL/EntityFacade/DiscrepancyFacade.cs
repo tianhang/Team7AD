@@ -132,6 +132,61 @@ namespace ClassLibraryBL.EntityFacade
         //**********************************DU DU********************************
 
 
+
+        //PENG XIAO MENG***************************************
+        public List<DiscrepancyMixBean> getpendingdiscrepancy()
+        {
+            var N = from a in lg.discrepancies
+                    join b in lg.users on a.userId equals b.userId
+                    where a.status == "Pending"
+                    select new DiscrepancyMixBean
+                    {
+                        DiscrepancyId = a.discrepancyId,
+                        Clerk = b.name,
+                        Date = a.reportDate,
+                        Remark = a.Remark,
+                        TotalPrice = a.totalPrice,
+                        Status = a.status
+                    };
+            return N.ToList();
+        }
+        public List<DiscrepancyItemMix> getdiscrepancyitem(int s)
+        {
+            var N = from a in lg.discrepancy_item
+                    join b in lg.items on a.itemId equals b.itemId
+                    join c in lg.categories on b.categoryId equals c.categoryId
+                    where a.discrepancyId == s
+                    select new DiscrepancyItemMix
+                    {
+                        Catogory = c.categoryName,
+                        Item = b.description,
+                        Quantity = a.reportQty,
+                        Type = a.type
+                    };
+            return N.ToList();
+        }
+        public void approvediscrepancy(int s)
+        {
+            discrepancy ac = (from a in lg.discrepancies
+                              where a.discrepancyId == s
+                              select a).SingleOrDefault();
+            ac.status = "Approved";
+            lg.SaveChanges();
+        }
+        public void rejectdiscrepancy(int s)
+        {
+            discrepancy ac = (from a in lg.discrepancies
+                              where a.discrepancyId == s
+                              select a).SingleOrDefault();
+            ac.status = "Rejected";
+            lg.SaveChanges();
+        }
+
+
+
+
+
+        //PENG XIAO MENG***************************************
     }
     
 }

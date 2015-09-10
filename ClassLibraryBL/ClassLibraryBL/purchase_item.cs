@@ -16,6 +16,7 @@ namespace ClassLibraryBL
     [DataContract(IsReference = true)]
     [KnownType(typeof(item))]
     [KnownType(typeof(purchase))]
+    [KnownType(typeof(supplier))]
     
     public partial class purchase_item
     {
@@ -27,10 +28,14 @@ namespace ClassLibraryBL
         public int itemId { get; set; }
     	[DataMember]
         public int requestQty { get; set; }
+    	[DataMember]
+        public Nullable<int> supplierid { get; set; }
     
     	[DataMember]
         public virtual item item { get; set; }
     	[DataMember]
         public virtual purchase purchase { get; set; }
+    	[DataMember]
+        public virtual supplier supplier { get; set; }
     }
 }

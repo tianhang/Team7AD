@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -83,6 +83,7 @@
           <Property Name="balance" Type="int" Nullable="false" />
           <Property Name="binNumber" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="photourl" Type="nchar" MaxLength="200" />
+          <Property Name="status" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="item_supplier">
           <Key>
@@ -114,6 +115,7 @@
           <Property Name="purchaseId" Type="int" Nullable="false" />
           <Property Name="itemId" Type="int" Nullable="false" />
           <Property Name="requestQty" Type="int" Nullable="false" />
+          <Property Name="supplierid" Type="int" />
         </EntityType>
         <EntityType Name="requisition">
           <Key>
@@ -315,6 +317,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_purchase_item_supplier">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
+          <End Role="purchase_item" Type="Self.purchase_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="supplierId" />
+            </Principal>
+            <Dependent Role="purchase_item">
+              <PropertyRef Name="supplierid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_purchase_order_item">
           <End Role="purchase" Type="Self.purchase" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -509,6 +523,10 @@
             <End Role="supplier" EntitySet="supplier" />
             <End Role="item_supplier" EntitySet="item_supplier" />
           </AssociationSet>
+          <AssociationSet Name="FK_purchase_item_supplier" Association="Self.FK_purchase_item_supplier">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="purchase_item" EntitySet="purchase_item" />
+          </AssociationSet>
           <AssociationSet Name="FK_purchase_order_item" Association="Self.FK_purchase_order_item">
             <End Role="purchase" EntitySet="purchase" />
             <End Role="purchase_item" EntitySet="purchase_item" />
@@ -652,6 +670,7 @@
           <NavigationProperty Name="item_supplier" Relationship="Self.FK_item_supplier_item" FromRole="item" ToRole="item_supplier" />
           <NavigationProperty Name="purchase_item" Relationship="Self.FK_purchase_order_purchase" FromRole="item" ToRole="purchase_item" />
           <NavigationProperty Name="requsiiton_item" Relationship="Self.FK_requsiiton_item_item" FromRole="item" ToRole="requsiiton_item" />
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="item_supplier">
           <Key>
@@ -690,6 +709,8 @@
           <Property Name="requestQty" Type="Int32" Nullable="false" />
           <NavigationProperty Name="item" Relationship="Self.FK_purchase_order_purchase" FromRole="purchase_item" ToRole="item" />
           <NavigationProperty Name="purchase" Relationship="Self.FK_purchase_order_item" FromRole="purchase_item" ToRole="purchase" />
+          <Property Name="supplierid" Type="Int32" />
+          <NavigationProperty Name="supplier" Relationship="LogicUnivSystemModel.FK_purchase_item_supplier" FromRole="purchase_item" ToRole="supplier" />
         </EntityType>
         <EntityType Name="requisition">
           <Key>
@@ -737,6 +758,7 @@
           <Property Name="GST_RegistrationNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="item_supplier" Relationship="Self.FK_item_supplier_supplier" FromRole="supplier" ToRole="item_supplier" />
           <NavigationProperty Name="purchases" Relationship="Self.FK_purchase_supplier" FromRole="supplier" ToRole="purchase" />
+          <NavigationProperty Name="purchase_item" Relationship="LogicUnivSystemModel.FK_purchase_item_supplier" FromRole="supplier" ToRole="purchase_item" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1138,7 +1160,23 @@
             <End Role="role" EntitySet="roles" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
+          <AssociationSet Name="FK_purchase_item_supplier" Association="LogicUnivSystemModel.FK_purchase_item_supplier">
+            <End Role="supplier" EntitySet="suppliers" />
+            <End Role="purchase_item" EntitySet="purchase_item" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_purchase_item_supplier">
+          <End Type="LogicUnivSystemModel.supplier" Role="supplier" Multiplicity="0..1" />
+          <End Type="LogicUnivSystemModel.purchase_item" Role="purchase_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="supplierId" />
+            </Principal>
+            <Dependent Role="purchase_item">
+              <PropertyRef Name="supplierid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1220,6 +1258,7 @@
           <EntitySetMapping Name="items">
             <EntityTypeMapping TypeName="LogicUnivSystemModel.item">
               <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="itemId" ColumnName="itemId" />
                 <ScalarProperty Name="unit" ColumnName="unit" />
                 <ScalarProperty Name="categoryId" ColumnName="categoryId" />
@@ -1259,6 +1298,7 @@
           <EntitySetMapping Name="purchase_item">
             <EntityTypeMapping TypeName="LogicUnivSystemModel.purchase_item">
               <MappingFragment StoreEntitySet="purchase_item">
+                <ScalarProperty Name="supplierid" ColumnName="supplierid" />
                 <ScalarProperty Name="reorder_orderId" ColumnName="reorder_orderId" />
                 <ScalarProperty Name="purchaseId" ColumnName="purchaseId" />
                 <ScalarProperty Name="itemId" ColumnName="itemId" />

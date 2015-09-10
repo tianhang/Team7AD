@@ -48,7 +48,7 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         protected void btn_reorder_Click(object sender, EventArgs e)
         {
-            Response.Redirect("TBA.aspx");
+            Response.Redirect("Reorder.aspx");
         }
 
        
