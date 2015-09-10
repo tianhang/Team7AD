@@ -67,6 +67,9 @@
     <Compile Include="Controller\DeptHead\ViewPastRequistionController.cs" />
     <Compile Include="Controller\loginController.cs" />
     <Compile Include="Controller\deptEmp\RaiseNewRequisitonController.cs" />
+    <Compile Include="Controller\stockClerk\MaintainSupplierController.cs" />
+    <Compile Include="Controller\stockClerk\MaintainTenderInfoController.cs" />
+    <Compile Include="Controller\stockClerk\PlaceOrderController.cs" />
     <Compile Include="Controller\stockClerk\ProcessDiscrepancyController.cs" />
     <Compile Include="Controller\stockClerk\ProcessRequistionController.cs" />
     <Compile Include="Controller\stockClerk\ViewDisbursementListController.cs" />
@@ -74,10 +77,10 @@
     <Compile Include="Controller\stockClerk\ViewPendingFormController.cs" />
     <Compile Include="Controller\stockClerk\ViewRetrievalFormController.cs" />
     <Compile Include="Entities\DisbursementList.cs" />
+    <Compile Include="Entities\DiscrepancyItemMix.cs" />
+    <Compile Include="Entities\DiscrepancyMixBean.cs" />
+    <Compile Include="Entities\Purchaseitem111.cs" />
     <Compile Include="Entities\RequisitionDetails.cs" />
-    <Compile Include="Controller\stockClerk\MaintainSupplierController.cs" />
-    <Compile Include="Controller\stockClerk\MaintainTenderInfoController.cs" />
-    <Compile Include="Controller\stockClerk\PlaceOrderController.cs" />
     <Compile Include="Controller\stockClerk\ProcessStockAdjustmentController.cs" />
     <Compile Include="Controller\stockSupervisor\ViewReportController.cs" />
     <Compile Include="Controller\stockManager\ApproveStockAdjustmentController.cs" />
@@ -98,7 +101,9 @@
     <Compile Include="discrepancy_item.cs">
       <DependentUpon>LogicUniv.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\RequisitionMix.cs" />
     <Compile Include="Entities\ShoppingItem.cs" />
+    <Compile Include="Entities\SupplieritemMix.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityFacade\CatelogueFacade.cs" />
     <Compile Include="EntityFacade\CompareReportFacade.cs" />
@@ -110,6 +115,7 @@
     <Compile Include="EntityFacade\PurchaseOrderFacade.cs" />
     <Compile Include="EntityFacade\RequisiitonFacade.cs" />
     <Compile Include="EntityFacade\RequisitionTrendFacade.cs" />
+    <Compile Include="EntityFacade\SupplierFacade.cs" />
     <Compile Include="EntityFacade\UserFacade.cs" />
     <Compile Include="EntityFacade\ViewPendingFormFacade.cs" />
     <Compile Include="item.cs">

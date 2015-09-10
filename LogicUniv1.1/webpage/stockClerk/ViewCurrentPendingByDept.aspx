@@ -158,13 +158,14 @@
 	<form id="form1" runat="server">
         
 	<div class="templatemo-container">
-		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" id="leftlayer">
+<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" id="leftlayer">
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 			<ul class="nav nav-stacked templatemo-nav">
 				  <li><a href="ClerkManageRequisition.aspx"><i class="fa fa-file-word-o fa-medium"></i>Manage Requisition</a></li>
 				  <li><a href="ClerkInventory.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Inventory</a></li>
-                  <li><a href="TBA.aspx"><i class="fa fa-search-plus fa-medium"></i>Retrieve Form</a></li>
+                  <li><a href="Reorder.aspx"><i class="fa fa-file-word-o fa-medium"></i>Purchase Order</a></li>
+                <li><a href="ClerkRetrivalForm.aspx"><i class="fa fa-search-plus fa-medium"></i>Retrieve Form</a></li>
                   <li><a href="ViewCurrentPendingByItems.aspx"   class="active"><i class="fa fa-search-plus fa-medium"></i>Pending Form</a></li>
                   <li><a href="CheckCurrentDisbursementList.aspx"><i class="fa fa-comments-o fa-medium"></i>Disbursement</a></li>
 				  <li><a href="ClerkReportDiscrepancy.aspx"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
@@ -175,7 +176,7 @@
 
 		</div> <!-- left section -->
         <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
-		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
+<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                     

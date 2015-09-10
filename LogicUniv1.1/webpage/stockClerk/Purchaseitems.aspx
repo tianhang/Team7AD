@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClerkReportDiscrepancy.aspx.cs" Inherits="LogicUniv1._1.webpage.stockClerk.ClerkReportDiscrepancy" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Purchaseitems.aspx.cs" Inherits="LogicUniv1._1.webpage.stockClerk.Purchaseitem" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title>Logic Unviersity Stationery Inventory System</title>
+	
+	<title>Logic Unviersity Stationery Inventory System</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
@@ -37,15 +38,10 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
-
-    <!--Replenish-->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="Content/bootstrap.min.css" />
-    <script src="Scripts/jquery-1.9.1.min.js" ></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-</head>
+</head>  
+	
 <body>
-     <header class="navbar navbar-inverse" role="banner">
+    <header class="navbar navbar-inverse" role="banner">
         <ul class="nav navbar-nav pull-right hidden-xs">
             <li class="hidden-xs hidden-sm">
                 <input class="search" type="text" />
@@ -161,166 +157,95 @@
     </header>
 
     
-	<form id="form1" runat="server">
+	  <form id="form1" runat="server">
         
 	<div class="templatemo-container">
 		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" id="leftlayer">
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 			<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="ClerkManageRequisition.aspx" ><i class="fa fa-file-word-o fa-medium"></i>Manage Requisition</a></li>
-				  <li><a href="ClerkInventory.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Inventory</a></li>
-                 <li><a href="Reorder.aspx"><i class="fa fa-file-word-o fa-medium"></i>Purchase Order</a></li>  
+				  <li><a href="ClerkManageRequisition.aspx"><i class="fa fa-file-word-o fa-medium"></i>Manage Requisition</a></li>
+				  <li><a href="ClerkInventory.aspx"  ><i class="fa fa-shopping-cart fa-medium"></i>Inventory</a></li>
+                 <li><a href="Reorder.aspx" class="active"><i class="fa fa-file-word-o fa-medium"></i>Purchase Order</a></li>  
                 <li><a href="ClerkRetrivalForm.aspx"><i class="fa fa-search-plus fa-medium"></i>Retrieve Form</a></li>
                   <li><a href="ViewCurrentPendingByItems.aspx"><i class="fa fa-search-plus fa-medium"></i>Pending Form</a></li>
                   <li><a href="CheckCurrentDisbursementList.aspx"><i class="fa fa-comments-o fa-medium"></i>Disbursement</a></li>
-				  <li><a href="ClerkReportDiscrepancy.aspx"  class="active"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
+				  <li><a href="ClerkReportDiscrepancy.aspx"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
 				  <li><a href="ClerkMainSupplierPengxiaomeng.aspx"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
                   <li><a href="x.html"><i class="fa fa-print  fa-medium"></i>Print Current Page</a></li>
 				</ul>
 			</div>
 
 		</div> <!-- left section -->
-        <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
-		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
-
+        <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>                    
+<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
-                    
-			<div class="tm-right-inner-container">
-                <div>
-                    <asp:Button ID="btn_Current" CssClass="btn btn-default btn-sm" runat="server" Text="Report Discrepancy"  Enabled="false"/>
-                    <asp:Button ID="btn_History"  CssClass="btn btn-default btn-sm" runat="server" Text="View Discrepancy History" OnClick="btn_History_Click" />
-                </div>
-                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                <div style="text-align: center">
-        <asp:GridView ID="Gv1" runat="server" AutoGenerateColumns="False"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" OnRowDeleting="Gv1_RowDeleting"
-           CssClass="table table-bordered" onrowcommand="Gv1_RowCommand" AllowPaging="True" OnPageIndexChanging="Gv1_PageIndexChanging">
-            <HeaderStyle />
-            <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-          
-            <Columns>
-                <asp:TemplateField HeaderText="ID">
-                    <ItemTemplate>
-                        <%# Container.DataItemIndex+1 %>
-                        <asp:Label ID="Lb_Index" runat="server" Text='<%# Container.DataItemIndex+1 %>' Visible="false"></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Category">
-                    <ItemTemplate>
-                        <asp:TextBox ID="Txt_Cposition" runat="server" Text='<%#Eval("Cposition")%>' CssClass="form-control"></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Description">
-                    <ItemTemplate>
-                        <asp:TextBox ID="Txt_UserName" runat="server" Text='<%#Eval("UserName")%>' CssClass="form-control"></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Amount">
-                    <ItemTemplate>
-                        <asp:TextBox ID="Txt_Jan" runat="server" Text='<%#Eval("JanCount")%>' CssClass="form-control"></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Unit">
-                    <ItemTemplate>
-                        <asp:TextBox ID="Txt_Unit" runat="server" Text='<%#Eval("Count")%>' CssClass="form-control"></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Type">
-                    <ItemTemplate>
-                        <asp:TextBox ID="Txt_Feb" runat="server" Text='<%#Eval("FebCount")%>' CssClass="form-control"></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Remark">
-                    <ItemTemplate>
-                        <asp:TextBox ID="Txt_remark" runat="server" Text='<%#Eval("remark")%>' CssClass="form-control"></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Delete">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="Lkb_delete" runat="server" CommandName="delete" Text="delete" CommandArgument='<%# Container.DataItemIndex+1 %>' CssClass="btn btn-sm btn-danger"></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-                <div>  
-                <p>
-                    &nbsp;</p>
-                <p>
-                    Category：
-                    <asp:DropDownList ID="dropdownlist_category" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" OnSelectedIndexChanged="dropdownlist_category_SelectedIndexChanged" AutoPostBack="True" Width="25%"></asp:DropDownList>
-                </p>
-                <p>
-                    &nbsp;ItemName:
-                    <asp:DropDownList ID="dropdownlist_item" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" Width="25%"></asp:DropDownList>
-                </p>
-                <p>
-                    Amount：<asp:TextBox ID="txt_Jn" runat="server" CssClass="TextBox" Width="25%"></asp:TextBox></p>
-                <p>
-                    Unit：<asp:Label ID="lbl_unit" runat="server" Text="(The unit of measure)" Width="25%"></asp:Label></p>
-                <p>
-                    Reason：
-                    <asp:DropDownList ID="droplist_reason" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" Width="25%">
-                        <asp:ListItem>Damage</asp:ListItem>
-                        <asp:ListItem>Lost</asp:ListItem>
-                        <asp:ListItem>Misallocated</asp:ListItem>
-                    </asp:DropDownList>
-                </p>
-                  <p>
-                    Remark：<asp:TextBox ID="textbox_remark" runat="server" CssClass="TextBox" Width="25%"></asp:TextBox></p>
-                <p>
-                    <asp:Button ID="Btn_edit" runat="server" Text="Edit" OnClick="Btn_edit_Click" CssClass="btn btn-info btn-sm" />
-                    <asp:Button ID="Btn_Add" runat="server" OnClick="Btn_Add_Click" Text="Add to row" CssClass="btn btn-info btn-sm"/>
-                    <button id="Btn_submit" type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#myModal" >Submit</button>
-                </p>
-                </div>
-        <div>
-             <!-- Trigger the modal with a button -->
-                    
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+    <div>
     
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Confirmation</h4>
-        </div>
-        <div class="modal-body">
-          <p>Do you want to confirm</p>
-        </div>
-        <div class="modal-footer">
-          <asp:Button ID="Btn_confirm" class="btn btn-default" runat="server" Text="Confirm"  OnClick="Btn_confirm_Click"/>    
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+        <asp:Label ID="Label1" runat="server" Text="Purchase Order Number:"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:Label ID="Label4" runat="server" Text="Date:"></asp:Label>
+        <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Height="346px" Width="785px" OnRowCommand="GridView1_RowCommand">
+            <Columns>
+                <asp:BoundField DataField="Itemcode" HeaderText="Itemcode" />
+                <asp:BoundField DataField="Description" HeaderText="Description" />
+                <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                <asp:BoundField DataField="price" HeaderText="price" />
+                <asp:BoundField DataField="Amount" HeaderText="Amount" />
+                <asp:TemplateField HeaderText="Choose Supplier">
+                    <ItemTemplate>
+                        <asp:DropDownList ID="choosesupplier" runat="server" Height="23px" Width="121px">
+                        </asp:DropDownList>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:ButtonField ButtonType="Button" CommandName="ChangeSupplier" HeaderText="ChangeSupplier" ShowHeader="True" Text="ChangeSupplier" />
+                <asp:ButtonField ButtonType="Button" CommandName="DeleteItem" Text="Delete Items" />
+            </Columns>
+            <EmptyDataTemplate>
+                NO&nbsp;&nbsp; ITEM&nbsp;&nbsp;&nbsp; FOUND!
+            </EmptyDataTemplate>
+        </asp:GridView>
+    
+    </div>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="Send" runat="server" style="margin-left: 465px" Text="Send Email to Supplier" Width="149px" />
+            <asp:Button ID="Add" runat="server" Height="26px" style="margin-left: 38px" Text="Add Item" Width="114px" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" />
+        </p>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Add Supplier</h4>
       </div>
-      
-    </div>
-  </div>
-        </div>
-    </div>
-                   </ContentTemplate>
-</asp:UpdatePanel>
-            </div>
-
-				<footer>
-					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
-					<p class="col-lg-9 col-md-9  templatemo-social">
-						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
-						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
-						<a href="#"><i class="fa fa-google-plus fa-medium"></i></a>
-						<a href="#"><i class="fa fa-youtube fa-medium"></i></a>
-						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
-					</p>
-				</footer>
-			</div>
-        </div>	
-		<!-- right section -->
-    </form>
-      <script>
+      <div class="modal-body">
+       <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Item Description:</label>
+              <asp:DropDownList ID="Itemchoose" runat="server" Height="17px" Width="126px" AppendDataBoundItems="True">
+              </asp:DropDownList>
+          </div>
+          <div class="form-group">
+             <label for="recipient-name" class="control-label">Item Number:</label><asp:TextBox ID="itemnumber" runat="server" Width="96px"></asp:TextBox>
+       &nbsp;</div>
+       </form>
+      </div>
+      <div class="modal-footer">
+     <asp:Button ID="Close" class="btn btn-default" data-dismiss="modal" runat="server" Text="Close" />
+     <asp:Button ID="Confirm" class="btn btn-primary" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="Confirm_Click" />
+      </div>   
+  </div>      
+</div>
+         </div> 
+            </div>    
+     </form>
+        <script>
     $(function () {
         console.log(window.innerHeight);
         var height = (window.innerHeight);
@@ -331,4 +256,4 @@
 </script>
 
 </body>
-</html>
+    </html>

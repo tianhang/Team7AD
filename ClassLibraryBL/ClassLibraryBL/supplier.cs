@@ -16,6 +16,7 @@ namespace ClassLibraryBL
     [DataContract(IsReference = true)]
     [KnownType(typeof(item_supplier))]
     [KnownType(typeof(purchase))]
+    [KnownType(typeof(purchase_item))]
     
     public partial class supplier
     {
@@ -23,6 +24,7 @@ namespace ClassLibraryBL
         {
             this.item_supplier = new HashSet<item_supplier>();
             this.purchases = new HashSet<purchase>();
+            this.purchase_item = new HashSet<purchase_item>();
         }
     
     	[DataMember]
@@ -44,5 +46,7 @@ namespace ClassLibraryBL
         public virtual ICollection<item_supplier> item_supplier { get; set; }
     	[DataMember]
         public virtual ICollection<purchase> purchases { get; set; }
+    	[DataMember]
+        public virtual ICollection<purchase_item> purchase_item { get; set; }
     }
 }

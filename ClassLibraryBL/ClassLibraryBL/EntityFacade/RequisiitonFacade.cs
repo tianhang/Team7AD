@@ -131,7 +131,190 @@ namespace ClassLibraryBL.EntityFacade
         //**********************************DU DU********************************
 
         
+        //**** Peng xiao meng ********************
+        public List<RequisitionMix> currentweekbyitem()
+        {
+            DateTime da = DateTime.Today.Date;
+            String dw = da.DayOfWeek.ToString();
 
+            switch (dw)
+            {
+                case "Tuesday":
+                    da = da.AddDays(-1);
+                    break;
+                case "Wednesday":
+                    da = da.AddDays(-2);
+                    break;
+                case "Thursday":
+                    da = da.AddDays(-3);
+                    break;
+                case "Friday":
+                    da = da.AddDays(-4);
+                    break;
+                case "Saturday":
+                    da = da.AddDays(-5);
+                    break;
+                case "Sunday":
+                    da = da.AddDays(-6);
+                    break;
+                default:
+                    break;
+            }
+
+            var n = from a in luse.requisitions
+                    join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
+                    where (a.requestDate > da)
+                    group b.requisition_itemId by b.itemId into g
+                    join c in luse.items on g.Key equals c.itemId
+                    join d in luse.categories on c.categoryId equals d.categoryId
+                    select new RequisitionMix
+                    {
+                        itemID = g.Key,
+                        Category = d.categoryName,
+                        Itemname = c.description,
+                        amount = g.Count(),
+                        Unit = c.unit,
+                        Bin = c.binNumber
+
+                    };
+            return n.ToList();
+        }
+        public List<RequisitionMix> currentweekbydepartment(string s)
+        {
+            DateTime da = DateTime.Today.Date;
+            String dw = da.DayOfWeek.ToString();
+            switch (dw)
+            {
+                case "Tuesday":
+                    da = da.AddDays(-1);
+                    break;
+                case "Wednesday":
+                    da = da.AddDays(-2);
+                    break;
+                case "Thursday":
+                    da = da.AddDays(-3);
+                    break;
+                case "Friday":
+                    da = da.AddDays(-4);
+                    break;
+                case "Saturday":
+                    da = da.AddDays(-5);
+                    break;
+                case "Sunday":
+                    da = da.AddDays(-6);
+                    break;
+                default:
+                    break;
+            }
+            var n = from a in luse.requisitions
+                    join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
+                    where (a.requestDate > da) && (a.departmentId == s)
+                    group b.requisition_itemId by b.itemId into g
+                    join c in luse.items on g.Key equals c.itemId
+                    join d in luse.categories on c.categoryId equals d.categoryId
+                    select new RequisitionMix
+                    {
+                        itemID = g.Key,
+                        Category = d.categoryName,
+                        Itemname = c.description,
+                        amount = g.Count(),
+                        Unit = c.unit,
+                        Bin = c.binNumber
+
+                    };
+            return n.ToList();
+        }
+        public List<RequisitionMix> itemwithoutdate()
+        {
+            var n = from a in luse.requisitions
+                    join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
+                    group b.requisition_itemId by b.itemId into g
+                    join c in luse.items on g.Key equals c.itemId
+                    join d in luse.categories on c.categoryId equals d.categoryId
+                    select new RequisitionMix
+                    {
+                        itemID = g.Key,
+                        Category = d.categoryName,
+                        Itemname = c.description,
+                        amount = g.Count(),
+                        Unit = c.unit,
+                        Bin = c.binNumber
+
+                    };
+            return n.ToList();
+        }
+
+        public List<RequisitionMix> itemwithdate(string start, string end)
+        {
+
+            DateTime dt1 = DateTime.ParseExact(start, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture);
+            DateTime dt2 = DateTime.ParseExact(end, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture);
+            var n = from a in luse.requisitions
+                    join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
+                    where (a.requestDate < dt2) && (a.requestDate > dt1)
+                    group b.requisition_itemId by b.itemId into g
+                    join c in luse.items on g.Key equals c.itemId
+                    join d in luse.categories on c.categoryId equals d.categoryId
+                    select new RequisitionMix
+                    {
+                        itemID = g.Key,
+                        Category = d.categoryName,
+                        Itemname = c.description,
+                        amount = g.Count(),
+                        Unit = c.unit,
+                        Bin = c.binNumber
+
+                    };
+            return n.ToList();
+
+        }
+        public List<RequisitionMix> departmentwithoutdate(string ts)
+        {
+            var n = from a in luse.requisitions
+                    join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
+                    where (a.departmentId == ts)
+                    group b.requisition_itemId by b.itemId into g
+                    join c in luse.items on g.Key equals c.itemId
+                    join d in luse.categories on c.categoryId equals d.categoryId
+                    select new RequisitionMix
+                    {
+                        itemID = g.Key,
+                        Category = d.categoryName,
+                        Itemname = c.description,
+                        amount = g.Count(),
+                        Unit = c.unit,
+                        Bin = c.binNumber
+
+                    };
+
+            {
+                return n.ToList();
+            }
+        }
+        public List<RequisitionMix> departmentwithdate(string ts, string start, string end)
+        {
+
+            DateTime dt1 = DateTime.ParseExact(start, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture);
+            DateTime dt2 = DateTime.ParseExact(end, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture);
+            var n = from a in luse.requisitions
+                    join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
+                    where (a.departmentId == ts) && (a.requestDate < dt2) && (a.requestDate > dt1)
+                    group b.requisition_itemId by b.itemId into g
+                    join c in luse.items on g.Key equals c.itemId
+                    join d in luse.categories on c.categoryId equals d.categoryId
+                    select new RequisitionMix
+                    {
+                        itemID = g.Key,
+                        Category = d.categoryName,
+                        Itemname = c.description,
+                        amount = g.Count(),
+                        Unit = c.unit,
+                        Bin = c.binNumber
+                    };
+            return n.ToList();
+        }
+
+        //**********************peng xiao meng******************
 
     }
 }

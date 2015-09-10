@@ -164,11 +164,12 @@
 				<ul class="nav nav-stacked templatemo-nav">
 				  <li><a href="ClerkManageRequisition.aspx"><i class="fa fa-file-word-o fa-medium"></i>Manage Requisition</a></li>
 				  <li><a href="ClerkInventory.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Inventory</a></li>
-                  <li><a href="TBA.aspx"><i class="fa fa-search-plus fa-medium"></i>Retrieve Form</a></li>
+                  <li><a href="Reorder.aspx"><i class="fa fa-file-word-o fa-medium"></i>Purchase Order</a></li>
+                   <li><a href="ClerkRetrivalForm.aspx"><i class="fa fa-search-plus fa-medium"></i>Retrieve Form</a></li>
                   <li><a href="ViewCurrentPendingByItems.aspx"><i class="fa fa-search-plus fa-medium"></i>Pending Form</a></li>
                   <li><a href="CheckCurrentDisbursementList.aspx"><i class="fa fa-comments-o fa-medium"></i>Disbursement</a></li>
 				  <li><a href="ClerkReportDiscrepancy.aspx"  class="active"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
-				  <li><a href="TBA.html"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
+				  <li><a href="ClerkMainSupplierPengxiaomeng.aspx"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
                   <li><a href="x.html"><i class="fa fa-print  fa-medium"></i>Print Current Page</a></li>
 				</ul>
 			</div>
@@ -189,9 +190,7 @@
 
                     </asp:GridView>
                 </div>
-            </div>
-
-				<footer>
+                				<footer>
 					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
 					<p class="col-lg-9 col-md-9  templatemo-social">
 						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
@@ -201,6 +200,9 @@
 						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
 					</p>
 				</footer>
+            </div>
+
+
 			</div>
         </div>	
 		<!-- right section -->
