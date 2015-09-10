@@ -10,7 +10,7 @@
 namespace LogicUniv1._1.webpage.stockClerk {
     
     
-    public partial class ClerkHistoryLogPengxiaomeng {
+    public partial class ClerkReportDiscrepancy {
         
         /// <summary>
         /// form1 control.
@@ -22,102 +22,129 @@ namespace LogicUniv1._1.webpage.stockClerk {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// clerk control.
+        /// btn_Current control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label clerk;
+        protected global::System.Web.UI.WebControls.Button btn_Current;
         
         /// <summary>
-        /// viewby control.
+        /// btn_History control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList viewby;
+        protected global::System.Web.UI.WebControls.Button btn_History;
         
         /// <summary>
-        /// HistoryLog1 control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button HistoryLog1;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// CurrentWeek control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CurrentWeek;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// Department control.
+        /// Gv1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList Department;
+        protected global::System.Web.UI.WebControls.GridView Gv1;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// dropdownlist_category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_category;
         
         /// <summary>
-        /// startdate control.
+        /// dropdownlist_item control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox startdate;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_item;
         
         /// <summary>
-        /// Label1 control.
+        /// txt_Jn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txt_Jn;
         
         /// <summary>
-        /// enddate control.
+        /// lbl_unit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox enddate;
+        protected global::System.Web.UI.WebControls.Label lbl_unit;
         
         /// <summary>
-        /// Button1 control.
+        /// droplist_reason control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.DropDownList droplist_reason;
         
         /// <summary>
-        /// GridView1 control.
+        /// textbox_remark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox textbox_remark;
+        
+        /// <summary>
+        /// Btn_edit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_edit;
+        
+        /// <summary>
+        /// Btn_Add control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_Add;
+        
+        /// <summary>
+        /// Btn_confirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_confirm;
     }
 }

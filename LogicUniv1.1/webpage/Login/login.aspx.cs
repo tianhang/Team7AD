@@ -46,7 +46,7 @@ namespace LogicUnivTeam7.webpage.Login
                     Response.Redirect("../deptEmpRep/DepRepHome.aspx");
                     break;
                     case 4://stockClerk
-                    Response.Redirect("../stockClerk/ClerkHome.aspx");
+                    Response.Redirect("../stockClerk/ClerkManageRequisition.aspx");
                     break;
                     case 5://stockSupervisor
                     Response.Redirect("../stockSupervisor/SSHome.aspx");

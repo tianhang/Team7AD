@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClerkHome.aspx.cs" Inherits="LogicUniv1._1.webpage.stockClerk.ClerkHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewCurrentPendingByDept.aspx.cs" Inherits="LogicUniv1._1.webpage.stockClerk.ViewCurrentPendingByDept" %>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-	
-	<title>Logic Unviersity Stationery Inventory System</title>
+    <title>Logic Unviersity Stationery Inventory System</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
@@ -159,61 +158,63 @@
 	<form id="form1" runat="server">
         
 	<div class="templatemo-container">
-		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" style="background-color:#28303a">
+		<div class="col-lg-3 col-md-3 col-sm-3  black-bg left-container" id="leftlayer">
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
-				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="index.html" class="active"><i class="fa fa-home fa-medium"></i>Manage Requisition</a></li>
-				  <li><a href="products.html"><i class="fa fa-shopping-cart fa-medium"></i>Inventory</a></li>
-				  <li><a href="services.html"><i class="fa fa-send-o fa-medium"></i>Discrepancy</a></li>
-				  <li><a href="testimonials.html"><i class="fa fa-comments-o fa-medium"></i>Manage Supplier</a></li>
+			<ul class="nav nav-stacked templatemo-nav">
+				  <li><a href="ClerkManageRequisition.aspx"><i class="fa fa-file-word-o fa-medium"></i>Manage Requisition</a></li>
+				  <li><a href="ClerkInventory.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Inventory</a></li>
+                  <li><a href="TBA.aspx"><i class="fa fa-search-plus fa-medium"></i>Retrieve Form</a></li>
+                  <li><a href="ViewCurrentPendingByItems.aspx"   class="active"><i class="fa fa-search-plus fa-medium"></i>Pending Form</a></li>
+                  <li><a href="CheckCurrentDisbursementList.aspx"><i class="fa fa-comments-o fa-medium"></i>Disbursement</a></li>
+				  <li><a href="ClerkReportDiscrepancy.aspx"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
+				  <li><a href="TBA.html"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
+                  <li><a href="x.html"><i class="fa fa-print  fa-medium"></i>Print Current Page</a></li>
 				</ul>
 			</div>
 
 		</div> <!-- left section -->
-        <div class="copyrights">Collect from <a href="http://www.mycodes.net/" >
-            
-            </a></div>
-		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container">
+        <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
+		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
-            
-             <asp:Label ID="clerk" runat="server" Text="Label"></asp:Label>
-            
-            <asp:DropDownList ID="viewby" runat="server" OnSelectedIndexChanged="viewby_SelectedIndexChanged" ValidateRequestMode="Enabled" AutoPostBack="True">
-                <asp:ListItem>View By Department</asp:ListItem>
-                <asp:ListItem Selected="True">View By Item</asp:ListItem>
-            </asp:DropDownList>
-            <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:15%" OnClick="HistoryLog_Click" />            
-            <asp:Button ID="CurrentWeek" runat="server" Text="Current Week" OnClick="CurrentWeek_Click" />
-            <asp:RadioButtonList ID="Department" runat="server" Height="16px" Width="141px" AutoPostBack="True" OnSelectedIndexChanged="Department_SelectedIndexChanged1" Visible="False">
-                <asp:ListItem>COMM</asp:ListItem>
-                <asp:ListItem>CPSC</asp:ListItem>
-                <asp:ListItem>ENGL</asp:ListItem>
-                <asp:ListItem>REGR</asp:ListItem>
-                <asp:ListItem>STORE</asp:ListItem>
-                <asp:ListItem>ZOOL</asp:ListItem>
-            </asp:RadioButtonList>
-            <br />
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Height="197px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="577px">
-                <FooterStyle BackColor="#CCCCCC" />
-                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                <RowStyle BackColor="White" />
-                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                <SortedAscendingHeaderStyle BackColor="#808080" />
-                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                <SortedDescendingHeaderStyle BackColor="#383838" />
-            </asp:GridView>
-                <div> 
+                    
+			<div class="tm-right-inner-container">
+                <div>
+                    <asp:Button ID="btn_byItem" CssClass="btn btn-sm btn-default" runat="server" Text="View by Items" OnClick="btn_byItem_Click"  />
+                    <asp:Button ID="btn_byDept" CssClass="btn btn-sm btn-default" runat="server" Text="View by Dept" Enabled="False" />
+                </div>
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                <div>
+                    <asp:DropDownList ID="ddl_dept" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_dept_SelectedIndexChanged">
+                        <asp:ListItem>Commerce</asp:ListItem>
+                        <asp:ListItem>Computer Science</asp:ListItem>
+                        <asp:ListItem>English Dept</asp:ListItem>
+                        <asp:ListItem>Registrar</asp:ListItem>
+                        <asp:ListItem>Store</asp:ListItem>
+                        <asp:ListItem>Zoology</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                
+                <div>
+                    <asp:GridView ID="GridView1" CssClass="table table-bordered" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" OnRowCommand="GridView1_RowCommand">
+                        <Columns>
+                            <asp:ButtonField HeaderText="View Detail" Text="View" />
+                        </Columns>
+                        <HeaderStyle />
 
-              </div>
-            <div class="tm-right-inner-container">
-                 </div>
+<RowStyle Height="35px"></RowStyle>
+
+                    </asp:GridView>
+                </div>
+                        </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
 
 				<footer>
-					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 -lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
+					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
 					<p class="col-lg-9 col-md-9  templatemo-social">
 						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
 						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
@@ -226,5 +227,15 @@
         </div>	
 		<!-- right section -->
     </form>
+      <script>
+    $(function () {
+        console.log(window.innerHeight);
+        var height = (window.innerHeight);
+                console.log(height);
+                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+            });
+</script>
+
 </body>
-    </html>
+</html>

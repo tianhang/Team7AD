@@ -67,16 +67,19 @@
     <Compile Include="Controller\DeptHead\ViewPastRequistionController.cs" />
     <Compile Include="Controller\loginController.cs" />
     <Compile Include="Controller\deptEmp\RaiseNewRequisitonController.cs" />
+    <Compile Include="Controller\stockClerk\ProcessDiscrepancyController.cs" />
+    <Compile Include="Controller\stockClerk\ProcessRequistionController.cs" />
+    <Compile Include="Controller\stockClerk\ViewDisbursementListController.cs" />
+    <Compile Include="Controller\stockClerk\ViewInventoryController.cs" />
+    <Compile Include="Controller\stockClerk\ViewPendingFormController.cs" />
+    <Compile Include="Controller\stockClerk\ViewRetrievalFormController.cs" />
     <Compile Include="Entities\DisbursementList.cs" />
     <Compile Include="Entities\RequisitionDetails.cs" />
     <Compile Include="Controller\stockClerk\MaintainSupplierController.cs" />
     <Compile Include="Controller\stockClerk\MaintainTenderInfoController.cs" />
     <Compile Include="Controller\stockClerk\PlaceOrderController.cs" />
-    <Compile Include="Controller\stockClerk\ProcessRequistionController.cs" />
     <Compile Include="Controller\stockClerk\ProcessStockAdjustmentController.cs" />
-    <Compile Include="Controller\stockClerk\ViewDisbursementListController.cs" />
     <Compile Include="Controller\stockSupervisor\ViewReportController.cs" />
-    <Compile Include="Controller\stockClerk\ViewRetrievalFormController.cs" />
     <Compile Include="Controller\stockManager\ApproveStockAdjustmentController.cs" />
     <Compile Include="Controller\stockSupervisor\ApproveStockAdjustmentController.cs" />
     <Compile Include="Controller\stockSupervisor\MaintainCatelogueController.cs" />
@@ -102,11 +105,13 @@
     <Compile Include="EntityFacade\DepartmentFacade.cs" />
     <Compile Include="EntityFacade\DisbursementFacade.cs" />
     <Compile Include="EntityFacade\DiscrepancyFacade.cs" />
+    <Compile Include="EntityFacade\InventoryFacade.cs" />
     <Compile Include="EntityFacade\LoginFacade.cs" />
     <Compile Include="EntityFacade\PurchaseOrderFacade.cs" />
     <Compile Include="EntityFacade\RequisiitonFacade.cs" />
     <Compile Include="EntityFacade\RequisitionTrendFacade.cs" />
     <Compile Include="EntityFacade\UserFacade.cs" />
+    <Compile Include="EntityFacade\ViewPendingFormFacade.cs" />
     <Compile Include="item.cs">
       <DependentUpon>LogicUniv.tt</DependentUpon>
     </Compile>
