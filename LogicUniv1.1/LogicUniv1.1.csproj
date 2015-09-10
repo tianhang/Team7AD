@@ -45,6 +45,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DataVisualization.Design" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -455,9 +457,12 @@
     <Content Include="webpage\stockClerk\ViewDiscrepancyHistoryDetails.aspx" />
     <Content Include="webpage\stockManager\SMHome.aspx" />
     <Content Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx" />
+    <Content Include="webpage\stockSupervisor\CompareThreeMonths.aspx" />
+    <Content Include="webpage\stockSupervisor\ReportOrder.aspx" />
     <Content Include="webpage\stockSupervisor\SSHome.aspx" />
     <Content Include="webpage\Master.aspx" />
     <Content Include="webpage\stockSupervisor\StockSurpervisorDiscrepancyItem.aspx" />
+    <Content Include="webpage\stockSupervisor\TrendForSupplier.aspx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -865,6 +870,21 @@
     <Compile Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx.designer.cs">
       <DependentUpon>StockManagerDiscrepancyItemPengxiaomeng.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webpage\stockSupervisor\CompareThreeMonths.aspx.cs">
+      <DependentUpon>CompareThreeMonths.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockSupervisor\CompareThreeMonths.aspx.designer.cs">
+      <DependentUpon>CompareThreeMonths.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockSupervisor\Datatable.cs" />
+    <Compile Include="webpage\stockSupervisor\ReportOrder.aspx.cs">
+      <DependentUpon>ReportOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockSupervisor\ReportOrder.aspx.designer.cs">
+      <DependentUpon>ReportOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webpage\stockSupervisor\SSHome.aspx.cs">
       <DependentUpon>SSHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -885,6 +905,13 @@
     </Compile>
     <Compile Include="webpage\stockSupervisor\StockSurpervisorDiscrepancyItem.aspx.designer.cs">
       <DependentUpon>StockSurpervisorDiscrepancyItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockSupervisor\TrendForSupplier.aspx.cs">
+      <DependentUpon>TrendForSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockSupervisor\TrendForSupplier.aspx.designer.cs">
+      <DependentUpon>TrendForSupplier.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

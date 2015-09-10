@@ -50,7 +50,6 @@
     <Compile Include="category.cs">
       <DependentUpon>LogicUniv.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="collectionPoint.cs">
       <DependentUpon>LogicUniv.tt</DependentUpon>
     </Compile>
@@ -76,10 +75,14 @@
     <Compile Include="Controller\stockClerk\ViewInventoryController.cs" />
     <Compile Include="Controller\stockClerk\ViewPendingFormController.cs" />
     <Compile Include="Controller\stockClerk\ViewRetrievalFormController.cs" />
+    <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\DisbursementList.cs" />
     <Compile Include="Entities\DiscrepancyItemMix.cs" />
     <Compile Include="Entities\DiscrepancyMixBean.cs" />
     <Compile Include="Entities\Purchaseitem111.cs" />
+    <Compile Include="Entities\ReportOrderEntity.cs" />
+    <Compile Include="Entities\RequestItem.cs" />
+    <Compile Include="Entities\RequestThreeMonthsEntity.cs" />
     <Compile Include="Entities\RequisitionDetails.cs" />
     <Compile Include="Controller\stockClerk\ProcessStockAdjustmentController.cs" />
     <Compile Include="Controller\stockSupervisor\ViewReportController.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Entities\RequisitionMix.cs" />
     <Compile Include="Entities\ShoppingItem.cs" />
     <Compile Include="Entities\SupplieritemMix.cs" />
+    <Compile Include="Entities\TrendForSupplierEntity.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityFacade\CatelogueFacade.cs" />
     <Compile Include="EntityFacade\CompareReportFacade.cs" />
@@ -113,9 +117,13 @@
     <Compile Include="EntityFacade\InventoryFacade.cs" />
     <Compile Include="EntityFacade\LoginFacade.cs" />
     <Compile Include="EntityFacade\PurchaseOrderFacade.cs" />
+    <Compile Include="EntityFacade\ReportOrderFacade.cs" />
+    <Compile Include="EntityFacade\RequestItemFacade.cs" />
+    <Compile Include="EntityFacade\RequestThreeMonthsEntityFacade.cs" />
     <Compile Include="EntityFacade\RequisiitonFacade.cs" />
     <Compile Include="EntityFacade\RequisitionTrendFacade.cs" />
     <Compile Include="EntityFacade\SupplierFacade.cs" />
+    <Compile Include="EntityFacade\TrendForSupplierFacade.cs" />
     <Compile Include="EntityFacade\UserFacade.cs" />
     <Compile Include="EntityFacade\ViewPendingFormFacade.cs" />
     <Compile Include="item.cs">
