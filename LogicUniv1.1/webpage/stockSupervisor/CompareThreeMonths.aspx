@@ -1,6 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StockSurpervisorDiscrepancyItem.aspx.cs" Inherits="LogicUniv1._1.webpage.stockSupervisor.StockSurpervisorDiscrepancyItem" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompareThreeMonths.aspx.cs" Inherits="LogicUniv1._1.webpage.stockSupervisor.CompareThreeMonths" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+    protected void BtnSubmit_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
 
 <html>
 <head>
@@ -38,6 +46,22 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
+    <style type="text/css">
+        .auto-style2 {
+            width: 149px;
+        }
+        .auto-style3 {
+            width: 100px;
+        }
+        .auto-style4 {
+            width: 100px;
+            height: 22px;
+        }
+        .auto-style5 {
+            width: 149px;
+            height: 22px;
+        }
+    </style>
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -163,8 +187,8 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="SSHome.aspx" class="active"><i class="fa fa-home fa-medium"></i>Discrepancy</a></li>
-				  <li><a href="CompareThreeMonths.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
+				  <li><a href="SSHome.aspx" ><i class="fa fa-home fa-medium"></i>Discrepancy</a></li>
+				  <li><a href="CompareThreeMonths.aspx" class="active"><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
 				</ul>
@@ -178,26 +202,103 @@
             
            
 			<div class="tm-right-inner-container">
+                <div> 
+                
+				<table><tr><td class="auto-style3">
+                        <asp:Label ID="Label2" runat="server" Text="Month:"></asp:Label></td><td class="auto-style2">
+                    <asp:DropDownList ID="DropDownListMonthA" runat="server">
+                        
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                                <asp:ListItem>11</asp:ListItem>
+                                <asp:ListItem>12</asp:ListItem>
 
-                    <div style="height: 603px; width: 1020px">
-    
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" Height="468px" Width="879px" CaptionAlign="Bottom" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Font-Bold="False" Font-Italic="False" Font-Names="Cambria" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ShowFooter="True">
-            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-            <EditRowStyle BackColor="#999999" />
-            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-        </asp:GridView>   
-    </div>
+                    </asp:DropDownList></td></tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                                <asp:DropDownList ID="DropDownListMonthB" runat="server">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                                <asp:ListItem>11</asp:ListItem>
+                                <asp:ListItem>12</asp:ListItem>
 
-   </div>
-            </div>
+                    </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <asp:DropDownList ID="DropDownListMonthC" runat="server">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                                <asp:ListItem>11</asp:ListItem>
+                                <asp:ListItem>12</asp:ListItem>
+
+                    </asp:DropDownList>
+
+                        </td>
+                    </tr>
+                    <tr><td class="auto-style4">
+                        <asp:Label ID="Label1" runat="server" Text="Department:"></asp:Label></td><td class="auto-style5">
+                        <asp:DropDownList ID="DropDownListDepartment" runat="server" ></asp:DropDownList></td></tr>
+                    <tr><td class="auto-style3">
+                        &nbsp;</td><td class="auto-style2">
+                        <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" /></td></tr>
+
+				</table>
+              </div>
+                <div>
+                    <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load" Width="1245px">
+                        <Series>
+                            <asp:Series  Name="Series1" Label="#VAL" Legend="Legend1" LegendText="Month">
+                            </asp:Series>
+                            <asp:Series  Name="Series2" Label="#VAL" Legend="Legend1" LegendText="Month">
+                            </asp:Series>
+                            <asp:Series  Name="Series3" Label="#VAL" Legend="Legend1" LegendText="Month">
+                            </asp:Series>
+                        </Series>
+                        <ChartAreas>
+                            <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+                        </ChartAreas>
+                        <Legends>
+                            <asp:Legend Name="Legend1">
+                            </asp:Legend>
+                            <asp:Legend Name="Legend2">
+                            </asp:Legend>
+                            <asp:Legend Name="Legend3">
+                            </asp:Legend>
+                        </Legends>
+                    </asp:Chart>
+                </div>
+                <div>
+                    <asp:GridView ID="GridView1" runat="server" ></asp:GridView>
+                </div>
+                 </div>
 
 				<footer>
 					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
@@ -209,7 +310,7 @@
 						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
 					</p>
 				</footer>
-			
+			</div>
         </div>	
 		<!-- right section -->
     </form>

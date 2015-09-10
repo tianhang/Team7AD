@@ -67,5 +67,20 @@ namespace ClassLibraryBL.EntityFacade
             client.Send(messge);
             messge.Attachments.Dispose();
         }
+
+        //************************Jin yu meng ***************************
+        public List<Department> GetDepName()
+        {
+            var query = from d in luse.departments
+                        select new Department
+                        {
+                            departmentId = d.departmentId,
+                            deptName = d.deptName
+                        };
+            return query.ToList();
+        }
+
+
+
     }
 }

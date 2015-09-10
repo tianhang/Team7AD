@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StockSurpervisorDiscrepancyItem.aspx.cs" Inherits="LogicUniv1._1.webpage.stockSupervisor.StockSurpervisorDiscrepancyItem" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TrendForSupplier.aspx.cs" Inherits="LogicUniv1._1.webpage.stockSupervisor.TrendForSupplier" %>
 
 <!DOCTYPE html>
 
@@ -38,6 +38,16 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
+    <style type="text/css">
+        .auto-style2 {
+            height: 17px;
+            text-align: left;
+        }
+        .auto-style3 {
+            height: 17px;
+            width: 91px;
+        }
+    </style>
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -86,49 +96,7 @@
                     </div>
                 </div>
             </li>
-            <li class="notification-dropdown hidden-xs hidden-sm">
-                <a href="#" class="trigger">
-                    <i class="icon-envelope"></i>
-                </a>
-                <div class="pop-dialog">
-                    <div class="pointer right">
-                        <div class="arrow"></div>
-                        <div class="arrow_border"></div>
-                    </div>
-                    <div class="body">
-                        <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
-                        <div class="messages">
-                            <a href="#" class="item">
-                                <img src="../img/contact-img.png" class="display" />
-                                <div class="name">DEMO</div>
-                                <div class="msg">
-                                    回家来吃饭了.
-                                </div>
-                                <span class="time"><i class="icon-time"></i> 13分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <img src="../img/contact-img2.png" class="display" />
-                                <div class="name">Galván</div>
-                                <div class="msg">
-                                    照片很不错哦.
-                                </div>
-                                <span class="time"><i class="icon-time"></i> 26分钟前.</span>
-                            </a>
-                            <a href="#" class="item last">
-                                <img src="../img/contact-img.png" class="display" />
-                                <div class="name">后台</div>
-                                <div class="msg">
-                                   模版很不错赶紧下载.
-                                </div>
-                                <span class="time"><i class="icon-time"></i> 48分钟前.</span>
-                            </a>
-                            <div class="footer">
-                                <a href="#" class="logout">查看所有消息</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown">
                     你的账号
@@ -163,10 +131,10 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="SSHome.aspx" class="active"><i class="fa fa-home fa-medium"></i>Discrepancy</a></li>
-				  <li><a href="CompareThreeMonths.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
-				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
-				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
+				  <li><a href="SSHome.aspx" ><i class="fa fa-home fa-medium"></i>Discrepancy</a></li>
+				  <li><a href="CompareThreeMonths.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
+				  <li><a href="TrendForSupplier.aspx"class="active"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
+				  <li><a href="ReportOrder.aspx" ><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
 				</ul>
 			</div>
 
@@ -176,28 +144,142 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-           
-			<div class="tm-right-inner-container">
+           <div>
+               <table>
+                   <tr>
+                       <td class="auto-style3">
 
-                    <div style="height: 603px; width: 1020px">
-    
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" Height="468px" Width="879px" CaptionAlign="Bottom" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Font-Bold="False" Font-Italic="False" Font-Names="Cambria" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ShowFooter="True">
-            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-            <EditRowStyle BackColor="#999999" />
-            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-        </asp:GridView>   
-    </div>
+                           <asp:Label ID="Label1" runat="server" Text="Department:"></asp:Label>
 
-   </div>
+                       </td>
+                       <td class="auto-style2">
+
+                           <asp:DropDownList ID="DropDownListDepartment" runat="server">
+                           </asp:DropDownList>
+
+                       </td>
+                       <td class="auto-style2">
+
+                       </td>
+                        <td class="auto-style2">
+
+                       </td>
+                       <td></td>
+                   </tr>
+                   <tr>
+                       <td class="auto-style3">
+
+                           <asp:Label ID="Label2" runat="server" Text="Category:"></asp:Label>
+
+                       </td>
+                       <td class="auto-style2">
+
+                           <asp:DropDownList ID="DropDownListCategory" runat="server">
+                           </asp:DropDownList>
+
+                       </td>
+                       <td class="auto-style2">
+
+                       </td>
+                        <td class="auto-style2">
+
+                       </td>
+                       <td class="auto-style2"></td>
+                   </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label6" runat="server" Text="Type:"></asp:Label></td>
+                        <td>
+                            <asp:DropDownList ID="DropDownListType" runat="server">
+                                <asp:ListItem>Quantity</asp:ListItem>
+                                <asp:ListItem>Cost</asp:ListItem>
+                            </asp:DropDownList></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                   </Table>
+
+
+
+               <Table>
+                   <tr>
+                       <td class="auto-style3">
+
+                           <asp:Label ID="Label3" runat="server" Text="Month:"></asp:Label>
+
+                       </td>
+                       <td class="auto-style2">
+
+                           <asp:Label ID="Label4" runat="server" Text="From:"></asp:Label>
+
+                       </td>
+                       <td class="auto-style2">
+
+                           <asp:DropDownList ID="DropDownListMonthFrom" runat="server">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                                <asp:ListItem>11</asp:ListItem>
+                                <asp:ListItem>12</asp:ListItem>
+                           </asp:DropDownList>
+
+                       </td>
+                        <td class="auto-style2">
+
+                            <asp:Label ID="Label5" runat="server" Text="To:"></asp:Label>
+
+                       </td>
+                       <td>
+                           <asp:DropDownList ID="DropDownListMonthTo" runat="server">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                                <asp:ListItem>11</asp:ListItem>
+                                <asp:ListItem>12</asp:ListItem>
+                           </asp:DropDownList>
+                       </td>
+                   </tr>
+               </table>
+           </div>
+
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Submit" />
+             <div>
+
+
+                <asp:Chart ID="Chart1" runat="server" Width="887px" OnLoad="Chart1_Load">
+                            <Series>
+                                <asp:Series Name="Series1" Label="#VAL" Legend="Legend1" LegendText="Month"></asp:Series>
+                            </Series>
+                            <ChartAreas>
+                                <asp:ChartArea Name="ChartArea1" >
+                                    
+                                </asp:ChartArea>
+                            </ChartAreas>
+                                            <Legends>
+                            <asp:Legend Name="Legend1">
+                            </asp:Legend>
+                          
+                        </Legends>
+                        </asp:Chart>
+
             </div>
+           <div>
+    <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"></asp:GridView>
+               </div>
 
 				<footer>
 					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
@@ -209,7 +291,7 @@
 						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
 					</p>
 				</footer>
-			
+			</div>
         </div>	
 		<!-- right section -->
     </form>

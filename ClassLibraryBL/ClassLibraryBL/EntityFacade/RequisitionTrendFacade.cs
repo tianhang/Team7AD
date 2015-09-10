@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryBL.EntityFacade
 {
-    class RequisitionTrendFacade
+    public class RequisitionTrendFacade
     {
+        LogicUnivSystemEntities luse = new LogicUnivSystemEntities();
+        public List<string> GetCategoryName() {
+            var query = from c in luse.categories
+                        select c.categoryName;
+            return query.ToList();
+        }
     }
 }
