@@ -447,6 +447,8 @@
     <Content Include="webpage\stockClerk\ViewCurrentPendingByItems.aspx" />
     <Content Include="webpage\stockClerk\ViewDiscrepancyHistory.aspx" />
     <Content Include="webpage\stockClerk\ViewDiscrepancyHistoryDetails.aspx" />
+    <Content Include="webpage\stockManager\SMHome.aspx" />
+    <Content Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx" />
     <Content Include="webpage\stockSupervisor\SSHome.aspx" />
     <Content Include="webpage\Master.aspx" />
     <Content Include="webpage\stockSupervisor\StockSurpervisorDiscrepancyItem.aspx" />
@@ -801,6 +803,20 @@
     <Compile Include="webpage\stockClerk\ViewDiscrepancyHistoryDetails.aspx.designer.cs">
       <DependentUpon>ViewDiscrepancyHistoryDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webpage\stockManager\SMHome.aspx.cs">
+      <DependentUpon>SMHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockManager\SMHome.aspx.designer.cs">
+      <DependentUpon>SMHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx.cs">
+      <DependentUpon>StockManagerDiscrepancyItemPengxiaomeng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockManager\StockManagerDiscrepancyItemPengxiaomeng.aspx.designer.cs">
+      <DependentUpon>StockManagerDiscrepancyItemPengxiaomeng.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webpage\stockSupervisor\SSHome.aspx.cs">
       <DependentUpon>SSHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -826,7 +842,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="webpage\sharePage\" />
-    <Folder Include="webpage\stockManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
