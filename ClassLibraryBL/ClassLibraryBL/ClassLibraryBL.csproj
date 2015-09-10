@@ -67,6 +67,7 @@
     <Compile Include="Controller\DeptHead\ViewPastRequistionController.cs" />
     <Compile Include="Controller\loginController.cs" />
     <Compile Include="Controller\deptEmp\RaiseNewRequisitonController.cs" />
+    <Compile Include="Entities\DisbursementList.cs" />
     <Compile Include="Entities\RequisitionDetails.cs" />
     <Compile Include="Controller\stockClerk\MaintainSupplierController.cs" />
     <Compile Include="Controller\stockClerk\MaintainTenderInfoController.cs" />

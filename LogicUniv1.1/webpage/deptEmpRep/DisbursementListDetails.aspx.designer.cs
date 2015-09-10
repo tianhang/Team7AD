@@ -10,7 +10,7 @@
 namespace LogicUniv1._1.webpage.deptEmpRep {
     
     
-    public partial class DepEmpHome {
+    public partial class DisbursementListDetails {
         
         /// <summary>
         /// form1 control.
@@ -40,15 +40,6 @@ namespace LogicUniv1._1.webpage.deptEmpRep {
         protected global::System.Web.UI.WebControls.Label contacName;
         
         /// <summary>
-        /// confirmBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button confirmBtn;
-        
-        /// <summary>
         /// address control.
         /// </summary>
         /// <remarks>
@@ -56,15 +47,6 @@ namespace LogicUniv1._1.webpage.deptEmpRep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label address;
-        
-        /// <summary>
-        /// colldate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label colldate;
         
         /// <summary>
         /// time control.

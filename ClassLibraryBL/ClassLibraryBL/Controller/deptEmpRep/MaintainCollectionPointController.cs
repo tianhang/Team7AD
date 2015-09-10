@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibraryBL.EntityFacade;
 
 namespace ClassLibraryBL.Controller.deptEmpRep
 {
-    class MaintainCollectionPointController
+    public class MaintainCollectionPointController
     {
     }
 }
