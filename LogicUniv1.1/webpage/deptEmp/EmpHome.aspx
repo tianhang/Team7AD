@@ -297,11 +297,13 @@
     <script>
         $(function () {
 
-            var x =(length/5);
-            var height = (x*290) + 800;
+            var x =(length/3);
+            var height = (x*290) + 1200;
             console.log(height);
             console.log(length);
+            var x1 = window.outerHeight;
 
+            console.log(x1);
             
             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
 
@@ -315,7 +317,6 @@
         });
     </script>
 		<!-- right section -->
-    </form>
-
-</body>  
-    </html>
+        </form>
+    </body>  
+</html>

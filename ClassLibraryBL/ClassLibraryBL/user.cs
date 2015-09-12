@@ -45,6 +45,8 @@ namespace ClassLibraryBL
         public int roleId { get; set; }
     	[DataMember]
         public string departmentId { get; set; }
+    	[DataMember]
+        public Nullable<int> messageid { get; set; }
     
     	[DataMember]
         public virtual department department { get; set; }

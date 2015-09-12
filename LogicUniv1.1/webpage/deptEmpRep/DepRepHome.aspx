@@ -180,6 +180,7 @@
 				  <li><a href="DepRepHome.aspx" class="active"><i class="fa fa-list-alt fa-medium"></i>Current Disbursement</a></li>
 				  <li><a href="ViewHistoryDisbursement.aspx"><i class="fa fa-book fa-medium"></i>History Disbursement</a></li>
 				  <li><a href="ChangeCollectionPoint.aspx"><i class="fa fa-flag-checkered fa-medium"></i>Change Collection Point</a></li> 
+                    <li><a href="../deptEmp/EmpHome.aspx"  ><i class="fa fa-money fa-medium"></i>Go to Stationery Shop</a></li>
 				</ul>
 			</div>
 

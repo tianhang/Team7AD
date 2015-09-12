@@ -170,7 +170,7 @@
 				  <li><a href="DelegateAuthority.aspx"><i class="fa fa-gavel fa-medium"></i>Delegate Authority</a></li>
 				  <li><a href="ChangeRep.aspx"><i class="fa fa-user fa-medium"></i>Change Representitive</a></li>
 				  <li><a href="ChangeCollectionPoint.aspx"  ><i class="fa fa-flag-checkered fa-medium"></i>Change Collection Point</a></li>
-				  
+				  <li><a href="../deptEmp/EmpHome.aspx"  ><i class="fa fa-money fa-medium"></i>Go to Stationery Shop</a></li>
 				</ul>
 			</div>
 
@@ -180,7 +180,7 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-            <asp:Label ID="head" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="head" runat="server"></asp:Label>
             
            
 			<div class="tm-right-inner-container" style="padding-left:80px">

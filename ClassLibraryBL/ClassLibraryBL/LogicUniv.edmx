@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -178,6 +178,7 @@
           <Property Name="address" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="roleId" Type="int" Nullable="false" />
           <Property Name="departmentId" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="messageid" Type="int" />
         </EntityType>
         <Association Name="FK_department_collectionPoint">
           <End Role="collectionPoint" Type="Self.collectionPoint" Multiplicity="1">
@@ -787,6 +788,7 @@
           <NavigationProperty Name="purchases" Relationship="Self.FK_purchase_users" FromRole="users" ToRole="purchase" />
           <NavigationProperty Name="requisitions" Relationship="Self.FK_requisition_users" FromRole="users" ToRole="requisition" />
           <NavigationProperty Name="role" Relationship="Self.FK_users_role" FromRole="users" ToRole="role" />
+          <Property Name="messageid" Type="Int32" />
         </EntityType>
         <Association Name="FK_item_category">
           <End Role="category" Type="Self.category" Multiplicity="1">
@@ -1363,6 +1365,7 @@
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="LogicUnivSystemModel.user">
               <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="messageid" ColumnName="messageid" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="password" ColumnName="password" />

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using ClassLibraryBL.EntityFacade;
 using ClassLibraryBL.Controller.DeptHead;
 using ClassLibraryBL.Entities;
-namespace LogicUniv1._1.webpage.DeptHead
+namespace LogicUniv1._1.webpage.deptEmpRep
 {
 
     public partial class ChangeCollectionPoint : System.Web.UI.Page

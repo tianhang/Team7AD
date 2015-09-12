@@ -208,7 +208,7 @@
 				  <li><a href="DelegateAuthority.aspx"><i class="fa fa-gavel fa-medium"></i>Delegate Authority</a></li>
 				  <li><a href="ChangeRep.aspx" class="active"><i class="fa fa-user fa-medium"></i>Change Representitive</a></li>
 				  <li><a href="ChangeCollectionPoint.aspx"><i class="fa fa-flag-checkered fa-medium"></i>Change Collection Point</a></li>
-				  
+				  <li><a href="../deptEmp/EmpHome.aspx"  ><i class="fa fa-money fa-medium"></i>Go to Stationery Shop</a></li>
 				</ul>
 			</div>
 
@@ -231,7 +231,7 @@
                                     <Columns>
                                         <asp:BoundField DataField="name" HeaderText="Employee Name" />
                                         <asp:BoundField DataField="userId" HeaderText="Employee Id" />
-                                        <asp:CommandField HeaderText="Action" SelectText="Assign" ShowSelectButton="True">
+                                        <asp:CommandField HeaderText="Action" ShowSelectButton="True">
                                         <ControlStyle CssClass="btn btn-success" />
                                         </asp:CommandField>
                                     </Columns>
