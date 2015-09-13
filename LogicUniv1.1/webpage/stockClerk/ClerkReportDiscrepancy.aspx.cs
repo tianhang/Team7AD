@@ -22,6 +22,12 @@ namespace LogicUniv1._1.webpage.stockClerk
         User u;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                Object o = pdController.getCategory();
+                dropdownlist_category.DataSource = o;
+                dropdownlist_category.DataBind();
+            }
 
             u = (User)Session["UserEntity"];
 
@@ -156,9 +162,24 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         }
 
-        protected void Btn_confirm_Click(object sender, EventArgs e)
+        protected void Confirm_Click(object sender, EventArgs e)
         {
-            pdController.confirmOperation(Data,u);
+            if (Data.Rows.Count != 0)
+            {
+                try
+                {
+                    pdController.confirmOperation(Data, u);
+                    Response.Redirect("ReportingDiscrepancySuccessfully.aspx");
+                }
+                catch
+                {
+                    lbl_fail.Text = "Transaction Failure,please check your form format";
+                }
+            }
+            if (Data.Rows.Count == 0)
+            {
+                lbl_fail.Text = "Transaction Failure,please check your form format";
+            }
         }
 
         protected void Gv1_PageIndexChanging(object sender, GridViewPageEventArgs e)

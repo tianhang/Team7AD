@@ -184,7 +184,7 @@ namespace ClassLibraryBL.EntityFacade
         //**********************************DU DU********************************
         static DateTime dt = DateTime.Now;
         static int weeknow = Convert.ToInt32(DateTime.Now.DayOfWeek);
-        static int dayspan = (-1) * weeknow + 1;
+        static int dayspan = (-1) * weeknow;
         DateTime dt2 = dt.AddMonths(1);
         DateTime monday = DateTime.Now.AddDays(dayspan);
         public Object getRequisition()
@@ -193,7 +193,7 @@ namespace ClassLibraryBL.EntityFacade
                        join d in luse.departments on r.departmentId equals d.departmentId
                        where r.status != "Completed"
                        where r.status != "Reject"
-                       where r.requestDate >= monday
+                       where r.requestDate >= monday.Date
                        select new { r.requisitionId, r.requestDate, d.deptName, r.status };
             Object o = data.ToList();
             return o;

@@ -43,6 +43,7 @@ namespace ClassLibraryBL.EntityFacade
         }
         public void confirmOperation(DataTable Data,User u)
         {
+
             for (int i = 0; i < Data.Rows.Count; i++)
             {
 
@@ -54,7 +55,6 @@ namespace ClassLibraryBL.EntityFacade
                 String remark = Data.Rows[i].ItemArray[5].ToString();
                 DateTime reportdate = DateTime.Now;
                 addToDiscrepancyTable(description, reportdate, remark, u.UserId, 50, amount, type);
-
             }
         }
 
