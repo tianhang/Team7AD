@@ -43,6 +43,8 @@
         <AssociationConnector Association="LogicUnivSystemModel.FK_requsiiton_item_requisition" ManuallyRouted="false" />
         <AssociationConnector Association="LogicUnivSystemModel.FK_users_role" ManuallyRouted="false" />
         <AssociationConnector Association="LogicUnivSystemModel.FK_purchase_item_supplier" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.message" Width="1.5" PointX="10.375" PointY="5" />
+        <AssociationConnector Association="LogicUnivSystemModel.FK_users_users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

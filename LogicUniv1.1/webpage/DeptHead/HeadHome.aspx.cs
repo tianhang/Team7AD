@@ -33,8 +33,6 @@ namespace LogicUniv1._1.webpage.DeptHead
                 GridView1.DataBind();
                
             }
-
-
         }
         protected void GridView1_PageIndexChanging1(object sender, GridViewPageEventArgs e)
         {
@@ -44,23 +42,15 @@ namespace LogicUniv1._1.webpage.DeptHead
 
         protected void GridView1_SelectedIndexChanging1(object sender, GridViewSelectEventArgs e)
         {
-            //Label1.Text = "test";
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
-
-          
-
           //  Response.Redirect("RequisitionDetails.aspx?rid=" + 1);
-
-
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Label1.Text = GridView1.SelectedRow.Cells[0].Text;
             Response.Redirect("RequisitionDetails.aspx?rid=" + GridView1.SelectedRow.Cells[0].Text);
         }
 

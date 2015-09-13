@@ -29,7 +29,7 @@ namespace LogicUniv1._1.webpage.deptEmp
                             reorderQty = a.reorderQty,
                             balance = a.balance,
                             binNumber = a.binNumber,
-                            photourl = a.photourl,
+                           
                               
 
                         };
@@ -44,7 +44,7 @@ namespace LogicUniv1._1.webpage.deptEmp
                     it.reorderQty = i.reorderQty;
                     it.balance = i.balance;
                     it.binNumber = i.binNumber;
-                    it.photourl = i.photourl;
+                    
                     itemList.Add(it);
 
 
@@ -103,7 +103,7 @@ namespace LogicUniv1._1.webpage.deptEmp
                         reorderQty = a.reorderQty,
                         balance = a.balance,
                         binNumber = a.binNumber,
-                        photourl = a.photourl,
+                        
 
 
                     };
@@ -119,7 +119,7 @@ namespace LogicUniv1._1.webpage.deptEmp
                 it.reorderQty = i.reorderQty;
                 it.balance = i.balance;
                 it.binNumber = i.binNumber;
-                it.photourl = i.photourl;
+               
                 itemList2.Add(it);
 
 
@@ -148,7 +148,7 @@ namespace LogicUniv1._1.webpage.deptEmp
                         reorderQty = a.reorderQty,
                         balance = a.balance,
                         binNumber = a.binNumber,
-                        photourl = a.photourl,
+                       
 
 
                     };
@@ -164,7 +164,7 @@ namespace LogicUniv1._1.webpage.deptEmp
                 it.reorderQty = i.reorderQty;
                 it.balance = i.balance;
                 it.binNumber = i.binNumber;
-                it.photourl = i.photourl;
+               
                 itemList2.Add(it);
 
 

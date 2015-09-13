@@ -22,7 +22,6 @@ namespace LogicUniv1._1.webpage.DeptHead
             {
                 retrieveReqDetails(Request.Params["rid"]);
             }
-
         }
         public void retrievePreReqDetailsForHead(string rid)
         {
@@ -54,6 +53,7 @@ namespace LogicUniv1._1.webpage.DeptHead
             RejectBtn.Enabled = false;
             ApproveBtn.Enabled = false;
             Labelflag.Text = "Successful Approved.";
+            vcrd.checkItemAvailable(x);
         }
 
         protected void RejBtn_Click(object sender, EventArgs e)

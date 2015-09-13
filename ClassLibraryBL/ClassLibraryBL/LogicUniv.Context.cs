@@ -61,5 +61,6 @@ namespace ClassLibraryBL
         public virtual DbSet<supplier> suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<message> messages { get; set; }
     }
 }

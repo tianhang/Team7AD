@@ -82,8 +82,8 @@
           <Property Name="reorderQty" Type="int" Nullable="false" />
           <Property Name="balance" Type="int" Nullable="false" />
           <Property Name="binNumber" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="photourl" Type="nchar" MaxLength="200" />
-          <Property Name="status" Type="nchar" MaxLength="10" />
+          <Property Name="qrcode" Type="varchar(max)" />
+          <Property Name="status" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="item_supplier">
           <Key>
@@ -95,6 +95,18 @@
           <Property Name="tenderYear" Type="date" />
           <Property Name="priority" Type="int" />
           <Property Name="price" Type="int" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="messageid" />
+          </Key>
+          <Property Name="messageid" Type="int" Nullable="false" />
+          <Property Name="message1" Type="varchar(max)" />
+          <Property Name="message2" Type="varchar(max)" />
+          <Property Name="message3" Type="varchar(max)" />
+          <Property Name="message4" Type="varchar(max)" />
+          <Property Name="message5" Type="varchar(max)" />
+          <Property Name="message6" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="purchase">
           <Key>
@@ -466,6 +478,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_users_users">
+          <End Role="message" Type="Self.message" Multiplicity="0..1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="message">
+              <PropertyRef Name="messageid" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="messageid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="LogicUnivSystemModelStoreContainer">
           <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="collectionPoint" EntityType="Self.collectionPoint" Schema="dbo" store:Type="Tables" />
@@ -476,6 +500,7 @@
           <EntitySet Name="discrepancy_item" EntityType="Self.discrepancy_item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="item_supplier" EntityType="Self.item_supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="purchase" EntityType="Self.purchase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="purchase_item" EntityType="Self.purchase_item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="requisition" EntityType="Self.requisition" Schema="dbo" store:Type="Tables" />
@@ -566,6 +591,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_users_role" Association="Self.FK_users_role">
             <End Role="role" EntitySet="role" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_users" Association="Self.FK_users_users">
+            <End Role="message" EntitySet="message" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
         </EntityContainer>
@@ -664,14 +693,14 @@
           <Property Name="reorderQty" Type="Int32" Nullable="false" />
           <Property Name="balance" Type="Int32" Nullable="false" />
           <Property Name="binNumber" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="photourl" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="category" Relationship="Self.FK_item_category" FromRole="item" ToRole="category" />
           <NavigationProperty Name="disbursement_item" Relationship="Self.FK_disbursement_item_item" FromRole="item" ToRole="disbursement_item" />
           <NavigationProperty Name="discrepancy_item" Relationship="Self.FK_discrepancy_item_item" FromRole="item" ToRole="discrepancy_item" />
           <NavigationProperty Name="item_supplier" Relationship="Self.FK_item_supplier_item" FromRole="item" ToRole="item_supplier" />
           <NavigationProperty Name="purchase_item" Relationship="Self.FK_purchase_order_purchase" FromRole="item" ToRole="purchase_item" />
           <NavigationProperty Name="requsiiton_item" Relationship="Self.FK_requsiiton_item_item" FromRole="item" ToRole="requsiiton_item" />
-          <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="qrcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="item_supplier">
           <Key>
@@ -789,6 +818,7 @@
           <NavigationProperty Name="requisitions" Relationship="Self.FK_requisition_users" FromRole="users" ToRole="requisition" />
           <NavigationProperty Name="role" Relationship="Self.FK_users_role" FromRole="users" ToRole="role" />
           <Property Name="messageid" Type="Int32" />
+          <NavigationProperty Name="message" Relationship="LogicUnivSystemModel.FK_users_users" FromRole="user" ToRole="message" />
         </EntityType>
         <Association Name="FK_item_category">
           <End Role="category" Type="Self.category" Multiplicity="1">
@@ -1166,6 +1196,11 @@
             <End Role="supplier" EntitySet="suppliers" />
             <End Role="purchase_item" EntitySet="purchase_item" />
           </AssociationSet>
+          <EntitySet Name="messages" EntityType="LogicUnivSystemModel.message" />
+          <AssociationSet Name="FK_users_users" Association="LogicUnivSystemModel.FK_users_users">
+            <End Role="message" EntitySet="messages" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_purchase_item_supplier">
           <End Type="LogicUnivSystemModel.supplier" Role="supplier" Multiplicity="0..1" />
@@ -1176,6 +1211,31 @@
             </Principal>
             <Dependent Role="purchase_item">
               <PropertyRef Name="supplierid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="messageid" />
+          </Key>
+          <Property Name="messageid" Type="Int32" Nullable="false" />
+          <Property Name="message1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="message2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="message3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="message4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="message5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="message6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="users" Relationship="LogicUnivSystemModel.FK_users_users" FromRole="message" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_users_users">
+          <End Type="LogicUnivSystemModel.message" Role="message" Multiplicity="0..1" />
+          <End Type="LogicUnivSystemModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="message">
+              <PropertyRef Name="messageid" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="messageid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1260,6 +1320,7 @@
           <EntitySetMapping Name="items">
             <EntityTypeMapping TypeName="LogicUnivSystemModel.item">
               <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="qrcode" ColumnName="qrcode" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="itemId" ColumnName="itemId" />
                 <ScalarProperty Name="unit" ColumnName="unit" />
@@ -1269,7 +1330,6 @@
                 <ScalarProperty Name="reorderQty" ColumnName="reorderQty" />
                 <ScalarProperty Name="balance" ColumnName="balance" />
                 <ScalarProperty Name="binNumber" ColumnName="binNumber" />
-                <ScalarProperty Name="photourl" ColumnName="photourl" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1374,6 +1434,19 @@
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="roleId" ColumnName="roleId" />
                 <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messages">
+            <EntityTypeMapping TypeName="LogicUnivSystemModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="message6" ColumnName="message6" />
+                <ScalarProperty Name="message5" ColumnName="message5" />
+                <ScalarProperty Name="message4" ColumnName="message4" />
+                <ScalarProperty Name="message3" ColumnName="message3" />
+                <ScalarProperty Name="message2" ColumnName="message2" />
+                <ScalarProperty Name="message1" ColumnName="message1" />
+                <ScalarProperty Name="messageid" ColumnName="messageid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

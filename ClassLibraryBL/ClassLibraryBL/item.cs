@@ -49,9 +49,9 @@ namespace ClassLibraryBL
     	[DataMember]
         public string binNumber { get; set; }
     	[DataMember]
-        public string photourl { get; set; }
-    	[DataMember]
         public string status { get; set; }
+    	[DataMember]
+        public string qrcode { get; set; }
     
     	[DataMember]
         public virtual category category { get; set; }

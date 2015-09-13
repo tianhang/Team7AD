@@ -19,6 +19,7 @@ namespace ClassLibraryBL
     [KnownType(typeof(purchase))]
     [KnownType(typeof(requisition))]
     [KnownType(typeof(role))]
+    [KnownType(typeof(message))]
     
     public partial class user
     {
@@ -58,5 +59,7 @@ namespace ClassLibraryBL
         public virtual ICollection<requisition> requisitions { get; set; }
     	[DataMember]
         public virtual role role { get; set; }
+    	[DataMember]
+        public virtual message message { get; set; }
     }
 }

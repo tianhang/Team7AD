@@ -23,5 +23,11 @@ namespace ClassLibraryBL.Controller.DeptHead
         {
             rf.rejectRequisition(x, reason);
         }
+
+        public void checkItemAvailable(int x)
+        {
+            rf.checkItemAvailable(x);
+        }
+
     }
 }
