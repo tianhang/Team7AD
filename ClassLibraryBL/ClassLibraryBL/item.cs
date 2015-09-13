@@ -52,6 +52,8 @@ namespace ClassLibraryBL
         public string status { get; set; }
     	[DataMember]
         public string qrcode { get; set; }
+    	[DataMember]
+        public string flag { get; set; }
     
     	[DataMember]
         public virtual category category { get; set; }

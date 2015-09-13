@@ -84,6 +84,7 @@
           <Property Name="binNumber" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="qrcode" Type="varchar(max)" />
           <Property Name="status" Type="nchar" MaxLength="50" />
+          <Property Name="flag" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="item_supplier">
           <Key>
@@ -701,6 +702,7 @@
           <NavigationProperty Name="requsiiton_item" Relationship="Self.FK_requsiiton_item_item" FromRole="item" ToRole="requsiiton_item" />
           <Property Name="status" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="qrcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="item_supplier">
           <Key>
@@ -1320,6 +1322,7 @@
           <EntitySetMapping Name="items">
             <EntityTypeMapping TypeName="LogicUnivSystemModel.item">
               <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="flag" ColumnName="flag" />
                 <ScalarProperty Name="qrcode" ColumnName="qrcode" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="itemId" ColumnName="itemId" />

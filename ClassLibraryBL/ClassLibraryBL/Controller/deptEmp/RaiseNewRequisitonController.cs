@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections;
 namespace ClassLibraryBL.Controller.deptEmp
 {
     public class RaiseNewRequisitonController
@@ -78,7 +78,7 @@ namespace ClassLibraryBL.Controller.deptEmp
 
         public void addRequisitionController(User u, List<ShoppingItem> sclist)
         {
-            rf.addRequisition(u, sclist);
+             rf.addRequisition(u, sclist);
         }
 
 

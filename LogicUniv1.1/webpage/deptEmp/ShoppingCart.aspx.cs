@@ -118,7 +118,8 @@ namespace LogicUniv1._1.webpage.deptEmp
             sclist2 = (List<ShoppingItem>)Session["sclist"];
             rnrc.addRequisitionController(u, sclist2);
             Label1.Text = "add success";
-
+           
+            
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
