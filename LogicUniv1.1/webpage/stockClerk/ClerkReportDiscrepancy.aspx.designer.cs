@@ -121,15 +121,6 @@ namespace LogicUniv1._1.webpage.stockClerk {
         protected global::System.Web.UI.WebControls.TextBox textbox_remark;
         
         /// <summary>
-        /// Btn_edit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_edit;
-        
-        /// <summary>
         /// Btn_Add control.
         /// </summary>
         /// <remarks>
@@ -137,6 +128,15 @@ namespace LogicUniv1._1.webpage.stockClerk {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Add;
+        
+        /// <summary>
+        /// lbl_fail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_fail;
         
         /// <summary>
         /// Btn_confirm control.

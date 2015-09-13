@@ -18,7 +18,7 @@ namespace ClassLibraryBL.EntityFacade
                        join pi in lg.purchase_item on i.itemId equals pi.itemId
                        join p in lg.purchases on pi.purchaseId equals p.purchaserId
                        where r.status == "Pending"
-                       select new { i.description, ri.requestQty, p.status } into newgg
+                       select new { i.description, ri.requestQty, p.status }into newgg
                        group newgg by new { newgg.description, newgg.status } into grouppings
                        select new
                        {
