@@ -218,6 +218,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="testing2.aspx" />
     <Content Include="Test\WebForm1.aspx" />
     <Content Include="webpage\css\bootstrap.min.css" />
     <Content Include="webpage\css\bootstrap\bootstrap-overrides.css" />
@@ -459,6 +460,7 @@
     <Content Include="webpage\stockClerk\HistoryDisbursementListDetails.aspx" />
     <Content Include="webpage\stockClerk\Purchaseitems.aspx" />
     <Content Include="webpage\stockClerk\Reorder.aspx" />
+    <Content Include="webpage\stockClerk\ReportingDiscrepancySuccessfully.aspx" />
     <Content Include="webpage\stockClerk\ViewCurrentPendingByDept.aspx" />
     <Content Include="webpage\stockClerk\ViewCurrentPendingByDeptDetails.aspx" />
     <Content Include="webpage\stockClerk\ViewCurrentPendingByItems.aspx" />
@@ -605,6 +607,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="testing2.aspx.cs">
+      <DependentUpon>testing2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testing2.aspx.designer.cs">
+      <DependentUpon>testing2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Test\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -822,6 +831,13 @@
     </Compile>
     <Compile Include="webpage\stockClerk\Reorder.aspx.designer.cs">
       <DependentUpon>Reorder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ReportingDiscrepancySuccessfully.aspx.cs">
+      <DependentUpon>ReportingDiscrepancySuccessfully.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\ReportingDiscrepancySuccessfully.aspx.designer.cs">
+      <DependentUpon>ReportingDiscrepancySuccessfully.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\stockClerk\ViewCurrentPendingByDept.aspx.cs">
       <DependentUpon>ViewCurrentPendingByDept.aspx</DependentUpon>

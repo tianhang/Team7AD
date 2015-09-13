@@ -246,7 +246,7 @@
         <h4 class="modal-title" id="exampleModalLabel">Add Supplier</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <<%--form--%>>
           <div class="form-group">
             <label for="recipient-name" class="control-label">Company Name:</label>
             <asp:TextBox ID="CompanyName" class="form-control" runat="server" Width="254px"></asp:TextBox>
@@ -271,7 +271,7 @@
              <label for="recipient-name" class="control-label">GST-RegistrationNO:</label>
             <asp:TextBox ID="gst" class="form-control" runat="server" Width="257px"></asp:TextBox>
           </div>
-        </form>
+        </%--form--%>
       
       <div class="modal-footer">
      <asp:Button ID="Close" class="btn btn-default" data-dismiss="modal" runat="server" Text="Close" />

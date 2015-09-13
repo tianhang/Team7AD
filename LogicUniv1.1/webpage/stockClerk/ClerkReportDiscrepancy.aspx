@@ -270,18 +270,27 @@
                   <p>
                     Remark：<asp:TextBox ID="textbox_remark" runat="server" CssClass="TextBox" Width="25%"></asp:TextBox></p>
                 <p>
-                    <asp:Button ID="Btn_edit" runat="server" Text="Edit" OnClick="Btn_edit_Click" CssClass="btn btn-info btn-sm" />
-                    <asp:Button ID="Btn_Add" runat="server" OnClick="Btn_Add_Click" Text="Add to row" CssClass="btn btn-info btn-sm"/>
-                    <button id="Btn_submit" type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#myModal" >Submit</button>
+                    <%--<asp:Button ID="Btn_edit" runat="server" Text="Edit" OnClick="Btn_edit_Click" CssClass="btn btn-info btn-sm" />--%>
+                    <asp:Button ID="Btn_Add" runat="server" OnClick="Btn_Add_Click" Text="Add to row" CssClass="btn btn-info btn-sm"/>                    
                 </p>
                 </div>
         <div>
              <!-- Trigger the modal with a button -->
                     
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+
+        </div>
+    </div>
+                   </ContentTemplate>
+</asp:UpdatePanel>
+
+                <button id="Btn_submit" style="position:relative;left:90%"  class="btn btn-info btn-sm " data-whatever="@getbootstrap" data-toggle="modal" data-target="#exampleModal" >Submit</button>
+                <div style="position:relative;left:90%">
+                <asp:Label ID="lbl_fail" runat="server" ForeColor="Red" Font-Size="Medium" Text=""></asp:Label>
+                </div>
+                <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -290,21 +299,16 @@
           <h4 class="modal-title">Confirmation</h4>
         </div>
         <div class="modal-body">
-          <p>Do you want to confirm</p>
+            <p>Do you want to confirm</p>
+                <div class="modal-footer">
+                    <asp:Button ID="Btn_confirm"  runat="server" CssClass="btn btn-default" Text="Confirm"  OnClick="Confirm_Click"/>    
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
         </div>
-        <div class="modal-footer">
-          <asp:Button ID="Btn_confirm" class="btn btn-default" runat="server" Text="Confirm"  OnClick="Btn_confirm_Click"/>    
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-        </div>
-    </div>
-                   </ContentTemplate>
-</asp:UpdatePanel>
-            </div>
+     </div>
+   </div>
+  <!-- Modal End-->
+</div>
 
 				<footer>
 					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
