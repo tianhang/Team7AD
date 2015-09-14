@@ -15,7 +15,7 @@ namespace ClassLibraryBL.EntityFacade
         public List<requisition> getPendingRequisition(User u)
         {
             var t = (from x in luse.requisitions
-                     where x.status == "Pending" && x.departmentId == u.DepartmentId
+                     where x.status_dept == "Pending" && x.departmentId == u.DepartmentId
                      select x).ToList();
             return t;
         }
@@ -39,7 +39,8 @@ namespace ClassLibraryBL.EntityFacade
                            CollectionPoint = m.address,
                            ReqDate = x.requestDate,
                            Name = n.name,
-                           photourl = "../images/" + y.description.Trim() + ".jpg"
+                           photourl = "../images/" + y.description.Trim() + ".jpg",
+                           Status_dept = x.status_dept
                          }).ToList();
             return ilist;
 
@@ -47,11 +48,12 @@ namespace ClassLibraryBL.EntityFacade
 
         public void approveRequisition(int x)
         {
+
             List<itemValidate> itemidlistAvailable = new List<itemValidate>();
             var n = (from x1 in luse.requisitions
                      from y in luse.items
                      from z in luse.requsiiton_item
-                     where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == x
+                     where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == x && y.flag != "needReorderSoon"
                      select new itemValidate
                      {
                          Itemid = z.itemId,
@@ -60,15 +62,6 @@ namespace ClassLibraryBL.EntityFacade
                          Itemreorderlevel = y.reorderlevel
                      }).ToList();
             itemidlistAvailable = n;
-            foreach(itemValidate i in itemidlistAvailable){
-
-                if(i.StockBalance<i.Itemreorderlevel){
-                    var u = (from x1 in luse.items
-                             where x1.itemId == i.Itemid
-                             select x1).First();
-                    u.status = "stockout";
-                }
-            }
             List<itemValidate> itemidlistNotAvailable = new List<itemValidate>();
             var m = (from x1 in luse.requisitions
                      from y in luse.items
@@ -82,30 +75,68 @@ namespace ClassLibraryBL.EntityFacade
                          StockBalance = y.balance
                      }).ToList();
             itemidlistNotAvailable = m;
+            foreach (itemValidate i in itemidlistAvailable)
+            {
 
-
-
-            //foreach (itemValidate x2 in itemlist)
-            //{
-            //    if (x2.StockBalance < x2.RequestQty)
-            //    {
-            //        itemidlistNotAvailable.Add(x2.Itemid);
-            //        flag++;
-            //    }
-            //    else
-            //    {
-            //        itemidlistAvailable.Add(x2);
-            //    }
-            //}
-
-
-
+                if (i.StockBalance < i.Itemreorderlevel)
+                {
+                    var u = (from x1 in luse.items
+                             where x1.itemId == i.Itemid
+                             select x1).First();
+                    u.status = "stockout";
+                }
+            }
+            foreach (itemValidate x5 in itemidlistNotAvailable)
+            {
+                var u = (from x1 in luse.items
+                         where x1.itemId == x5.Itemid
+                         select x1).First();
+                u.flag = "NULL";
+            }
+            /// update disbursement list
             if (itemidlistNotAvailable.Count == 0)
             {
                 var m0 = (from l in luse.requisitions
-                         where l.requisitionId == x
-                         select l).First();
+                          where l.requisitionId == x
+                          select l).First();
                 m0.status = "WaitingCollection";
+                m0.status_dept = "Approved";
+                var deptobj = (from m1 in luse.requisitions
+                                      where m1.requisitionId == x
+                                      select m1).First();
+                string dept = deptobj.departmentId;
+                var coltime = (from m2 in luse.collectionPoints
+                               from m3 in luse.departments
+                                   where m2.collectionPointId == m3.collectionPointId && m3.departmentId == dept 
+                                   select new {m2,m3}).First();
+                string collectiontime = coltime.m2.time;
+                DateTime dt = DateTime.Now;
+                int weeknow = Convert.ToInt32(DateTime.Now.DayOfWeek);
+                int dayspan = (-1) * weeknow + 5;
+                DateTime dt2 = dt.AddMonths(1);
+                DateTime friday = DateTime.Now.AddDays(dayspan);
+                string nhd = (friday.ToShortDateString() + " " + collectiontime);
+                DateTime myDatefriday = Convert.ToDateTime(nhd);
+              /// update disbursement list
+                disbursement di = new disbursement();
+                    di.departmentId = dept;
+                    di.collectDate = myDatefriday;
+                    di.status = "WaitingCollection";
+                    luse.disbursements.Add(di);
+                luse.SaveChanges();
+                foreach (itemValidate mx in itemidlistAvailable)
+                {
+                    disbursement_item disbi = new disbursement_item();
+                    disbi.disbursementId = di.disbursementId;
+                    disbi.itemId = mx.Itemid;
+                    disbi.collectQty = mx.RequestQty;
+                    luse.disbursement_item.Add(disbi);
+                }
+                
+
+
+                ///update disbursement list 
+
             }
             else
             {
@@ -113,15 +144,17 @@ namespace ClassLibraryBL.EntityFacade
                          where l.requisitionId == x
                          select l).First();
                 m1.status = "PendingForOrder";
-                //foreach (int y in itemidlistNotAvailable)
-                //{
-                //    var u = (from x1 in luse.items
-                //             where x1.itemId == y
-                //             select x1).First();
-                //u.status = "needReorderSoon";
-                //}
+                m1.status_dept = "Approved";
             }
             luse.SaveChanges();
+
+
+
+
+
+
+
+
         }
 
 
@@ -129,13 +162,11 @@ namespace ClassLibraryBL.EntityFacade
 
         public void rejectRequisition(int x,string reason)
         {
-
-
             List<itemValidate> itemidlistAvailable = new List<itemValidate>();
             var n = (from x1 in luse.requisitions
                      from y in luse.items
                      from z in luse.requsiiton_item
-                     where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == x 
+                     where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == x && y.flag != "needReorderSoon"
                      select new itemValidate
                      {
                          Itemid = z.itemId,
@@ -161,7 +192,8 @@ namespace ClassLibraryBL.EntityFacade
             var req = (from y in luse.requisitions
                        where y.requisitionId == x
                        select y).First();
-            req.status = "Rejected";
+            req.status_dept = "Rejected";
+            req.status = "Cancelled";
             req.rejectReason = reason;
             if (itemidlistNotAvailable.Count == 0 && itemidlistAvailable.Count != 0)
             {
@@ -180,6 +212,25 @@ namespace ClassLibraryBL.EntityFacade
                              where x1.itemId == i.Itemid
                              select x1).First();
                     u.balance = u.balance + i.RequestQty;
+                }
+                foreach (itemValidate i in itemidlistNotAvailable)
+                {
+                    var u = (from x1 in luse.items
+                             where x1.itemId == i.Itemid
+                             select x1).First();
+                    u.flag = "NULL";
+                }
+                var req2 = (from y in luse.requisitions
+                           where y.requisitionId == x
+                           select y).First();
+            }
+            else if (itemidlistNotAvailable.Count != 0 && itemidlistAvailable.Count == 0)
+            {
+                foreach (itemValidate i in itemidlistNotAvailable)
+                {
+                    var u = (from x1 in luse.items
+                             where x1.itemId == i.Itemid
+                             select x1).First();
                     u.flag = "NULL";
                 }
             }
@@ -190,7 +241,7 @@ namespace ClassLibraryBL.EntityFacade
         public List<requisition> getPreRequisition(User u)
         {
             var t = (from x in luse.requisitions
-                     where x.status == "Approved"
+                     where x.status_dept == "Approved" || x.status_dept == "Reject"
                      select x).ToList();
             return t;
         }
@@ -199,7 +250,7 @@ namespace ClassLibraryBL.EntityFacade
         public List<requisition> getAllRequisitionEmployee(User u)
         {
             var t = (from a in luse.requisitions
-                     where a.userId == u.UserId
+                     where a.userId == u.UserId && a.status_dept.Trim() == "Approved" || a.status_dept.Trim() == "Reject"
                      select a).ToList();
             return t;
         }
@@ -207,7 +258,7 @@ namespace ClassLibraryBL.EntityFacade
         public List<requisition> getPendingRequisitionEmployee(User u)
         {
             var t = (from a in luse.requisitions
-                     where a.userId == u.UserId && a.status.Trim() == "Pending"
+                     where a.userId == u.UserId && a.status_dept.Trim() == "Pending"
                      select a).ToList();
             return t;
         }
@@ -218,17 +269,17 @@ namespace ClassLibraryBL.EntityFacade
             re.departmentId = u.DepartmentId;
             re.userId = u.UserId;
             re.rejectReason = null;
-            re.status = "Pending";
+            re.status_dept = "Pending";
             re.requestDate = DateTime.Now;
             luse.requisitions.Add(re);
             luse.SaveChanges();
             for (int i = 0; i < sclist.Count; i++) {
-                requsiiton_item reItem = new requsiiton_item();
-                reItem.requisitionId = re.requisitionId;
-                reItem.itemId = sclist[i].ItemId;
-                reItem.requestQty = sclist[i].Amount;
-                luse.requsiiton_item.Add(reItem);
-                luse.SaveChanges();
+            requsiiton_item reItem = new requsiiton_item();
+            reItem.requisitionId = re.requisitionId;
+            reItem.itemId = sclist[i].ItemId;
+            reItem.requestQty = sclist[i].Amount;
+            luse.requsiiton_item.Add(reItem);
+            luse.SaveChanges();
             }
             checkItemAvailable(re.requisitionId);
         }
@@ -359,7 +410,7 @@ namespace ClassLibraryBL.EntityFacade
 
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    where a.requestDate > da && a.status =="WaitingCollection"
+                    where a.requestDate >= da && a.status =="WaitingCollection"
                     group b.requisition_itemId by b.itemId into g
                     join c in luse.items on g.Key equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
@@ -403,7 +454,7 @@ namespace ClassLibraryBL.EntityFacade
             }
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    where (a.requestDate > da) && (a.departmentId == s)
+                    where (a.requestDate >= da) && (a.departmentId == s)
                     group b.requisition_itemId by b.itemId into g
                     join c in luse.items on g.Key equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
@@ -446,7 +497,7 @@ namespace ClassLibraryBL.EntityFacade
             DateTime dt2 = DateTime.ParseExact(end, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture);
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    where (a.requestDate < dt2) && (a.requestDate > dt1)
+                    where (a.requestDate <= dt2) && (a.requestDate >= dt1)
                     group b.requisition_itemId by b.itemId into g
                     join c in luse.items on g.Key equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
@@ -493,7 +544,7 @@ namespace ClassLibraryBL.EntityFacade
             DateTime dt2 = DateTime.ParseExact(end, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture);
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    where (a.departmentId == ts) && (a.requestDate < dt2) && (a.requestDate > dt1)
+                    where (a.departmentId == ts) && (a.requestDate <= dt2) && (a.requestDate >= dt1)
                     group b.requisition_itemId by b.itemId into g
                     join c in luse.items on g.Key equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId

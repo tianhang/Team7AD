@@ -18,7 +18,7 @@ namespace LogicUniv1._1.webpage.DeptHead
             u = (User)Session["UserEntity"];
             if (vprc.getPreRequisition(u).Count() == 0)
             {
-                head.Text = "There is no Current Requsition at this moment.";
+                head.Text = "There is no History Requsition at this moment.";
                 //RejectBtn.Visible = false;
                 //ApproveBtn.Visible = false;
             }

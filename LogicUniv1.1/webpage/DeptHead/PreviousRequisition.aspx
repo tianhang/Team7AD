@@ -198,7 +198,7 @@
                                     <asp:BoundField DataField="RequisitionId" HeaderText="RequisitionId" />
                                     <asp:BoundField DataField="userId" HeaderText="Requested By" />
                                     <asp:BoundField DataField="requestDate" HeaderText="Requested Date" />
-                                    <asp:BoundField DataField="Status" HeaderText="Status" />
+                                    <asp:BoundField DataField="status_dept" HeaderText="Status" />
                                     <asp:CommandField HeaderText="Details" SelectText="Details" ShowSelectButton="True" />
                                 </Columns>
                                 <FooterStyle BackColor="#CCCCCC" />

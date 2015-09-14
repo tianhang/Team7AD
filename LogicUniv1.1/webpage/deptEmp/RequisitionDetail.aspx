@@ -182,7 +182,7 @@
                     <asp:Label ID="Label1" runat="server" Text="Requisition Id : "></asp:Label>
                     <asp:TextBox ID="TextBox1" runat="server" Width="111px"></asp:TextBox>
                     &nbsp&nbsp&nbsp&nbsp
-                    <asp:Label ID="Label2" runat="server" Text="Stutas:"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Status:"></asp:Label>
                     <asp:TextBox ID="TextBox2" runat="server" Width="107px"></asp:TextBox>
                     &nbsp&nbsp&nbsp&nbsp
                     <asp:Label ID="Label3" runat="server" Text="Collection Point :"></asp:Label>

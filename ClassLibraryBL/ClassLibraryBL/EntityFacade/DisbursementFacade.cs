@@ -52,7 +52,7 @@ namespace ClassLibraryBL.EntityFacade
                                 update.status = "Completed";
                                 cntx.SaveChanges();
                                 }
-                                catch (Exception ex)
+                                catch (Exception eew)
                                 {
                             }
                         }

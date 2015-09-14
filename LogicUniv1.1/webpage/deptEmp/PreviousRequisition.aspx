@@ -187,7 +187,7 @@
                         <Columns>
                             <asp:BoundField DataField="requisitionId" HeaderText="Requisition ID" />
                             <asp:BoundField DataField="requestDate" HeaderText="Requisition Date" />
-                            <asp:BoundField DataField="status" HeaderText="Status" />
+                            <asp:BoundField DataField="status_dept" HeaderText="Status" />
                             <asp:CommandField HeaderText="Details" SelectText="Details" ShowSelectButton="True" />
                         </Columns>
                         <EmptyDataTemplate>

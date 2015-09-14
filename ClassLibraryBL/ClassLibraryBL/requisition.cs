@@ -37,6 +37,8 @@ namespace ClassLibraryBL
         public string userId { get; set; }
     	[DataMember]
         public string rejectReason { get; set; }
+    	[DataMember]
+        public string status_dept { get; set; }
     
     	[DataMember]
         public virtual department department { get; set; }

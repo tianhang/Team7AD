@@ -194,8 +194,8 @@
                 <div> 
                     <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged1" AutoPostBack="true">
                         <asp:ListItem>Commerce</asp:ListItem>
-                        <asp:ListItem Value="ComputerScience">ComputerScience</asp:ListItem>
-                        <asp:ListItem>EnglishDept</asp:ListItem>
+                        <asp:ListItem Value="ComputerScience">Computer Science</asp:ListItem>
+                        <asp:ListItem>English Dept</asp:ListItem>
                         <asp:ListItem>Registrar</asp:ListItem>
                         <asp:ListItem>Store</asp:ListItem>
                         <asp:ListItem>Zoology</asp:ListItem>

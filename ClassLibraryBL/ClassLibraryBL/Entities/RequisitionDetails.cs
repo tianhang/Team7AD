@@ -13,6 +13,16 @@ namespace ClassLibraryBL.Entities
         string description;
         string unit;
         string name;
+        string status_dept;
+
+
+           [DataMember]
+        public string Status_dept
+        {
+            get { return status_dept; }
+            set { status_dept = value; }
+        }
+
           [DataMember]
         public string Name
         {

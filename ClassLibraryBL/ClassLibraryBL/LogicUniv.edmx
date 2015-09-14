@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -137,9 +137,10 @@
           <Property Name="requisitionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="departmentId" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="requestDate" Type="datetime" Nullable="false" />
-          <Property Name="status" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="nchar" MaxLength="50" />
           <Property Name="userId" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="rejectReason" Type="nchar" MaxLength="200" />
+          <Property Name="status_dept" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="requsiiton_item">
           <Key>
@@ -751,12 +752,13 @@
           <Property Name="requisitionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="departmentId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="requestDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="status" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="userId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="rejectReason" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="department" Relationship="Self.FK_requisition_department" FromRole="requisition" ToRole="department" />
           <NavigationProperty Name="user" Relationship="Self.FK_requisition_users" FromRole="requisition" ToRole="users" />
           <NavigationProperty Name="requsiiton_item" Relationship="Self.FK_requsiiton_item_requisition" FromRole="requisition" ToRole="requsiiton_item" />
+          <Property Name="status_dept" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="requsiiton_item">
           <Key>
@@ -1374,6 +1376,7 @@
           <EntitySetMapping Name="requisitions">
             <EntityTypeMapping TypeName="LogicUnivSystemModel.requisition">
               <MappingFragment StoreEntitySet="requisition">
+                <ScalarProperty Name="status_dept" ColumnName="status_dept" />
                 <ScalarProperty Name="requisitionId" ColumnName="requisitionId" />
                 <ScalarProperty Name="departmentId" ColumnName="departmentId" />
                 <ScalarProperty Name="requestDate" ColumnName="requestDate" />

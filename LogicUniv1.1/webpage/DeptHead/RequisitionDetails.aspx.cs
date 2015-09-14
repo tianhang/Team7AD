@@ -28,7 +28,7 @@ namespace LogicUniv1._1.webpage.DeptHead
             Session["reqdetails"] = vprc.getRequisitionDetails(rid);
             reqid.Text = "Requisition Number: " + Request.Params["rid"];
             reqby.Text = "Requested By :" + vcrd.getRequisitionDetails(rid).First().Name;
-            status.Text = "Status :" + vcrd.getRequisitionDetails(rid).First().Status;
+            status.Text = "Status :" + vcrd.getRequisitionDetails(rid).First().Status_dept;
             colpoint.Text = "Collection Point: " + vcrd.getRequisitionDetails(rid).First().CollectionPoint;
             RejectBtn.Visible = false;
             ApproveBtn.Visible = false;
@@ -40,7 +40,7 @@ namespace LogicUniv1._1.webpage.DeptHead
             Session["reqdetails"] = vcrd.getRequisitionDetails(rid);
             reqid.Text = "Requisition Number: " + Request.Params["rid"];
             reqby.Text = "Requested By :" + vcrd.getRequisitionDetails(rid).First().Name;
-            status.Text = "Status :" + vcrd.getRequisitionDetails(rid).First().Status;
+            status.Text = "Status :" + vcrd.getRequisitionDetails(rid).First().Status_dept;
             colpoint.Text = "Collection Point: " + vcrd.getRequisitionDetails(rid).First().CollectionPoint;
 
         }
