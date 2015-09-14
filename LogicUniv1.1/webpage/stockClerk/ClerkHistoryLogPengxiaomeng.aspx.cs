@@ -16,6 +16,11 @@ namespace LogicUniv1._1.webpage.stockClerk
         ViewRetrievalFormController view = new ViewRetrievalFormController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            user u = (user)Session["User"];
+            if (u.roleId != 4)
+            {
+                Response.Redirect();
+            }
             GridView1.DataSource = view.checkhistorybyitemwithoutdate();
             GridView1.DataBind();
         }     

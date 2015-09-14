@@ -16,7 +16,11 @@ namespace LogicUniv1._1.webpage.stockClerk
         PlaceOrderController pl = new PlaceOrderController();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            user u = (user)Session["User"];
+            if (u.roleId != 4)
+            {
+                Response.Redirect();
+            }
         }
 
         protected void Confirm_Click(object sender, EventArgs e)
@@ -36,7 +40,7 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         protected void Order_Click(object sender, EventArgs e)
         {
-            user u=new user();
+            user u = (user)Session["User"];
             pl.formorder(u);
             Response.Redirect("Reorder.aspx");
         }

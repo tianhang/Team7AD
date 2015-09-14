@@ -14,16 +14,21 @@ namespace LogicUniv1._1.webpage.stockClerk
 {
     public partial class Purchaseitem : System.Web.UI.Page
     {
+        
         PlaceOrderController pl = new PlaceOrderController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            user u = (user)Session["User"];
+            if(u.roleId!=4){
+                Response.Redirect();
+            }
             purchase s=(purchase) Session["purchaseitem"];
             List<Purchaseitem111> l = pl.showpurchaseitems(s);
             GridView1.DataSource = l;
             GridView1.DataBind();
             Label3.Text = s.purchaserId.ToString();
             Label5.Text = DateTime.Today.Date.ToShortDateString();
-            Label7.Text = s.supplierId.ToString(); 
+            Label7.Text = s.supplierId.ToString();
             foreach (GridViewRow r in GridView1.Rows)
             {
                 DropDownList dp = (DropDownList)r.FindControl("choosesupplier");
@@ -41,6 +46,7 @@ namespace LogicUniv1._1.webpage.stockClerk
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
                 //GridViewRow gvr = (GridViewRow)((Control)e.CommandSource).Parent.Parent
+            user u = (user)Session["User"];
             purchase s = (purchase)Session["purchaseitem"];
             int index=Convert.ToInt32(e.CommandArgument);
             string k =GridView1.Rows[index].Cells[0].Text;
@@ -49,7 +55,7 @@ namespace LogicUniv1._1.webpage.stockClerk
             string sp = dp.Text;
             if (e.CommandName == "ChangeSupplier")
             {
-                pl.changesupplier(index, s.purchaserId, sp);
+                pl.changesupplier(index, s.purchaserId, sp,u.userId);
                 Response.Redirect("Purchaseitems.aspx"); 
             
             };
