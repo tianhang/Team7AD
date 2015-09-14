@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ClassLibraryBL.Entities;
 namespace ClassLibraryBL.EntityFacade
 {
-    class RequisiitonFacade
+    public class RequisiitonFacade
     {
       
         LogicUnivSystemEntities luse = new LogicUnivSystemEntities();
@@ -97,8 +97,8 @@ namespace ClassLibraryBL.EntityFacade
             if (itemidlistNotAvailable.Count == 0)
             {
                 var m0 = (from l in luse.requisitions
-                          where l.requisitionId == x
-                          select l).First();
+                         where l.requisitionId == x
+                         select l).First();
                 m0.status = "WaitingCollection";
                 m0.status_dept = "Approved";
                 var deptobj = (from m1 in luse.requisitions
@@ -274,12 +274,12 @@ namespace ClassLibraryBL.EntityFacade
             luse.requisitions.Add(re);
             luse.SaveChanges();
             for (int i = 0; i < sclist.Count; i++) {
-            requsiiton_item reItem = new requsiiton_item();
-            reItem.requisitionId = re.requisitionId;
-            reItem.itemId = sclist[i].ItemId;
-            reItem.requestQty = sclist[i].Amount;
-            luse.requsiiton_item.Add(reItem);
-            luse.SaveChanges();
+                requsiiton_item reItem = new requsiiton_item();
+                reItem.requisitionId = re.requisitionId;
+                reItem.itemId = sclist[i].ItemId;
+                reItem.requestQty = sclist[i].Amount;
+                luse.requsiiton_item.Add(reItem);
+                luse.SaveChanges();
             }
             checkItemAvailable(re.requisitionId);
         }
@@ -381,45 +381,45 @@ namespace ClassLibraryBL.EntityFacade
         //**** Peng xiao meng ********************
         public List<RequisitionMix> currentweekbyitem()
         {
-            DateTime da = DateTime.Today.Date;
+            DateTime da = DateTime.Today;
             String dw = da.DayOfWeek.ToString();
 
             switch (dw)
             {
                 case "Tuesday":
-                    da = da.AddDays(-1);
-                    break;
-                case "Wednesday":
                     da = da.AddDays(-2);
                     break;
-                case "Thursday":
+                case "Wednesday":
                     da = da.AddDays(-3);
                     break;
-                case "Friday":
+                case "Thursday":
                     da = da.AddDays(-4);
                     break;
-                case "Saturday":
+                case "Friday":
                     da = da.AddDays(-5);
                     break;
-                case "Sunday":
+                case "Saturday":
                     da = da.AddDays(-6);
                     break;
+                case "Sunday":
+                    da = da.AddDays(-7);
+                    break;
                 default:
+                    da = da.AddDays(-1);
                     break;
             }
-
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where a.requestDate >= da && a.status =="WaitingCollection"
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    group b by new { b.itemId } into g 
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId, 
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty),
                         Unit = c.unit,
                         Bin = c.binNumber
                     };
@@ -432,38 +432,39 @@ namespace ClassLibraryBL.EntityFacade
             switch (dw)
             {
                 case "Tuesday":
-                    da = da.AddDays(-1);
-                    break;
-                case "Wednesday":
                     da = da.AddDays(-2);
                     break;
-                case "Thursday":
+                case "Wednesday":
                     da = da.AddDays(-3);
                     break;
-                case "Friday":
+                case "Thursday":
                     da = da.AddDays(-4);
                     break;
-                case "Saturday":
+                case "Friday":
                     da = da.AddDays(-5);
                     break;
-                case "Sunday":
+                case "Saturday":
                     da = da.AddDays(-6);
                     break;
+                case "Sunday":
+                    da = da.AddDays(-7);
+                    break;
                 default:
+                    da = da.AddDays(-1);
                     break;
             }
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    where (a.requestDate >= da) && (a.departmentId == s)
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    where (a.requestDate > da) && (a.departmentId == s) && (a.status =="WaitingCollection")
+                    group b by new { b.itemId } into g
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId,
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty),
                         Unit = c.unit,
                         Bin = c.binNumber
 
@@ -474,15 +475,15 @@ namespace ClassLibraryBL.EntityFacade
         {
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    group b by new { b.itemId, b.requestQty } into g
+                    join c in luse.items on g.Key.itemId equals c.itemId 
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId, 
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty), 
                         Unit = c.unit,
                         Bin = c.binNumber
 
@@ -497,16 +498,16 @@ namespace ClassLibraryBL.EntityFacade
             DateTime dt2 = DateTime.ParseExact(end, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture);
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    where (a.requestDate <= dt2) && (a.requestDate >= dt1)
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    where (a.requestDate < dt2) && (a.requestDate > dt1)
+                    group b by new { b.itemId, b.requestQty } into g 
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId,
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty), 
                         Unit = c.unit,
                         Bin = c.binNumber
 
@@ -519,15 +520,15 @@ namespace ClassLibraryBL.EntityFacade
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where (a.departmentId == ts)
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    group b by new { b.itemId, b.requestQty } into g 
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId,
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty),
                         Unit = c.unit,
                         Bin = c.binNumber
 
@@ -544,16 +545,16 @@ namespace ClassLibraryBL.EntityFacade
             DateTime dt2 = DateTime.ParseExact(end, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture);
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    where (a.departmentId == ts) && (a.requestDate <= dt2) && (a.requestDate >= dt1)
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    where (a.departmentId == ts) && (a.requestDate < dt2) && (a.requestDate > dt1)
+                    group b by new { b.itemId, b.requestQty } into g
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId,
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty), 
                         Unit = c.unit,
                         Bin = c.binNumber
                     };

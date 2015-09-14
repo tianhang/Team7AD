@@ -189,6 +189,9 @@
         <asp:Label ID="Label4" runat="server" Text="Date:"></asp:Label>
         <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
         <br />
+        <asp:Label ID="Label6" runat="server" Text="SupplierID:"></asp:Label>  
+        <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>  
+        <br />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Height="346px" Width="785px" OnRowCommand="GridView1_RowCommand">
             <Columns>
                 <asp:BoundField DataField="Itemcode" HeaderText="Itemcode" />
@@ -217,12 +220,15 @@
             <asp:Button ID="Send" runat="server" style="margin-left: 465px" Text="Send Email to Supplier" Width="149px" />
             <asp:Button ID="Add" runat="server" Height="26px" style="margin-left: 38px" Text="Add Item" Width="114px" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" />
         </p>
+           <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Back" Width="68px" />  
+           <asp:Button ID="Button1" runat="server" Text="Print" OnClientClick="PrintGridView()" Width="78px" />  
+
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Add Supplier</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Add Items</h4>
       </div>
       <div class="modal-body">
        <form>
@@ -254,6 +260,22 @@
                 document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
             });
 </script>
+<script id="print">  
+      function PrintGridView() {  
+      // 打开一个新网页  
+          var newwindow = window.open('');  
+      
+         // 将指定DIV中的内容写入该网页  
+       newwindow.document.write(document.getElementById('Print').innerHTML);  
+       newwindow.document.close();    
+          // 打印该网页  
+       newwindow.focus();  
+       newwindow.print();  
+          // 打印完毕后关闭该窗口  
+       newwindow.close();  
+        return;  
+     }  
+ </script>  
 
 </body>
     </html>

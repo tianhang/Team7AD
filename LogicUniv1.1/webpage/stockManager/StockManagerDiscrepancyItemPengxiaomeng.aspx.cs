@@ -14,6 +14,11 @@ namespace LogicUniv1._1
         ApproveStockAdjustmentController manager = new ApproveStockAdjustmentController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            user u = (user)Session["User"];
+            if (u.roleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
             int s = Convert.ToInt32(Session["id"].ToString());
             manager.checkdiscrepancyitem(s);
             GridView1.DataSource = manager.checkdiscrepancyitem(s);

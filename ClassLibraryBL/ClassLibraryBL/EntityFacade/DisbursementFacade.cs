@@ -112,7 +112,8 @@ namespace ClassLibraryBL.EntityFacade
 
                             var data = from f in cntx.disbursements
                                        join d in cntx.departments on f.departmentId equals d.departmentId
-                                       where d.deptName == value && f.status == "WaitingCollection"
+                                       where d.deptName == value 
+                                       where f.status == "WaitingCollection"
                                        select new { f.disbursementId, d.deptName, f.collectDate, f.status };
 
 
@@ -123,12 +124,18 @@ namespace ClassLibraryBL.EntityFacade
                         //The following two methods belong to "CurrentDisbursementDetailItem.aspx"
                         public Object getDetailedItem(int session)
                         {
-                            var data = from f in cntx.disbursements
-                                       join fi in cntx.disbursement_item on f.disbursementId equals fi.disbursementId
-                                       where f.disbursementId == session
-                                       join i in cntx.items on fi.disburse_itemId equals i.itemId
-                                       orderby fi.collectQty
-                                       select new { fi.collectQty, i.description };
+                            int r = session;
+                            //var data = from f in cntx.disbursements
+                            //           join fi in cntx.disbursement_item on f.disbursementId equals fi.disbursementId
+                            //           where f.disbursementId == session
+                            //           join i in cntx.items on fi.disburse_itemId equals i.itemId
+                            //           orderby fi.collectQty
+                            //           select new { fi.collectQty, i.description };
+                            var data = (from x in cntx.disbursements
+                                        from y in cntx.items
+                                        from z in cntx.disbursement_item
+                                        where x.disbursementId == z.disbursementId && z.itemId == y.itemId && x.disbursementId == session
+                                        select new { y.description, z.collectQty});
                             return data.ToList();
 
                         }

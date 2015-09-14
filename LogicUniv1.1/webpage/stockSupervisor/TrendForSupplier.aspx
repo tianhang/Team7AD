@@ -131,7 +131,7 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="SSHome.aspx" ><i class="fa fa-home fa-medium"></i>Discrepancy</a></li>
+                      <li><a href="SSHome.aspx" >Home</a></li>
 				  <li><a href="CompareThreeMonths.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"class="active"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx" ><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
@@ -251,6 +251,7 @@
                                 <asp:ListItem>11</asp:ListItem>
                                 <asp:ListItem>12</asp:ListItem>
                            </asp:DropDownList>
+                           <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="DropDownListMonthFrom" ControlToValidate="DropDownListMonthTo" Display="Dynamic" ErrorMessage="the second month shoul greater than the first monthal" Operator="GreaterThanEqual"></asp:CompareValidator>
                        </td>
                    </tr>
                </table>
@@ -263,6 +264,8 @@
                 <asp:Chart ID="Chart1" runat="server" Width="887px" OnLoad="Chart1_Load">
                             <Series>
                                 <asp:Series Name="Series1" Label="#VAL" Legend="Legend1" LegendText="Month"></asp:Series>
+                          
+
                             </Series>
                             <ChartAreas>
                                 <asp:ChartArea Name="ChartArea1" >

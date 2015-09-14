@@ -18,6 +18,11 @@ namespace LogicUniv1._1.webpage.stockClerk
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
+            if (u.RoleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
             supplier s = new supplier();
             s = (supplier)Session["supplier"];
             Label2.Text = s.supplierId.ToString();
@@ -64,6 +69,11 @@ namespace LogicUniv1._1.webpage.stockClerk
             GridView1.DataSource = clerk.showitems(s.supplierId);
             GridView1.DataBind();
         }
+        protected void back_Click(object sender, EventArgs e)  
+     {  
+             Response.Redirect("ClerkMainSupplierPengxiaomeng.aspx");  
+      }  
+   
 
        
 

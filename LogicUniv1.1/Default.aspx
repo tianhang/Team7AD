@@ -25,7 +25,7 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h3>We suggest the following:</h3>
     <ol class="round">
-        <li class="one">
+        <li class="one"> 
             <h5>Getting Started</h5>
             ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
             A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.

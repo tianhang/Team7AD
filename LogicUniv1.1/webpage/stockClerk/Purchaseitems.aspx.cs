@@ -14,15 +14,21 @@ namespace LogicUniv1._1.webpage.stockClerk
 {
     public partial class Purchaseitem : System.Web.UI.Page
     {
+        
         PlaceOrderController pl = new PlaceOrderController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
+            if (u.RoleId != 4){
+                Response.Redirect("../Security.aspx");
+            }
             purchase s=(purchase) Session["purchaseitem"];
             List<Purchaseitem111> l = pl.showpurchaseitems(s);
             GridView1.DataSource = l;
             GridView1.DataBind();
             Label3.Text = s.purchaserId.ToString();
             Label5.Text = DateTime.Today.Date.ToShortDateString();
+            Label7.Text = s.supplierId.ToString();
             foreach (GridViewRow r in GridView1.Rows)
             {
                 DropDownList dp = (DropDownList)r.FindControl("choosesupplier");
@@ -40,6 +46,7 @@ namespace LogicUniv1._1.webpage.stockClerk
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
                 //GridViewRow gvr = (GridViewRow)((Control)e.CommandSource).Parent.Parent
+            user u = (user)Session["User"];
             purchase s = (purchase)Session["purchaseitem"];
             int index=Convert.ToInt32(e.CommandArgument);
             string k =GridView1.Rows[index].Cells[0].Text;
@@ -48,12 +55,14 @@ namespace LogicUniv1._1.webpage.stockClerk
             string sp = dp.Text;
             if (e.CommandName == "ChangeSupplier")
             {
-                pl.changesupplier(index, s.purchaserId, sp);
+                pl.changesupplier(index, s.purchaserId, sp,u.userId);
+                Response.Redirect("Purchaseitems.aspx"); 
             
             };
             if (e.CommandName == "DeleteItem")
             {
                 pl.delete(index, s.supplierId, s.purchaserId);
+                Response.Redirect("Purchaseitems.aspx"); 
             }
         }
 
@@ -66,6 +75,10 @@ namespace LogicUniv1._1.webpage.stockClerk
             pl.additems(itemcode, s.supplierId, s.purchaserId, qt);
             Response.Redirect("Purchaseitems.aspx");
         }
+         protected void Button2_Click(object sender, EventArgs e)  
+        {  
+         Response.Redirect("Reorder.aspx");  
+        }  
 
        
      
