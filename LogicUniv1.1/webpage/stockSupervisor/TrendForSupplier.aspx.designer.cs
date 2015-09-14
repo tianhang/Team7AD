@@ -121,6 +121,15 @@ namespace LogicUniv1._1.webpage.stockSupervisor {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListMonthTo;
         
         /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>

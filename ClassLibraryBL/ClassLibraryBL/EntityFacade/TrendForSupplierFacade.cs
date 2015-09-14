@@ -60,5 +60,13 @@ namespace ClassLibraryBL.EntityFacade
              });
             return query1.ToList();   
         }
+        public String getUnit(String transfer)
+        {
+            var dataunit = from c in luse.categories
+                           join i in luse.items on c.categoryId equals i.categoryId
+                           where c.categoryName == transfer
+                           select i.unit;
+            return dataunit.FirstOrDefault();
+        }
     }
 }
