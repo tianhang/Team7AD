@@ -47,17 +47,40 @@ namespace ClassLibraryBL.EntityFacade
 
         public void approveRequisition(int x)
         {
+            List<itemValidate> itemidlistAvailable = new List<itemValidate>();
+            var n = (from x1 in luse.requisitions
+                     from y in luse.items
+                     from z in luse.requsiiton_item
+                     where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == x
+                     select new itemValidate
+                     {
+                         Itemid = z.itemId,
+                         RequestQty = z.requestQty,
+                         StockBalance = y.balance,
+                         Itemreorderlevel = y.reorderlevel
+                     }).ToList();
+            itemidlistAvailable = n;
+            foreach(itemValidate i in itemidlistAvailable){
+
+                if(i.StockBalance<i.Itemreorderlevel){
+                    var u = (from x1 in luse.items
+                             where x1.itemId == i.Itemid
+                             select x1).First();
+                    u.status = "stockout";
+                }
+            }
             List<itemValidate> itemidlistNotAvailable = new List<itemValidate>();
             var m = (from x1 in luse.requisitions
-                    from y in luse.items
-                    from z in luse.requsiiton_item
-                    where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == x && y.flag == "needReorderSoon"
-                    select new itemValidate
-                    {
-                        Itemid = z.itemId,
-                        RequestQty = z.requestQty,
-                        StockBalance = y.balance
-                    }).ToList();
+                     from y in luse.items
+                     from z in luse.requsiiton_item
+                     where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == x && y.flag == "needReorderSoon"
+                     select new itemValidate
+                     {
+                         Itemid = z.itemId,
+                         Itemreorderlevel = y.reorderlevel,
+                         RequestQty = z.requestQty,
+                         StockBalance = y.balance
+                     }).ToList();
             itemidlistNotAvailable = m;
 
 
@@ -74,6 +97,9 @@ namespace ClassLibraryBL.EntityFacade
             //        itemidlistAvailable.Add(x2);
             //    }
             //}
+
+
+
             if (itemidlistNotAvailable.Count == 0)
             {
                 var m0 = (from l in luse.requisitions
@@ -219,7 +245,7 @@ namespace ClassLibraryBL.EntityFacade
                      select new itemValidate{ 
                          Itemid = z.itemId,
                          RequestQty = z.requestQty,
-                         StockBalance = y.balance
+                         StockBalance = y.balance,
                      }).ToList();
             List<itemValidate> itemlist = n;
             int test = itemlist.Count;
@@ -273,6 +299,7 @@ namespace ClassLibraryBL.EntityFacade
                     u.balance = u.balance - x.RequestQty;
                 }
                 }
+
                 luse.SaveChanges();
             }
         

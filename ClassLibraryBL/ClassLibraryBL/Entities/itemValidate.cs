@@ -9,6 +9,16 @@ namespace ClassLibraryBL.Entities
     [DataContract]
     public class itemValidate
     {
+
+        int itemreorderlevel;
+
+        [DataMember]
+        public int Itemreorderlevel
+        {
+            get { return itemreorderlevel; }
+            set { itemreorderlevel = value; }
+        }
+
         int itemid;
         [DataMember]
         public int Itemid
