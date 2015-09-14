@@ -447,6 +447,8 @@
     <Content Include="webpage\Login\js\jquery-2.1.4.js" />
     <Content Include="webpage\Login\js\redirect.js" />
     <Content Include="webpage\Login\login.aspx" />
+    <Content Include="webpage\Security.aspx" />
+    <Content Include="webpage\sharePage\SSecurity.aspx" />
     <Content Include="webpage\stockClerk\CheckCurrentDisbursementList.aspx" />
     <Content Include="webpage\stockClerk\ClerkHistoryLogPengxiaomeng.aspx" />
     <Content Include="webpage\stockClerk\ClerkInventory.aspx" />
@@ -741,6 +743,20 @@
     <Compile Include="webpage\Login\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="webpage\Security.aspx.cs">
+      <DependentUpon>Security.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\Security.aspx.designer.cs">
+      <DependentUpon>Security.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\sharePage\SSecurity.aspx.cs">
+      <DependentUpon>SSecurity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\sharePage\SSecurity.aspx.designer.cs">
+      <DependentUpon>SSecurity.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webpage\stockClerk\CheckCurrentDisbursementList.aspx.cs">
       <DependentUpon>CheckCurrentDisbursementList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -935,7 +951,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\qrcode\" />
-    <Folder Include="webpage\sharePage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

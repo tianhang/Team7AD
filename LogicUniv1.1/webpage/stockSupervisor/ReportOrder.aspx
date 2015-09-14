@@ -179,7 +179,7 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="SSHome.aspx" ><i class="fa fa-home fa-medium"></i>Discrepancy</a></li>
+				  <li><a href="SSHome.aspx" >Home</a></li>
 				  <li><a href="CompareThreeMonths.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx" class="active"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>

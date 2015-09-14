@@ -33,6 +33,7 @@ namespace LogicUniv1._1.webpage.stockSupervisor
 
             GridView1.DataSource = N.ToList();
             GridView1.DataBind();
+            
         }
         protected void GridView1_PageIndexChanging1(object sender, GridViewPageEventArgs e)
         {
