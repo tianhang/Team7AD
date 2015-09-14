@@ -6,18 +6,18 @@
     <edmx:Diagrams>
       <Diagram DiagramId="9360c85df93f4037bc61479f526744a5" Name="Diagram1">
         <EntityTypeShape EntityType="LogicUnivSystemModel.category" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.collectionPoint" Width="1.5" PointX="1.5" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.department" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.collectionPoint" Width="1.5" PointX="0.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.department" Width="1.5" PointX="1.5" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LogicUnivSystemModel.disbursement" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.disbursement_item" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.disbursement_item" Width="1.5" PointX="1.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LogicUnivSystemModel.discrepancy" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LogicUnivSystemModel.discrepancy_item" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.item" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.item_supplier" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.purchase" Width="1.5" PointX="3" PointY="24.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.purchase_item" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.requisition" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogicUnivSystemModel.requsiiton_item" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.item" Width="1.5" PointX="5.375" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.item_supplier" Width="1.5" PointX="3.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.purchase" Width="1.5" PointX="7.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.purchase_item" Width="1.5" PointX="9" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.requisition" Width="1.5" PointX="9" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUnivSystemModel.requsiiton_item" Width="1.5" PointX="7.25" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="LogicUnivSystemModel.role" Width="1.5" PointX="1.5" PointY="19.875" IsExpanded="true" />
         <EntityTypeShape EntityType="LogicUnivSystemModel.supplier" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LogicUnivSystemModel.sysdiagram" Width="1.5" PointX="8.75" PointY="1.875" IsExpanded="true" />

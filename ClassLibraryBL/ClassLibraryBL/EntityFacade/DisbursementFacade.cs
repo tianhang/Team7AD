@@ -112,7 +112,8 @@ namespace ClassLibraryBL.EntityFacade
 
                             var data = from f in cntx.disbursements
                                        join d in cntx.departments on f.departmentId equals d.departmentId
-                                       where d.deptName == value && f.status == "WaitingCollection"
+                                       where d.deptName == value 
+                                       where f.status == "WaitingCollection"
                                        select new { f.disbursementId, d.deptName, f.collectDate, f.status };
 
 
