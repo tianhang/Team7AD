@@ -203,8 +203,11 @@
             </asp:RadioButtonList>
             <br />
             <br />
+                <div id="Print"> 
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" Height="140px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="772px" CssClass="table table-striped table-bordered table-condensed">
             </asp:GridView>
+                    </div>
+                <asp:Button ID="p" runat="server" Text="Print" Width="69px" OnClientClick="PrintGridView()" />
                 <div> 
 
               </div>
@@ -234,6 +237,26 @@
                 document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
             });
 </script>
+    <script>
+   
+</script>
+ <script>
+        function PrintGridView() {
+            // 打开一个新网页
+            var newwindow = window.open('');
 
+            // 将指定DIV中的内容写入该网页
+            newwindow.document.write(document.getElementById('Print').innerHTML);
+            newwindow.document.close();
+
+            // 打印该网页
+            newwindow.focus();
+            newwindow.print();
+
+            // 打印完毕后关闭该窗口
+            newwindow.close();
+            return;
+        }
+</script>
 </body>
     </html>

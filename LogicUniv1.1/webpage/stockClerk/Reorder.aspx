@@ -193,21 +193,60 @@
                             <asp:BoundField DataField="purchaseDate" HeaderText="Available Date" />
                             <asp:CommandField AccessibleHeaderText="Details" HeaderText="Details" SelectText="Details" ShowSelectButton="True" />
                             <asp:BoundField DataField="status" HeaderText="status" SortExpression="status" />
-                            <asp:TemplateField HeaderText="Purchase need to confirm">
+                            <asp:TemplateField HeaderText="Choose Purchase Order">
                                 <ItemTemplate>
                                     <asp:CheckBox ID="Choose" runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <HeaderStyle Height="35px" /> 
+                        <RowStyle Height="35px" /> 
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="SELECT [purchaserId], [purchaseDate], [status] FROM [purchase]"></asp:SqlDataSource>
-&nbsp;<br />
-                    <asp:Button ID="Order" runat="server" Text="Generate Order" Width="142px" OnClick="Order_Click" />
-                    <asp:Button ID="Confirm" runat="server" OnClick="Confirm_Click" style="margin-left: 177px" Text="Confirm" Width="87px" />
-                    <asp:Button ID="Cancel" runat="server" OnClick="Cancel_Click" Text="Cancel" Width="84px" />
+                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="SELECT [purchaserId], [purchaseDate], [status] FROM [purchase] WHERE ([status] = @status)">  
+                     <SelectParameters>  
+                     <asp:Parameter DefaultValue="waiting" Name="status" Type="String" />  
+                      </SelectParameters>  
+                    </asp:SqlDataSource>  
+
+                    <asp:Button ID="Order" runat="server" Text="Generate Order" Width="136px" OnClick="Order_Click" data-toggle="modal" data-target="#myModal1"/>
+                    <asp:Button ID="Confirm" runat="server" OnClick="Confirm_Click" style="margin-left: 177px" Text="Confirm" Width="98px" data-toggle="modal" data-target="#myModal"/>
+                    <asp:Button ID="Cancel" runat="server" OnClick="Cancel_Click" Text="Cancel" Width="89px" />
               </div>
                  </div>
-
+                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  
+   <div class="modal-dialog">  
+     <div class="modal-content">  
+       <div class="modal-header">  
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
+        <h4 class="modal-title">Are you sure to confirm this purchase orders?</h4>  
+     </div>  
+     <div class="modal-body">  
+      <p style="font-size:18px"> Once confirmed, the inventory will be updated immdately and can not adjust back!</p>  
+      </div>  
+       <div class="modal-footer">  
+                <asp:Button ID="Close" class="btn btn-default" data-dismiss="modal" runat="server" Text="Close" />  
+            <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Confirm" OnClick="Confirm_Click" CssClass="btn btn-primary" />  
+       </div>  
+    </div><!-- /.modal-content -->  
+   </div><!-- /.modal-dialog -->  
+ </div><!-- /.modal -->  
+                   <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  
+   <div class="modal-dialog">  
+     <div class="modal-content">  
+       <div class="modal-header">  
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
+        <h4 class="modal-title">Are you sure to generate orders?</h4>  
+     </div>  
+     <div class="modal-body">  
+      <p style="font-size:18px"> Once confirmed, items whose balance was lower than reorderlevel will be added in a new purchase order immedately</p>  
+      </div>  
+       <div class="modal-footer">  
+                <asp:Button ID="Button2" class="btn btn-default" data-dismiss="modal" runat="server" Text="Close" />  
+            <asp:Button ID="Button3" class="btn btn-primary" runat="server" Text="Confirm" OnClick="Order_Click" CssClass="btn btn-primary" />  
+       </div>  
+    </div><!-- /.modal-content -->  
+   </div><!-- /.modal-dialog -->  
+ </div><!-- /.modal -->  
 				<footer>
 					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
 					<p class="col-lg-9 col-md-9  templatemo-social">
