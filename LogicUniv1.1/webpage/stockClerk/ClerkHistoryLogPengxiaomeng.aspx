@@ -239,9 +239,11 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Submit" Width="134px" CssClass="btn btn-info" Height="27px" />
             <br />
             <br />
+                    <div id="Print">
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" Height="198px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="674px" CssClass="table table-striped table-bordered table-condensed">
             </asp:GridView>          
-    
+                    </div> 
+                          <asp:Button ID="P" runat="server" Text="Print" Width="104px" OnClientClick="PrintGridView()"/> 
                     </div>
             </div>
     <footer>
@@ -266,6 +268,24 @@
             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
         });
+</script>
+  <script>
+      function PrintGridView() {
+          // 打开一个新网页
+          var newwindow = window.open('');
+
+          // 将指定DIV中的内容写入该网页
+          newwindow.document.write(document.getElementById('Print').innerHTML);
+          newwindow.document.close();
+
+          // 打印该网页
+          newwindow.focus();
+          newwindow.print();
+
+          // 打印完毕后关闭该窗口
+          newwindow.close();
+          return;
+      }
 </script>
 
 </body>

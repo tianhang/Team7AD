@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ClassLibraryBL.Entities;
 namespace ClassLibraryBL.EntityFacade
 {
-    class RequisiitonFacade
+    public class RequisiitonFacade
     {
       
         LogicUnivSystemEntities luse = new LogicUnivSystemEntities();
@@ -333,15 +333,15 @@ namespace ClassLibraryBL.EntityFacade
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where a.requestDate > da && a.status =="WaitingCollection"
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    group b by new { b.itemId, b.requestQty } into g 
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId, 
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty),
                         Unit = c.unit,
                         Bin = c.binNumber
                     };
@@ -376,16 +376,16 @@ namespace ClassLibraryBL.EntityFacade
             }
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    where (a.requestDate > da) && (a.departmentId == s)
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    where (a.requestDate > da) && (a.departmentId == s) && (a.status =="WaitingCollection")
+                    group b by new { b.itemId, b.requestQty } into g
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId,
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty),
                         Unit = c.unit,
                         Bin = c.binNumber
 
@@ -396,15 +396,15 @@ namespace ClassLibraryBL.EntityFacade
         {
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    group b by new { b.itemId, b.requestQty } into g
+                    join c in luse.items on g.Key.itemId equals c.itemId 
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId, 
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty), 
                         Unit = c.unit,
                         Bin = c.binNumber
 
@@ -420,15 +420,15 @@ namespace ClassLibraryBL.EntityFacade
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where (a.requestDate < dt2) && (a.requestDate > dt1)
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    group b by new { b.itemId, b.requestQty } into g 
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId,
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty), 
                         Unit = c.unit,
                         Bin = c.binNumber
 
@@ -441,15 +441,15 @@ namespace ClassLibraryBL.EntityFacade
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where (a.departmentId == ts)
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    group b by new { b.itemId, b.requestQty } into g 
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId,
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty),
                         Unit = c.unit,
                         Bin = c.binNumber
 
@@ -467,15 +467,15 @@ namespace ClassLibraryBL.EntityFacade
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where (a.departmentId == ts) && (a.requestDate < dt2) && (a.requestDate > dt1)
-                    group b.requisition_itemId by b.itemId into g
-                    join c in luse.items on g.Key equals c.itemId
+                    group b by new { b.itemId, b.requestQty } into g
+                    join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
                     {
-                        itemID = g.Key,
+                        itemID = g.Key.itemId,
                         Category = d.categoryName,
                         Itemname = c.description,
-                        amount = g.Count(),
+                        amount = g.Sum(x => x.requestQty), 
                         Unit = c.unit,
                         Bin = c.binNumber
                     };

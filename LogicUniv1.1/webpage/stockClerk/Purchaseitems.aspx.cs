@@ -23,6 +23,7 @@ namespace LogicUniv1._1.webpage.stockClerk
             GridView1.DataBind();
             Label3.Text = s.purchaserId.ToString();
             Label5.Text = DateTime.Today.Date.ToShortDateString();
+            Label7.Text = s.supplierId.ToString(); 
             foreach (GridViewRow r in GridView1.Rows)
             {
                 DropDownList dp = (DropDownList)r.FindControl("choosesupplier");
@@ -49,11 +50,13 @@ namespace LogicUniv1._1.webpage.stockClerk
             if (e.CommandName == "ChangeSupplier")
             {
                 pl.changesupplier(index, s.purchaserId, sp);
+                Response.Redirect("Purchaseitems.aspx"); 
             
             };
             if (e.CommandName == "DeleteItem")
             {
                 pl.delete(index, s.supplierId, s.purchaserId);
+                Response.Redirect("Purchaseitems.aspx"); 
             }
         }
 
@@ -66,6 +69,10 @@ namespace LogicUniv1._1.webpage.stockClerk
             pl.additems(itemcode, s.supplierId, s.purchaserId, qt);
             Response.Redirect("Purchaseitems.aspx");
         }
+         protected void Button2_Click(object sender, EventArgs e)  
+        {  
+         Response.Redirect("Reorder.aspx");  
+        }  
 
        
      

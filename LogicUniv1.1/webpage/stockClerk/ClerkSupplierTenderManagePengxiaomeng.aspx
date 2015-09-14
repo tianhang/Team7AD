@@ -205,7 +205,7 @@
                      </Columns>
             </asp:GridView>
                 <div> 
-
+               <asp:Button ID="back" runat="server" CssClass="btn btn-primary" OnClick="back_Click" Text="Back" Width="85px" /> 
               </div>
            
 
@@ -217,7 +217,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Add Supplier</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Update Price</h4>
       </div>
       <div class="modal-body">
        <%-- <form>--%>
