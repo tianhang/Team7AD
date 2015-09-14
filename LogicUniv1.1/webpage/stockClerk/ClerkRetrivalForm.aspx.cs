@@ -17,7 +17,11 @@ namespace LogicUniv1._1.webpage.stockClerk
         ViewRetrievalFormController view = new ViewRetrievalFormController();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            user u = (user)Session["User"];
+            if (u.roleId != 4)
+            {
+                Response.Redirect();
+            }
             if (!IsPostBack)
             {
 
@@ -84,7 +88,6 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         protected void CurrentWeek_Click(object sender, EventArgs e)
         {
-            Session["table"] = 1;
             GridView1.DataSource = view.checkcurrentweekbyitem();
             GridView1.DataBind();
         }

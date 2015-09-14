@@ -137,7 +137,7 @@ namespace ClassLibraryBL.EntityFacade
 
             return l.ToList();
         }
-        public void changesupplier(int itemcode,int purchaseid,string comname ){
+        public void changesupplier(int itemcode,int purchaseid,string comname,string userid ){
             var n = from a in ctx.purchase_item
                     from b in ctx.purchases
                     where (a.itemId == itemcode) && (b.purchaserId == purchaseid)
@@ -155,6 +155,7 @@ namespace ClassLibraryBL.EntityFacade
             po.purchaseDate = DateTime.Today.Date;           
             po.expectedDeliveryDate = DateTime.Today.Date.AddDays(14);
             po.status = "waiting";
+            po.userId = userid;
             ctx.purchases.Add(po);
             var xo = from a in ctx.items
                      where a.itemId == x
@@ -204,6 +205,29 @@ namespace ClassLibraryBL.EntityFacade
                     select a;
             ctx.purchase_item.Remove(n.FirstOrDefault());
             ctx.SaveChanges();
+        }
+        public purchase newpurchase(int supplierid,string userid)
+        {
+            purchase po = new purchase();
+            po.supplierId = supplierid;
+            po.purchaseDate = DateTime.Today.Date;
+            po.expectedDeliveryDate = DateTime.Today.Date.AddDays(14);
+            po.status = "waiting";
+            po.userId = userid;
+            ctx.purchases.Add(po);
+            ctx.SaveChanges();
+            return po;
+        }
+        public int findsupplier(int itemcode)
+        {
+            var n = from a in ctx.items
+                    from b in ctx.item_supplier
+                    from c in ctx.suppliers
+                    where a.itemId == itemcode && a.itemId == b.itemId && c.supplierId == b.supplierId
+                    && b.priority == 1
+                    select c.supplierId;
+            int x = Convert.ToInt32(n.SingleOrDefault());
+            return x ;
         }
     }
 }

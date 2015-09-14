@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using ClassLibraryBL.Controller.stockClerk;
 using ClassLibraryBL.controller;
 using ClassLibraryBL.Entities;
-
+using ClassLibraryBL;
 namespace LogicUniv1._1.webpage.stockClerk
 {
     public partial class ClerkMainSupplierPengxiaomeng : System.Web.UI.Page
@@ -15,7 +15,11 @@ namespace LogicUniv1._1.webpage.stockClerk
         MaintainSupplierController con = new MaintainSupplierController();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            user u = (user)Session["User"];
+            if (u.roleId != 4)
+            {
+                Response.Redirect();
+            }
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)

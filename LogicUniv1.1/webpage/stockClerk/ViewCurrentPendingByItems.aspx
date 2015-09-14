@@ -188,7 +188,10 @@
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
                <div>
-                   <asp:GridView  CssClass="table table-bordered" ID="GridView1" name="GridView1" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server">
+                   <asp:GridView  CssClass="table table-bordered" ID="GridView1" name="GridView1" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" OnRowCommand="GridView1_RowCommand">
+                       <Columns>
+                           <asp:ButtonField ButtonType="Button" CommandName="NewPurchase" HeaderText="New Purchase" ShowHeader="True" Text="New Purchase" />
+                       </Columns>
                        <HeaderStyle />
 
 <RowStyle Height="35px"></RowStyle>

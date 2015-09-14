@@ -33,9 +33,9 @@ namespace ClassLibraryBL.Controller.stockClerk
        {
            return f.getcompanyname(i, s,x);
        }
-       public void changesupplier(int itemcode, int purchaseid, string comname)
+       public void changesupplier(int itemcode, int purchaseid, string comname,string userid)
        {
-           f.changesupplier(itemcode, purchaseid, comname);
+           f.changesupplier(itemcode, purchaseid, comname,userid);
        }
        public void additems(int itemcode, int supplierid, int purchaseid, int qt)
        {
@@ -52,6 +52,14 @@ namespace ClassLibraryBL.Controller.stockClerk
        public void delete(int itemcode, int supplierid, int purchaseid)
        {
            f.deleteitem(itemcode, supplierid, purchaseid);
+       }
+       public purchase newpurhcase(int supplierid,string userid)
+       {
+           return f.newpurchase(supplierid,userid);
+       }
+        public int findsupplier(int itemcode)
+       {
+           return f.findsupplier(itemcode);
        }
     }
     
