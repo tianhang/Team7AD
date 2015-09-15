@@ -166,7 +166,9 @@
 				  <li></li>
 				  <li><a href="CompareThreeMonths.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
-				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
+				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>                  
+                   <li><a href="StockSurpervisorDiscrepancyItem.aspx"><i class="fa fa-comments-o fa-medium"></i>DiscrepancyItem</a></li>
+
 				</ul>
 			</div>
 
@@ -179,7 +181,7 @@
            
 			<div class="tm-right-inner-container">
                 <div> 
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None" Height="434px" OnPageIndexChanging="GridView1_PageIndexChanging1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="814px" CaptionAlign="Bottom" HorizontalAlign="Center" style="margin-left: 0px" ShowFooter="True">
+               <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" CssClass="table table-striped table-bordered table-condensed"  OnPageIndexChanging="GridView1_PageIndexChanging1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CaptionAlign="Bottom" HorizontalAlign="Center" style="margin-left: 0px" ShowFooter="True">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

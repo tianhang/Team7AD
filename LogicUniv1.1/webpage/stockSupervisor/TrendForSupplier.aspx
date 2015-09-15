@@ -135,6 +135,8 @@
 				  <li><a href="CompareThreeMonths.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"class="active"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx" ><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
+                                      <li><a href="StockSurpervisorDiscrepancyItem.aspx"><i class="fa fa-comments-o fa-medium"></i>DiscrepancyItem</a></li>
+
 				</ul>
 			</div>
 
@@ -257,7 +259,7 @@
                </table>
            </div>
 
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Submit" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Submit" CssClass="btn btn-info btn-sm" />
              <div>
 
 
@@ -281,7 +283,7 @@
 
             </div>
            <div>
-    <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"></asp:GridView>
+    <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" CssClass="table table-striped table-bordered table-condensed" ></asp:GridView>
                </div>
 
 				<footer>
