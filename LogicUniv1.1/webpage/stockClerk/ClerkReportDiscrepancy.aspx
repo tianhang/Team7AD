@@ -178,9 +178,10 @@
 				  <li><a href="ClerkMainSupplierPengxiaomeng.aspx"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
                   <li><a href="x.html"><i class="fa fa-print  fa-medium"></i>Print Current Page</a></li>
 				</ul>
-			</div>
 
 		</div> <!-- left section -->
+
+        </div>
         <div class="copyrights">Collect from <a href="http://www.mycodes.net/" ></a></div>
 		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
@@ -195,8 +196,8 @@
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                 <div style="text-align: center">
-        <asp:GridView ID="Gv1" runat="server" AutoGenerateColumns="False"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" OnRowDeleting="Gv1_RowDeleting"
-           CssClass="table table-bordered" onrowcommand="Gv1_RowCommand" AllowPaging="True" OnPageIndexChanging="Gv1_PageIndexChanging">
+        <asp:GridView ID="Gv1" runat="server" AutoGenerateColumns="False"  width="700px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" OnRowDeleting="Gv1_RowDeleting"
+            onrowcommand="Gv1_RowCommand" AllowPaging="True" OnPageIndexChanging="Gv1_PageIndexChanging">
             <HeaderStyle />
             <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
           
@@ -209,32 +210,32 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Category">
                     <ItemTemplate>
-                        <asp:TextBox ID="Txt_Cposition" runat="server" Text='<%#Eval("Cposition")%>' CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="Txt_Cposition" runat="server" Text='<%#Eval("Cposition")%>' ></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Description">
                     <ItemTemplate>
-                        <asp:TextBox ID="Txt_UserName" runat="server" Text='<%#Eval("UserName")%>' CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="Txt_UserName" runat="server" Text='<%#Eval("UserName")%>' ></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Amount">
                     <ItemTemplate>
-                        <asp:TextBox ID="Txt_Jan" runat="server" Text='<%#Eval("JanCount")%>' CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="Txt_Jan" runat="server" Text='<%#Eval("JanCount")%>' ></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Unit">
                     <ItemTemplate>
-                        <asp:TextBox ID="Txt_Unit" runat="server" Text='<%#Eval("Count")%>' CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="Txt_Unit" runat="server" Text='<%#Eval("Count")%>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Type">
                     <ItemTemplate>
-                        <asp:TextBox ID="Txt_Feb" runat="server" Text='<%#Eval("FebCount")%>' CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="Txt_Feb" runat="server" Text='<%#Eval("FebCount")%>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Remark">
                     <ItemTemplate>
-                        <asp:TextBox ID="Txt_remark" runat="server" Text='<%#Eval("remark")%>' CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="Txt_remark" runat="server" Text='<%#Eval("remark")%>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Delete">
@@ -249,7 +250,7 @@
                     &nbsp;</p>
                 <p>
                     Category：
-                    <asp:DropDownList ID="dropdownlist_category" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" OnSelectedIndexChanged="dropdownlist_category_SelectedIndexChanged" AutoPostBack="True" Width="25%"></asp:DropDownList>
+                    <asp:DropDownList ID="dropdownlist_category" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" OnSelectedIndexChanged="dropdownlist_category_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                 </p>
                 <p>
                     &nbsp;ItemName:
@@ -276,7 +277,7 @@
                 </div>
         <div>
              <!-- Trigger the modal with a button -->
-                    
+             
 
 
         </div>
