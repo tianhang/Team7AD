@@ -226,7 +226,7 @@
                         <td style="text-align: left">
                             <p >EndDate</p>
                             <asp:TextBox ID="checkOutDatePicker" runat="server" ToolTip="Enter Check-out Date" Font-Size="Small"></asp:TextBox>
-                            <asp:Button ID="Button1" runat="server" Text="Specify" OnClick="Button1_Click" />
+                            <asp:Button ID="Button1" runat="server" Text="Specify" CssClass="btn btn-info btn-sm" OnClick="Button1_Click" />
                         </td>
                     </tr>
                     <tr>
@@ -235,7 +235,7 @@
                 </table>
                 <%-- timepicker --%>        
                 <div>
-                    <asp:GridView CssClass="table table-bordered" ID="GridView1" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" OnRowCommand="GridView1_RowCommand">
+                    <asp:GridView  CssClass="table table-striped table-bordered table-condensed" ID="GridView1" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" OnRowCommand="GridView1_RowCommand">
                         <Columns>
                             <asp:ButtonField HeaderText="View Detail" Text="View " />
                         </Columns>

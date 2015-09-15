@@ -187,7 +187,7 @@
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                 <div>      
-                    <asp:GridView CssClass="table table-bordered" ID="GridView1"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" AllowPaging="True"  OnPageIndexChanging="GridView1_PageIndexChanging">
+                    <asp:GridView  CssClass="table table-striped table-bordered table-condensed" ID="GridView1"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" AllowPaging="True"  OnPageIndexChanging="GridView1_PageIndexChanging">
                         <HeaderStyle />
 
 <RowStyle Height="35px"></RowStyle>

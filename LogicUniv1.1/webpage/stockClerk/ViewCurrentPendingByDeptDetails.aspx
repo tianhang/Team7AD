@@ -184,7 +184,7 @@
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                <asp:GridView CssClass="table table-bordered" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" ID="GridView1" runat="server"></asp:GridView>
+                <asp:GridView  CssClass="table table-striped table-bordered table-condensed" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" ID="GridView1" runat="server"></asp:GridView>
                 </ContentTemplate></asp:UpdatePanel>
             </div>
 

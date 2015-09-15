@@ -183,7 +183,7 @@
 			<div class="tm-right-inner-container">
                 <div>
                     <asp:Button ID="btn_Current" CssClass="btn btn-default btn-sm" runat="server" Text="View List for Current Week" Enabled="false" />
-                    <asp:Button ID="btn_History"  CssClass="btn btn-default btn-sm" runat="server" Text="View History Log" OnClick="btn_History_Click"/>
+                    <asp:Button ID="btn_History" CssClass="btn btn-default btn-sm" runat="server" Text="View History Log" OnClick="btn_History_Click"/>
                 </div>
                 <div>
                     <asp:Label ID="Label1" runat="server" Text="Please select a department" Font-Size="Medium"></asp:Label>
@@ -202,7 +202,7 @@
                     </asp:DropDownList>
                 </div>
                 <div>
-                    <asp:GridView CssClass="table table-bordered" ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+                    <asp:GridView CssClass="table table-striped table-bordered table-condensed" ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
                         <Columns>
                             <asp:ButtonField HeaderText="View Detail" Text="View" />
                         </Columns>

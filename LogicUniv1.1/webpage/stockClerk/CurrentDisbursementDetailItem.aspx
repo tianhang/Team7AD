@@ -191,7 +191,7 @@
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <asp:GridView ID="GridView1" CssClass="table table-bordered" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+                            <asp:GridView ID="GridView1"  CssClass="table table-striped table-bordered table-condensed" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
                                 <HeaderStyle />
                                 <RowStyle Height="35px" />
                            </asp:GridView>  

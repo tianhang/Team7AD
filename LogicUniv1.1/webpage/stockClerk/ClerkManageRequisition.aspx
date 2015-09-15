@@ -185,7 +185,7 @@
                 <div>
                     <h3 style="color:black">Requisition Forms for current week</h3>		
                 </div>
-                <asp:GridView CssClass="table table-bordered"  width="700px" RowStyle-Height="35px"  HeaderStyle-Height="35px" ID="GridView1" runat="server"  AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+                <asp:GridView CssClass="table table-striped table-bordered table-condensed"  width="700px" RowStyle-Height="35px"  HeaderStyle-Height="35px" ID="GridView1" runat="server"  AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
                     <HeaderStyle />
 
 <RowStyle Height="35px"></RowStyle>

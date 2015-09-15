@@ -186,12 +186,12 @@
                 &nbsp
                 <asp:Button ID="btn_checkLowInventory" CssClass="btn btn-sm btn-default" runat="server" Text="Low Balance Item" OnClick="btn_checkLowInventory_Click" />
                 &nbsp
-                <asp:Button ID="btn_reorder" CssClass="btn btn-sm btn-default" runat="server" Visible="false" Text="Reoder" OnClick="btn_reorder_Click" />
+                <asp:Button ID="btn_reorder" CssClass="btn btn-sm btn-info" runat="server" Visible="false" Text="Reoder" OnClick="btn_reorder_Click" />
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                  <div> 
-                      <asp:GridView CssClass="table table-bordered" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" ID="GridView1" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+                      <asp:GridView  CssClass="table table-striped table-bordered table-condensed" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" ID="GridView1" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
                       </asp:GridView>
                  </div>
                         </ContentTemplate>
