@@ -183,12 +183,13 @@
 			<div class="tm-right-inner-container">
                 
                 <div>      
-                    <asp:GridView CssClass="table table-bordered" ID="GridView1"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server">
+                    <asp:GridView  CssClass="table table-striped table-bordered table-condensed" ID="GridView1"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server">
                         <HeaderStyle />
 
 <RowStyle Height="35px"></RowStyle>
 
                     </asp:GridView>
+
                 </div>
                 				<footer>
 					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>

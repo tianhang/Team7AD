@@ -187,7 +187,7 @@
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                     
 			<div class="tm-right-inner-container">
-                <asp:Label ID="lbl_success" runat="server" Text="Transaction Successful"></asp:Label>
+                <asp:Label ID="lbl_success" Font-Size="Large" runat="server" Text="Transaction Successful"></asp:Label>
             </div>
 
 				<footer>

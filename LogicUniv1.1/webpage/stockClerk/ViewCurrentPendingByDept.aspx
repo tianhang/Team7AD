@@ -200,7 +200,7 @@
                 </div>
                 
                 <div>
-                    <asp:GridView ID="GridView1" CssClass="table table-bordered" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" OnRowCommand="GridView1_RowCommand">
+                    <asp:GridView ID="GridView1"  CssClass="table table-striped table-bordered table-condensed" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" OnRowCommand="GridView1_RowCommand">
                         <Columns>
                             <asp:ButtonField HeaderText="View Detail" Text="View" />
                         </Columns>
