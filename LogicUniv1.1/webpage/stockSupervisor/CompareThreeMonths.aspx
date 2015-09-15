@@ -191,6 +191,8 @@
 				  <li><a href="CompareThreeMonths.aspx" class="active"><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
+                  <li><a href="StockSurpervisorDiscrepancyItem.aspx"><i class="fa fa-comments-o fa-medium"></i>DiscrepancyItem</a></li>
+
 				</ul>
 			</div>
 
@@ -268,7 +270,7 @@
                         <asp:DropDownList ID="DropDownListDepartment" runat="server" ></asp:DropDownList></td></tr>
                     <tr><td class="auto-style3">
                         &nbsp;</td><td class="auto-style2">
-                        <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" /></td></tr>
+                        <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click"  CssClass="btn btn-info btn-sm"/></td></tr>
 
 				</table>
               </div>
@@ -296,7 +298,7 @@
                     </asp:Chart>
                 </div>
                 <div>
-                    <asp:GridView ID="GridView1" runat="server" ></asp:GridView>
+                    <asp:GridView ID="GridView1" runat="server"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" CssClass="table table-striped table-bordered table-condensed"></asp:GridView>
                 </div>
                  </div>
 

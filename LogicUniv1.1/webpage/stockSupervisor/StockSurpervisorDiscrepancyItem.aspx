@@ -167,6 +167,8 @@
 				  <li><a href="CompareThreeMonths.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
+                                      <li><a href="StockSurpervisorDiscrepancyItem.aspx"><i class="fa fa-comments-o fa-medium"></i>DiscrepancyItem</a></li>
+
 				</ul>
 			</div>
 
@@ -181,7 +183,7 @@
 
                     <div style="height: 603px; width: 1020px">
     
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" Height="468px" Width="879px" CaptionAlign="Bottom" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Font-Bold="False" Font-Italic="False" Font-Names="Cambria" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ShowFooter="True">
+        <asp:GridView ID="GridView1" runat="server" CellPadding="4"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" CssClass="table table-striped table-bordered table-condensed"  CaptionAlign="Bottom" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Font-Bold="False" Font-Italic="False" Font-Names="Cambria" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ShowFooter="True">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />

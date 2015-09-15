@@ -14,8 +14,8 @@ namespace LogicUniv1._1.webpage.stockSupervisor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            int s = Convert.ToInt32(Session["id"].ToString());
+
+            int s = Convert.ToInt32(Session["UserEntity"].ToString());
             var N = from a in ctx.discrepancy_item
                     join b in ctx.items on a.itemId equals b.itemId
                     join c in ctx.categories on b.categoryId equals c.categoryId

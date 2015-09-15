@@ -47,11 +47,14 @@
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
     <style type="text/css">
-        .auto-style2 {
-            width: 149px;
-        }
         .auto-style3 {
             width: 100px;
+        }
+        .auto-style5 {
+            width: 256px;
+        }
+        .auto-style6 {
+            width: 61px;
         }
     </style>
 </head>
@@ -183,6 +186,8 @@
 				  <li><a href="CompareThreeMonths.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx" class="active"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
+                 <li><a href="StockSurpervisorDiscrepancyItem.aspx"><i class="fa fa-comments-o fa-medium"></i>DiscrepancyItem</a></li>
+
 				</ul>
 			</div>
 
@@ -197,7 +202,7 @@
                 <div> 
                 
 				<table><tr><td class="auto-style3">
-                        <asp:Label ID="Label2" runat="server" Text="Month:"></asp:Label></td><td class="auto-style2">
+                        <asp:Label ID="Label2" runat="server" Text="Month:"></asp:Label></td><td class="auto-style6">
                         <asp:DropDownList ID="DropDownListMonth" runat="server">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
@@ -212,19 +217,21 @@
                                 <asp:ListItem>11</asp:ListItem>
                                 <asp:ListItem>12</asp:ListItem>
                         </asp:DropDownList>
-                    </td></tr>
+                    </td><td class="auto-style5">
+                            <asp:Button ID="SubmitBtn" runat="server" Text="Submit" OnClick="SubmitBtn_Click"  CssClass="btn btn-info btn-sm"/>
+                        </td></tr>
                    
                     
                     <tr><td class="auto-style3">
-                        &nbsp;</td><td class="auto-style2">
-                            <asp:Button ID="SubmitBtn" runat="server" Text="Submit" OnClick="SubmitBtn_Click" />
-                        </td></tr>
+                        &nbsp;</td><td class="auto-style6">
+                            &nbsp;</td></tr>
+                    
 
 				</table>
               </div>
                 <div>
                     
-                <asp:Chart ID="Chart1" runat="server" Width="887px" OnLoad="Chart1_Load">
+                <asp:Chart ID="Chart1" runat="server" Width="1064px" OnLoad="Chart1_Load">
                             <Series>
                                 <asp:Series Name="Series1" Label="#VAL" Legend="Legend1" LegendText="Category"></asp:Series>
                             </Series>
@@ -243,7 +250,7 @@
                 </div>
                 <div>
                     
-                    <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
+                    <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1"  width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" CssClass="table table-striped table-bordered table-condensed">
                     </asp:GridView>
                     
                 </div>
