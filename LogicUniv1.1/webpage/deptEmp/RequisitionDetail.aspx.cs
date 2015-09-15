@@ -16,7 +16,7 @@ namespace LogicUniv1._1.webpage.deptEmp
         protected void Page_Load(object sender, EventArgs e)
         {
             int rid = Convert.ToInt32(Request.QueryString["rid"]);
-            TextBox1.Text = rid.ToString();
+            Label4.Text = rid.ToString();
             string cpoint = "";
             string st = "";
             //var M = from a in lu.requisitions
@@ -53,9 +53,9 @@ namespace LogicUniv1._1.webpage.deptEmp
 
             var val = vcrc.RequisitionDetail(rid.ToString()).First();
             cpoint = val.CollectionPoint;
-            st = val.Status;
-            TextBox3.Text = cpoint;
-            TextBox2.Text = st;
+            st = val.Status_dept;
+            Label5.Text = cpoint;
+            Label6.Text = st;
 
             GridView1.DataSource = vcrc.RequisitionDetail(rid.ToString());
             GridView1.DataBind();

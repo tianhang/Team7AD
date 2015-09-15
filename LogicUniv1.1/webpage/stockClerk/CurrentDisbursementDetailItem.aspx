@@ -38,6 +38,18 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: left;
+        }
+        .auto-style2 {
+            width: 299px
+        }
+        .auto-style3 {
+            width: 299px;
+            font-size: large;
+        }
+    </style>
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -182,10 +194,22 @@
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                     
 			<div class="tm-right-inner-container">
-                <div>
-                    <asp:Label ID="lbl_collectionPoint" runat="server" Text=""></asp:Label>  
+                <div class="auto-style1">
                     &nbsp;&nbsp;&nbsp;
+                    <table class="table-products">
+                        <tr>
+                            <td class="auto-style3">Disbursement List Details:</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                    <asp:Label ID="lbl_collectionPoint" runat="server" Text=""></asp:Label>  
+                            </td>
+                            <td>
                     <asp:Label ID="lbl_time" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div> 
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

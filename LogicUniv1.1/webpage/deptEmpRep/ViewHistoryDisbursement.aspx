@@ -198,25 +198,18 @@
                         <ContentTemplate>
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
-                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="table table-hover table-bordered" ForeColor="Black" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                 <Columns>
                                     <asp:BoundField HeaderText="Disbursement ID" DataField="DisbusementId" />
                                     <asp:BoundField DataField="Address" HeaderText="Collection Point" />
                                     <asp:BoundField DataField="CollectionDate" HeaderText="Collection Date" HtmlEncode="false" DataFormatString="{0:yyyy-MM-dd}" />
                                     <asp:BoundField HeaderText="Status" DataField="Status" />
                                     <asp:CommandField HeaderText="Select" SelectText="Details" ShowSelectButton="True" >
-                                    <ControlStyle CssClass="btn btn-success" />
+                                    <ControlStyle CssClass="btn btn-info" />
                                     </asp:CommandField>
                                 </Columns>
-                                <FooterStyle BackColor="#CCCCCC" />
-                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                                <RowStyle BackColor="White" />
-                                <SelectedRowStyle BackColor="#99CCFF" Font-Bold="True" ForeColor="White" />
-                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                <SortedAscendingHeaderStyle BackColor="#808080" />
-                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                <SortedDescendingHeaderStyle BackColor="#383838" />
+                                <EditRowStyle Height="35px" />
+                                <HeaderStyle Height="35px" />
                             </asp:GridView>
                         </ContentTemplate>
                     </asp:UpdatePanel>

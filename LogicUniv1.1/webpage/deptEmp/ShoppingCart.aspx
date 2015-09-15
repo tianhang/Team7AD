@@ -198,6 +198,7 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <asp:Button ID="Button1" runat="server" Text="Check Out" OnClick="Button1_Click" CssClass="btn btn-info" Height="33px" Width="133px" />
+                    <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
                 </div>
 
             </div>

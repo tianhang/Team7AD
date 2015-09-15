@@ -227,23 +227,16 @@
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
                             <div class="auto-style1">
-                                <asp:GridView ID="GridEmp" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="table table-hover table-bordered" ForeColor="Black" OnPageIndexChanging="GridEmp_PageIndexChanging" OnSelectedIndexChanged="GridEmp_SelectedIndexChanged" AllowPaging="True">
+                                <asp:GridView ID="GridEmp" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridEmp_PageIndexChanging" OnSelectedIndexChanged="GridEmp_SelectedIndexChanged" AllowPaging="True">
                                     <Columns>
                                         <asp:BoundField DataField="name" HeaderText="Employee Name" />
                                         <asp:BoundField DataField="userId" HeaderText="Employee Id" />
                                         <asp:CommandField HeaderText="Action" ShowSelectButton="True">
-                                        <ControlStyle CssClass="btn btn-success" />
+                                        <ControlStyle CssClass="btn btn-info" />
                                         </asp:CommandField>
                                     </Columns>
-                                    <FooterStyle BackColor="#CCCCCC" />
-                                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                                    <RowStyle BackColor="White" />
-                                    <SelectedRowStyle BackColor="#3399FF" Font-Bold="True" ForeColor="White" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#808080" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#383838" />
+                                    <EditRowStyle Height="35px" />
+                                    <HeaderStyle Height="35px" />
                                 </asp:GridView>
                             </div>
                         </ContentTemplate>
@@ -265,7 +258,7 @@
 
                                        
 
-                                        <button class="btn btn-primary btn-lg" data-target="#myModal" data-toggle="modal" type="button">
+                                        <button class="btn btn-info" data-target="#myModal" data-toggle="modal" type="button">
                                             <div class="auto-style4">Delegate</div>
                                         </button>
                                         <!-- Modal -->

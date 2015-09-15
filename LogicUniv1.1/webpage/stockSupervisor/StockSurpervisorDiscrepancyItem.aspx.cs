@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using ClassLibraryBL.Entities;
 namespace LogicUniv1._1.webpage.stockSupervisor
 {
     public partial class StockSurpervisorDiscrepancyItem : System.Web.UI.Page
@@ -14,8 +14,9 @@ namespace LogicUniv1._1.webpage.stockSupervisor
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            User userbean = (User)Session["UserEntity"];
 
-            int s = Convert.ToInt32(Session["UserEntity"].ToString());
+            int s = Convert.ToInt32(userbean.ToString());
             var N = from a in ctx.discrepancy_item
                     join b in ctx.items on a.itemId equals b.itemId
                     join c in ctx.categories on b.categoryId equals c.categoryId

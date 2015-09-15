@@ -202,23 +202,14 @@
                        <ContentTemplate>
                            <asp:ScriptManager ID="ScriptManager1" runat="server">
                            </asp:ScriptManager>
-                           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" CssClass="table table-hover table-bordered" ForeColor="Black" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                <Columns>
                                    <asp:BoundField DataField="address" HeaderText="Collect Point" />
                                    <asp:BoundField DataField="time" HeaderText="Collect Time" />
                                    <asp:CommandField HeaderText="Action" ShowSelectButton="True">
-                                   <ControlStyle CssClass="btn btn-primary" />
+                                   <ControlStyle CssClass="btn btn-info" />
                                    </asp:CommandField>
                                </Columns>
-                               <FooterStyle BackColor="#CCCCCC" />
-                               <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                               <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                               <RowStyle BackColor="White" />
-                               <SelectedRowStyle BackColor="#3399FF" Font-Bold="True" ForeColor="White" />
-                               <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                               <SortedAscendingHeaderStyle BackColor="#808080" />
-                               <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                               <SortedDescendingHeaderStyle BackColor="#383838" />
                            </asp:GridView>
                        </ContentTemplate>
                    </asp:UpdatePanel>
@@ -240,8 +231,8 @@
 
                                        
 
-                                        <button class="btn btn-primary btn-lg" data-target="#myModal" data-toggle="modal" type="button" style="width: 240px" >
-                                        <div>Change Collection Point</div>
+                                        <button class="btn btn-info" data-target="#myModal" data-toggle="modal" type="button" style="width: 240px" >
+                                        <div >Change Collection Point</div>
                                         </button>
                                                             </td>
                                                         </tr>

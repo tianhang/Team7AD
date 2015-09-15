@@ -39,6 +39,28 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
+    <style type="text/css">
+        .auto-style1 {
+            width: 212px;
+        }
+        .auto-style2 {
+            width: 206px;
+        }
+        .auto-style3 {
+            width: 212px;
+            text-align: left;
+        }
+        .auto-style4 {
+            width: 206px;
+            text-align: left;
+        }
+        .auto-style5 {
+            text-align: left;
+        }
+        .auto-style6 {
+            width: 113%;
+        }
+    </style>
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner">
@@ -165,7 +187,7 @@
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
 				  <li><a href="EmpHome.aspx" ><i class="fa fa-home fa-medium"></i>Homepage</a></li>
-				  <li><a href="PreviousRequisition.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
+				  <li><a href="PreviousRequisition.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
 				  <li><a href="CurrentRequisition.aspx"><i class="fa fa-send-o fa-medium"></i>Current Requisition</a></li>
 				 
 				</ul>
@@ -176,18 +198,34 @@
   		<div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
-            
+
 			<div class="tm-right-inner-container" style="padding-left:80px">
                 <div> 
-                    <asp:Label ID="Label1" runat="server" Text="Requisition Id : "></asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="111px"></asp:TextBox>
                     &nbsp&nbsp&nbsp&nbsp
-                    <asp:Label ID="Label2" runat="server" Text="Status:"></asp:Label>
-                    <asp:TextBox ID="TextBox2" runat="server" Width="107px"></asp:TextBox>
                     &nbsp&nbsp&nbsp&nbsp
-                    <asp:Label ID="Label3" runat="server" Text="Collection Point :"></asp:Label>
-                    <asp:TextBox ID="TextBox3" runat="server" Width="110px"></asp:TextBox>
-                    <br><br>
+                    <br>
+                    <table class="auto-style6">
+                        <tr>
+                            <td class="auto-style3"> 
+                    <asp:Label ID="Label1" runat="server" Text="Requisition Id : " Font-Size="Small"></asp:Label>
+                                <asp:Label ID="Label4" runat="server"></asp:Label>
+                            </td>
+                            <td class="auto-style4">
+                    <asp:Label ID="Label2" runat="server" Text="Status:" Font-Size="Small"></asp:Label>
+                                <asp:Label ID="Label6" runat="server"></asp:Label>
+                            </td>
+                            <td class="auto-style5">
+                    <asp:Label ID="Label3" runat="server" Text="Collection Point :" Font-Size="Small"></asp:Label>
+                                <asp:Label ID="Label5" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">&nbsp;</td>
+                            <td class="auto-style2">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <br>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                       <ContentTemplate>
                          <asp:ScriptManager ID="ScriptManager1" runat="server">
