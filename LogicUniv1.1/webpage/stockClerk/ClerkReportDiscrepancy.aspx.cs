@@ -173,12 +173,12 @@ namespace LogicUniv1._1.webpage.stockClerk
                 }
                 catch
                 {
-                    lbl_fail.Text = "Transaction Failure,please check your form format";
+                    //lbl_fail.Text = "Transaction Failure,please check your form format";
                 }
             }
             if (Data.Rows.Count == 0)
             {
-                lbl_fail.Text = "Transaction Failure,please check your form format";
+                //lbl_fail.Text = "Transaction Failure,please check your form format";
             }
         }
 
