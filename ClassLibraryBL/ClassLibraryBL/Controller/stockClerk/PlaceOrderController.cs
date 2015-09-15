@@ -18,7 +18,7 @@ namespace ClassLibraryBL.Controller.stockClerk
         public void confirmorder(int s){
             f.confirmorder(s);
         }
-       public  void formorder(user u){
+       public  void formorder(User u){
            f.formorder(u);
        }
        public List<Purchaseitem111> showpurchaseitems(purchase p)

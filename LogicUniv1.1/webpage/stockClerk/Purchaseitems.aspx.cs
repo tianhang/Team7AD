@@ -46,7 +46,11 @@ namespace LogicUniv1._1.webpage.stockClerk
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
                 //GridViewRow gvr = (GridViewRow)((Control)e.CommandSource).Parent.Parent
-            user u = (user)Session["User"];
+            User u = (User)Session["UserEntity"];
+            if (u.RoleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
             purchase s = (purchase)Session["purchaseitem"];
             int index=Convert.ToInt32(e.CommandArgument);
             string k =GridView1.Rows[index].Cells[0].Text;
@@ -55,7 +59,7 @@ namespace LogicUniv1._1.webpage.stockClerk
             string sp = dp.Text;
             if (e.CommandName == "ChangeSupplier")
             {
-                pl.changesupplier(index, s.purchaserId, sp,u.userId);
+                pl.changesupplier(index, s.purchaserId, sp,u.UserId);
                 Response.Redirect("Purchaseitems.aspx"); 
             
             };

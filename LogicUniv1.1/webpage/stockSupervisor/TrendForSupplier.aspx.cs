@@ -91,7 +91,7 @@ namespace LogicUniv1._1.webpage.stockSupervisor
                 {
                     list = tfsf.GetPrice(department, categary, m);
                     CategoryCost = GetCategoryCostByMonth(list);
-                    dt.Rows.Add(new object[] { m, Quantity });
+                    dt.Rows.Add(new object[] { m, CategoryCost });
                 }
                 Chart1.Series[0].XValueMember = dt.Columns[0].ToString();
                 Chart1.Series[0].YValueMembers = dt.Columns[1].ToString();

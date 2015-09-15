@@ -184,7 +184,7 @@ namespace ClassLibraryBL.EntityFacade
         //
 
 
-        public void formorder(user u)
+        public void formorder(User u)
         {
             var n = from a in ctx.items
                     where (a.balance < a.reorderlevel) && (a.status == "stockout")
@@ -207,7 +207,7 @@ namespace ClassLibraryBL.EntityFacade
                 purchase po = new purchase();
                 po.supplierId = x.supplierId;
                 po.purchaseDate = DateTime.Today.Date;
-                po.userId = u.userId;
+                po.userId = u.UserId;
                 po.expectedDeliveryDate = DateTime.Today.Date.AddDays(14);
                 po.status = "waiting";
                 ctx.purchases.Add(po);

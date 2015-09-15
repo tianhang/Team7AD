@@ -40,7 +40,11 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         protected void Order_Click(object sender, EventArgs e)
         {
-            user u = (user)Session["User"];
+            User u = (User)Session["UserEntity"];
+            if (u.RoleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
             pl.formorder(u);
             Response.Redirect("Reorder.aspx");
         }
