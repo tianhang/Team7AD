@@ -86,13 +86,13 @@ namespace ClassLibraryBL.EntityFacade
                     u.status = "stockout";
                 }
             }
-            foreach (itemValidate x5 in itemidlistNotAvailable)
-            {
-                var u = (from x1 in luse.items
-                         where x1.itemId == x5.Itemid
-                         select x1).First();
-                u.flag = "NULL";
-            }
+            //foreach (itemValidate x5 in itemidlistNotAvailable)
+            //{
+            //    var u = (from x1 in luse.items
+            //             where x1.itemId == x5.Itemid
+            //             select x1).First();
+            //    u.flag = "NULL";
+            //}
             /// update disbursement list
             if (itemidlistNotAvailable.Count == 0)
             {

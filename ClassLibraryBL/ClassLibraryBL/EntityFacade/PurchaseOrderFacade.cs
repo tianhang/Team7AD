@@ -46,7 +46,144 @@ namespace ClassLibraryBL.EntityFacade
             purchase o = x.SingleOrDefault();
             o.status = "Confirmed";
             ctx.SaveChanges();
+
+
+            var purchaseitemlist = (from x1 in ctx.purchases
+                                    from y1 in ctx.purchase_item
+                                    from z1 in ctx.items
+                                    where x1.purchaserId == s && x1.purchaserId == y1.purchaseId && z1.itemId == y1.itemId
+                                    select z1).ToList();
+            revalidationForReq(purchaseitemlist);
         }
+
+        //Purchase Order Confirm method. To validate Waiting order
+
+        public void revalidationForReq(List<item> purchaseitemlist)
+        {
+            
+            foreach(item x in purchaseitemlist){
+                int totalItemQuantity = 0;
+            var findRelevantRequistion = (from x1 in ctx.items
+                                            from y1 in ctx.requisitions
+                                            from z1 in ctx.requsiiton_item
+                                            where x1.itemId == z1.itemId && y1.requisitionId==z1.requisitionId &&  y1.status == "PendingForOrder" && x1.itemId == x.itemId
+                                            select y1).ToList();
+            foreach (requisition req in findRelevantRequistion)
+            {
+                  var t2 = (from x1 in ctx.items
+                         from y1 in ctx.requisitions
+                         from z1 in ctx.requsiiton_item
+                         where x1.itemId == x.itemId && x1.flag == "needReorderSoon" && y1.requisitionId == req.requisitionId && x1.itemId == z1.itemId && y1.requisitionId == z1.requisitionId
+                         select z1.requestQty).FirstOrDefault();
+                  totalItemQuantity = totalItemQuantity + t2;
+            }
+
+            var tiq = (from x2 in ctx.items
+                       where x2.itemId == x.itemId
+                       select x2).First();
+
+
+            if (totalItemQuantity >= tiq.balance)
+            {
+                foreach (requisition req in findRelevantRequistion)
+                {
+                    var t2 = (from x1 in ctx.items
+                              from y1 in ctx.requisitions
+                              from z1 in ctx.requsiiton_item
+                              where x1.flag == "needReorderSoon" && y1.requisitionId == req.requisitionId && x1.itemId == z1.itemId && y1.requisitionId == z1.requisitionId
+                              select x1.itemId);
+                    int flag = t2.Count();
+
+                    if (flag < 2)
+                    {
+                        var m = (
+                               from y1 in ctx.requisitions
+                               where y1.requisitionId == req.requisitionId
+                               select y1).First();
+                        m.status = "WaitingCollection";
+
+                        //add disbursement 
+                        // date and time
+                        var coltime = (from m2 in ctx.collectionPoints
+                                       from m4 in ctx.departments
+                                       where m2.collectionPointId == m4.collectionPointId && m4.departmentId == req.departmentId
+                                       select new { m2, m4 }).First();
+                        string collectiontime = coltime.m2.time;
+                        DateTime dt = DateTime.Now;
+                        int weeknow = Convert.ToInt32(DateTime.Now.DayOfWeek);
+                        int dayspan = (-1) * weeknow + 5;
+                        DateTime dt2 = dt.AddMonths(1);
+                        DateTime friday = DateTime.Now.AddDays(dayspan);
+                        string nhd = (friday.ToShortDateString() + " " + collectiontime);
+                        DateTime myDatefriday = Convert.ToDateTime(nhd);
+                        // date and time
+
+                        /// update disbursement list
+                        disbursement di = new disbursement();
+                        di.departmentId = req.departmentId;
+                        di.collectDate = myDatefriday;
+                        di.status = "WaitingCollection";
+                        ctx.disbursements.Add(di);
+                        ctx.SaveChanges();
+                        //updte disbursement list 
+
+
+
+                        //get particular requistion item list
+                  List<itemValidate> itemidlistAvailable = new List<itemValidate>();
+            var n = (from x1 in ctx.requisitions
+                     from y in ctx.items
+                     from z in ctx.requsiiton_item
+                     where x1.requisitionId == z.requisitionId && y.itemId == z.itemId && x1.requisitionId == req.requisitionId
+                     select new itemValidate
+                     {
+                         Itemid = z.itemId,
+                         RequestQty = z.requestQty,
+                         StockBalance = y.balance,
+                         Itemreorderlevel = y.reorderlevel
+                     }).ToList();
+                        itemidlistAvailable = n;
+                        //get particular requistion item list
+
+                        foreach (itemValidate mx in itemidlistAvailable)
+                        {
+                            disbursement_item disbi = new disbursement_item();
+                            disbi.disbursementId = di.disbursementId;
+                            disbi.itemId = mx.Itemid;
+                            disbi.collectQty = mx.RequestQty;
+                            ctx.disbursement_item.Add(disbi);
+                        }
+
+
+
+                        ///update disbursement list 
+
+                        //add disbursement
+
+
+                    }
+                    var t3 = (from x1 in ctx.items
+                              from y1 in ctx.requisitions
+                              from z1 in ctx.requsiiton_item
+                              where x1.itemId == x.itemId && x1.flag == "needReorderSoon" && y1.requisitionId == req.requisitionId && x1.itemId == z1.itemId && y1.requisitionId == z1.requisitionId
+                              select z1.requestQty).First();
+                    var u = (from x1 in ctx.items
+                             where x1.itemId == x.itemId
+                             select x1).First();
+                    u.balance = u.balance - t3;
+                }
+                var m3 = (from z1 in ctx.items
+                          where z1.itemId == x.itemId
+                          select z1).First();
+                m3.flag = "NULL";
+                ctx.SaveChanges();
+                 }
+            }
+        }
+
+        //
+
+
         public void formorder(user u)
         {
             var n = from a in ctx.items

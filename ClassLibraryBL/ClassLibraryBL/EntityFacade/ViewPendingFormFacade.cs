@@ -17,7 +17,7 @@ namespace ClassLibraryBL.EntityFacade
                        join r in lg.requisitions on ri.requisitionId equals r.requisitionId
                        //join pi in lg.purchase_item on i.itemId equals pi.itemId
                        //join p in lg.purchases on pi.purchaseId equals p.purchaserId
-                       where r.status == "PendingForOrder"
+                       where r.status == "PendingForOrder" && ri.requestQty>i.balance
                        select new { i.itemId, i.description,i.balance, ri.requestQty}
                        into newgg
                        group newgg by new { newgg.itemId,newgg.balance,newgg.description} into grouppings

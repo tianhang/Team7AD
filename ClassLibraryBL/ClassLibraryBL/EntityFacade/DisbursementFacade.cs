@@ -33,7 +33,7 @@ namespace ClassLibraryBL.EntityFacade
             int m = data.Count();
             return data;
         }
-                        public void confirmDisbursement()
+                        public void confirmDisbursement(User u)
                         {
 
                             try
@@ -41,18 +41,19 @@ namespace ClassLibraryBL.EntityFacade
                                 var data = (from x in cntx.items
                                             from y in cntx.disbursements
                                             from z in cntx.disbursement_item
-                                            where y.disbursementId == z.disbursementId && x.itemId == z.itemId && y.status == "WaitingCollection"
-                                            select y).First();
-                                var x2 = data.disbursementId;
+                                            where y.disbursementId == z.disbursementId && x.itemId == z.itemId && y.status == "WaitingCollection" && y.departmentId == u.DepartmentId
+                                            select y).ToList();
+                               
 
-
+                                foreach(disbursement x2 in data){
                                 var update = (from x in cntx.disbursements
-                                              where x.disbursementId == x2
+                                              where x.disbursementId == x2.disbursementId
                                               select x).FirstOrDefault();
                                 update.status = "Completed";
-                                cntx.SaveChanges();
                                 }
-                                catch (Exception eew)
+                                cntx.SaveChanges();
+                            }
+                                catch (Exception e)
                                 {
                             }
                         }

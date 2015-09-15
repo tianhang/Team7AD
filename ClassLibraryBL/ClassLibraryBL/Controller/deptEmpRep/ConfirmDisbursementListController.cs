@@ -15,9 +15,9 @@ namespace ClassLibraryBL.Controller.deptEmpRep
             return df.getDisbursementList(u);
         }
 
-        public void confirmRceive()
+        public void confirmRceive(User u)
         {
-            df.confirmDisbursement();
+            df.confirmDisbursement(u);
         }
 
 

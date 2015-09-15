@@ -48,7 +48,7 @@ namespace LogicUniv1._1.webpage.deptEmpRep
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
-            cdlc.confirmRceive();
+            cdlc.confirmRceive(u);
         }
     }
 }
