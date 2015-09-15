@@ -192,12 +192,12 @@
         <asp:Label ID="Label6" runat="server" Text="SupplierID:"></asp:Label>  
         <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>  
         <br />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Height="346px" Width="785px" OnRowCommand="GridView1_RowCommand">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Height="346px" Width="723px" OnRowCommand="GridView1_RowCommand" CssClass="table table-striped table-bordered table-condensed">
             <Columns>
                 <asp:BoundField DataField="Itemcode" HeaderText="Itemcode" />
                 <asp:BoundField DataField="Description" HeaderText="Description" />
                 <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
-                <asp:BoundField DataField="price" HeaderText="price" />
+                <asp:BoundField DataField="price" HeaderText="Price" />
                 <asp:BoundField DataField="Amount" HeaderText="Amount" />
                 <asp:TemplateField HeaderText="Choose Supplier">
                     <ItemTemplate>
@@ -205,8 +205,12 @@
                         </asp:DropDownList>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:ButtonField ButtonType="Button" CommandName="ChangeSupplier" HeaderText="ChangeSupplier" ShowHeader="True" Text="ChangeSupplier" />
-                <asp:ButtonField ButtonType="Button" CommandName="DeleteItem" Text="Delete Items" />
+                <asp:ButtonField ButtonType="Button" CommandName="ChangeSupplier" HeaderText="ChangeSupplier" Text="ChangeSupplier" >
+                <ControlStyle CssClass="btn btn-success" />
+                </asp:ButtonField>
+                <asp:ButtonField ButtonType="Button" CommandName="DeleteItem" Text="Delete Items" >
+                <ControlStyle CssClass="btn btn-danger" />
+                </asp:ButtonField>
             </Columns>
             <EmptyDataTemplate>
                 NO&nbsp;&nbsp; ITEM&nbsp;&nbsp;&nbsp; FOUND!
@@ -217,11 +221,11 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Button ID="Send" runat="server" style="margin-left: 465px" Text="Send Email to Supplier" Width="149px" />
-            <asp:Button ID="Add" runat="server" Height="26px" style="margin-left: 38px" Text="Add Item" Width="114px" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" />
+            <asp:Button ID="Send" runat="server" style="margin-left: 509px" Text="Send Email to Supplier" Width="178px" CssClass="btn btn-info" />
+            <asp:Button ID="Add" runat="server" Height="35px" style="margin-left: 15px" Text="Add Item" Width="135px" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" CssClass="btn btn-info" />
         </p>
-           <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Back" Width="68px" />  
-           <asp:Button ID="Button1" runat="server" Text="Print" OnClientClick="PrintGridView()" Width="78px" />  
+           <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Back" Width="96px" CssClass="btn btn-info" />  
+           <asp:Button ID="Button1" runat="server" Text="Print" OnClientClick="PrintGridView()" Width="98px" CssClass="btn btn-info" />  
 
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">

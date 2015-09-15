@@ -188,14 +188,14 @@
              <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
             <asp:TextBox ID="TextBox1" runat="server" Height="33px" Width="360px" style="margin-left:auto"></asp:TextBox>
-            <asp:Button ID="search" runat="server" CssClass="btn btn-primary" OnClick="search_Click" Text="Search" Width="83px" />
+            <asp:Button ID="search" runat="server" CssClass="btn btn-info" OnClick="search_Click" Text="Search" Width="83px" />
             
             <br />
        
             <%-- BootStrap popup wind --%>
             <div class="tm-right-inner-container">
                   <br />
-                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" Height="42px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="694px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="table table-striped table-bordered table-condensed">
+                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True"  OnPageIndexChanging="GridView1_PageIndexChanging" Width="694px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="table table-striped table-bordered table-condensed">
                      <Columns>
                          <asp:BoundField DataField="Itemdescription" HeaderText="Itemdescription" />
                          <asp:BoundField DataField="itemid" HeaderText="Item Number" />
@@ -203,9 +203,11 @@
                          <asp:BoundField DataField="price" HeaderText="Existing Tender Price" />
                          <asp:CommandField ShowSelectButton="True" HeaderText="Update New Price" SelectText="Update" />
                      </Columns>
+                     <EditRowStyle Height="35px" />
+                     <HeaderStyle Height="35px" />
             </asp:GridView>
                 <div> 
-               <asp:Button ID="back" runat="server" CssClass="btn btn-primary" OnClick="back_Click" Text="Back" Width="85px" /> 
+               <asp:Button ID="back" runat="server" CssClass="btn btn-info" OnClick="back_Click" Text="Back" Width="85px" /> 
               </div>
            
 

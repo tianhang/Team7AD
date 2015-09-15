@@ -131,8 +131,7 @@ textarea{
 	border-color: #dee3ea;
 }
 select{
-	margin: 0;
-	height: 24px;
+	margin: 0 0 0 11px;
 	border-color: #d0dde9;
 	border-radius: 2px;
 	font-size: 13px;

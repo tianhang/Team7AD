@@ -192,7 +192,7 @@
                       <ContentTemplate>
                          <asp:ScriptManager ID="ScriptManager1" runat="server">
                           </asp:ScriptManager> 
-                              <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" AllowPaging="True" AutoGenerateColumns="False" Height="378px" OnPageIndexChanging="GridView1_PageIndexChanging1" PageSize="5" Width="786px">
+                              <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="GridView1_PageIndexChanging1" PageSize="5" Width="786px" CssClass="table table-striped table-bordered table-condensed">
                                     <Columns>
                                         <asp:ImageField DataImageUrlField="photourl" HeaderText="Photo">
                                             <ControlStyle Height="70px" Width="70px" />
@@ -200,20 +200,13 @@
                                         <asp:BoundField DataField="Description" HeaderText="Name" />
                                         <asp:BoundField DataField="Number" HeaderText="Number" />
                                     </Columns>
-                                    <FooterStyle BackColor="#CCCCCC" />
-                                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                                    <RowStyle BackColor="White" />
-                                    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#808080" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#383838" />
+                                    <EditRowStyle Height="35px" />
+                                    <HeaderStyle Height="35px" />
                     </asp:GridView>
                     </ContentTemplate>
                </asp:UpdatePanel>
-                    <br><br>
-                    <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" />
+                    <br>
+                    <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" CssClass="btn btn-info" Height="28px" Width="89px" />
                 </div>
             </div>
 

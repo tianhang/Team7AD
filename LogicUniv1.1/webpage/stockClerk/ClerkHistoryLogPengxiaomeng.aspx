@@ -221,6 +221,7 @@
                 <asp:ListItem Selected="True">View By Item</asp:ListItem>
             </asp:DropDownList>
             <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:1%" OnClick="HistoryLog1_Click" CssClass="btn btn-info" Height="30px" Width="158px" />            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
             <asp:Button ID="CurrentWeek" runat="server" Text="Current Week" OnClick="CurrentWeek_Click" CssClass="btn btn-info" Height="30px" Width="164px" />
             <asp:RadioButtonList ID="Department" runat="server" Height="16px" Width="299px" AutoPostBack="True" OnSelectedIndexChanged="Department_SelectedIndexChanged1" Visible="False">
                 <asp:ListItem>COMM</asp:ListItem>
@@ -230,7 +231,7 @@
                 <asp:ListItem>STORE</asp:ListItem>
                 <asp:ListItem>ZOOL</asp:ListItem>
             </asp:RadioButtonList>
-            <br />
+                    <br />
             <br />
             <asp:TextBox ID="startdate" runat="server" style="margin-left:auto" Width="120px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -240,10 +241,12 @@
             <br />
             <br />
                     <div id="Print">
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" Height="198px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="674px" CssClass="table table-striped table-bordered table-condensed">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True"  OnPageIndexChanging="GridView1_PageIndexChanging" Width="674px" CssClass="table table-striped table-bordered table-condensed">
+                <EditRowStyle Height="35px" />
+                <HeaderStyle Height="35px" />
             </asp:GridView>          
                     </div> 
-                          <asp:Button ID="P" runat="server" Text="Print" Width="104px" OnClientClick="PrintGridView()"/> 
+                          <asp:Button ID="P" runat="server" Text="Print" Width="104px" OnClientClick="PrintGridView()" CssClass="btn btn-info"/> 
                     </div>
             </div>
     <footer>

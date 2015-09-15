@@ -22,15 +22,6 @@ namespace LogicUniv1._1.webpage.stockClerk {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// clerk control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label clerk;
-        
-        /// <summary>
         /// viewby control.
         /// </summary>
         /// <remarks>
