@@ -182,12 +182,10 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-           <asp:Label ID="storeM" runat="server" Text="Label"></asp:Label>
-            
            
 			<div class="tm-right-inner-container">
                 <div> 
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Height="279px" Width="584px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" PageSize="100">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"  Width="584px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" PageSize="100" CssClass="table table-striped table-bordered table-condensed">
                         <Columns>
                             <asp:BoundField DataField="purchaserId" HeaderText="PO Number" />
                             <asp:BoundField DataField="purchaseDate" HeaderText="Available Date" />
@@ -199,6 +197,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <EditRowStyle Height="35px" />
                         <HeaderStyle Height="35px" /> 
                         <RowStyle Height="35px" /> 
                     </asp:GridView>
@@ -208,9 +207,9 @@
                       </SelectParameters>  
                     </asp:SqlDataSource>  
 
-                    <asp:Button ID="Order" runat="server" Text="Generate Order" Width="136px" OnClick="Order_Click" data-toggle="modal" data-target="#myModal1"/>
-                    <asp:Button ID="Confirm" runat="server" OnClick="Confirm_Click" style="margin-left: 177px" Text="Confirm" Width="98px" data-toggle="modal" data-target="#myModal"/>
-                    <asp:Button ID="Cancel" runat="server" OnClick="Cancel_Click" Text="Cancel" Width="89px" />
+                    <asp:Button ID="Order" runat="server" Text="Generate Order" Width="136px" OnClick="Order_Click" data-toggle="modal" data-target="#myModal1" CssClass="btn btn-info"/>
+                    <asp:Button ID="Confirm" runat="server" OnClick="Confirm_Click" style="margin-left: 249px" Text="Confirm" Width="98px" data-toggle="modal" data-target="#myModal" CssClass="btn btn-info"/>
+                    <asp:Button ID="Cancel" runat="server" OnClick="Cancel_Click" Text="Cancel" Width="89px" CssClass="btn btn-info" />
               </div>
                  </div>
                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  

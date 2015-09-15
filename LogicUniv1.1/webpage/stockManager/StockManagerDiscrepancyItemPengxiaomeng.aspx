@@ -175,29 +175,18 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-           <asp:Label ID="storeM" runat="server" Text="Label"></asp:Label>
-            
            
 			<div class="tm-right-inner-container">
                 <div> 
 
-    <div style="height: 603px; width: 1020px">
+    <div style="height: 262px; width: 991px">
     
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" Height="468px" Width="879px" CaptionAlign="Bottom" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Font-Bold="False" Font-Italic="False" Font-Names="Cambria" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ShowFooter="True">
-            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-            <EditRowStyle BackColor="#999999" />
-            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        <asp:GridView ID="GridView1" runat="server" Width="879px" CaptionAlign="Bottom" HorizontalAlign="Center" Font-Bold="False" Font-Italic="False" Font-Names="Cambria" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ShowFooter="True" CssClass="table table-striped table-bordered table-condensed">
+            <EditRowStyle Height="35px" />
+            <HeaderStyle Height="35px" />
         </asp:GridView>   
     </div>
-    <asp:Button ID="Button1" runat="server" Text="Approve" style="margin-left:5%" OnClick="Button1_Click" /><asp:Button ID="Button2" runat="server" Text="Reject" style="margin-left:10px" OnClick="Button2_Click" />
+    <asp:Button ID="Button1" runat="server" Text="Approve" style="margin-left:51%" OnClick="Button1_Click" CssClass="btn btn-success" Width="80px" />&nbsp;&nbsp; <asp:Button ID="Button2" runat="server" Text="Reject" style="margin-left:10px" OnClick="Button2_Click" CssClass="btn btn-danger" />
               </div>
                  </div>
 

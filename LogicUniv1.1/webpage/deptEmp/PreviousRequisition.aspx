@@ -183,25 +183,18 @@
                       <ContentTemplate>
                          <asp:ScriptManager ID="ScriptManager1" runat="server">
                           </asp:ScriptManager> 
-                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="Black" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" Height="434px" Width="762px" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+                    <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="762px" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" CssClass="table table-striped table-bordered table-condensed">
                         <Columns>
                             <asp:BoundField DataField="requisitionId" HeaderText="Requisition ID" />
                             <asp:BoundField DataField="requestDate" HeaderText="Requisition Date" />
                             <asp:BoundField DataField="status_dept" HeaderText="Status" />
                             <asp:CommandField HeaderText="Details" SelectText="Details" ShowSelectButton="True" />
                         </Columns>
+                        <EditRowStyle Height="35px" />
                         <EmptyDataTemplate>
                            <asp:Button ID="Button1" runat="server" Text="Detail" />
                         </EmptyDataTemplate>
-                        <FooterStyle BackColor="#CCCCCC" />
-                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                        <RowStyle BackColor="White" />
-                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                        <SortedAscendingHeaderStyle BackColor="Gray" />
-                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                        <HeaderStyle Height="35px" />
                    </asp:GridView>
                   </ContentTemplate>
             </asp:UpdatePanel>

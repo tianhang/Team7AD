@@ -182,7 +182,7 @@
                         <ContentTemplate>
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating" AllowPaging="True" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Height="182px" PageSize="6" Width="923px" >
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating" AllowPaging="True" PageSize="6" Width="923px" CssClass="table table-striped table-bordered table-condensed" >
                                 <Columns>
                                     <asp:ImageField DataImageUrlField="Photourl" HeaderText="Image" ReadOnly="True">
                                         <ControlStyle Height="125px" Width="125px" />
@@ -192,20 +192,12 @@
                                     <asp:CommandField SelectText="delete" ShowSelectButton="True" />
                                     <asp:CommandField HeaderText="Edit Amount" ShowEditButton="True" />
                                 </Columns>
-                                <FooterStyle BackColor="#CCCCCC" />
-                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                                <RowStyle BackColor="White" />
-                                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                <SortedAscendingHeaderStyle BackColor="#808080" />
-                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                <SortedDescendingHeaderStyle BackColor="#383838" />
+                                <EditRowStyle Height="35px" />
+                                <HeaderStyle Height="35px" />
                             </asp:GridView>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                    <asp:Button ID="Button1" runat="server" Text="Check Out" OnClick="Button1_Click" />
-                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Button ID="Button1" runat="server" Text="Check Out" OnClick="Button1_Click" CssClass="btn btn-info" Height="33px" Width="133px" />
                 </div>
 
             </div>

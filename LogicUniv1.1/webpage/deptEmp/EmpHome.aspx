@@ -266,14 +266,14 @@
 			<div id="prelayer" style="padding-left:60px">
                 <div> 
                     <div>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
-                        <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:TextBox ID="TextBox1" runat="server" Height="16px" Width="119px"></asp:TextBox>
+                        <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" CssClass="btn btn-info" />
+                        <asp:DropDownList ID="DropDownList1" runat="server" Height="27px" Width="136px">
                             <asp:ListItem>catogoryName</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="SearchByCategory" />
+                        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Search By Category" CssClass="btn btn-info" Height="32px" Width="181px" />
                  
-                        <asp:Button ID="Button2" runat="server" Text="AddToCart" OnClick="Button2_Click" />
+                        <asp:Button ID="Button2" runat="server" Text="Add To Cart" OnClick="Button2_Click" CssClass="btn btn-danger" />
                         <asp:HiddenField ID="HiddenField1" runat="server" />
                         <asp:HiddenField ID="HiddenField2" runat="server" />
                     </div>

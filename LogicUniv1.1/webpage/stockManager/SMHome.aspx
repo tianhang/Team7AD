@@ -173,23 +173,13 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-           <asp:Label ID="storeM" runat="server" Text="Label"></asp:Label>
-            
            
 			<div class="tm-right-inner-container">
                 <div> 
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" GridLines="None" Height="434px" OnPageIndexChanging="GridView1_PageIndexChanging1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="845px" CaptionAlign="Bottom" HorizontalAlign="Center" style="margin-left: 0px" ShowFooter="True">
-            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-            <EditRowStyle BackColor="#999999" />
-            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" Height="35px"/>
-            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Height="35px" />
-            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+               <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True" OnPageIndexChanging="GridView1_PageIndexChanging1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="845px" CaptionAlign="Bottom" HorizontalAlign="Center" style="margin-left: 0px" ShowFooter="True" CssClass="table table-striped table-bordered table-condensed">
+                   <EditRowStyle Height="35px" />
+            <HeaderStyle Height="35px"/>
+            <RowStyle Height="35px" />
         </asp:GridView>
 				<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="SELECT * FROM [discrepancy]"></asp:SqlDataSource>
               </div>

@@ -183,7 +183,6 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             <div class="tm-right-inner-container">
-             <asp:Label ID="clerk" runat="server" Text="Label"></asp:Label>
             
             <asp:DropDownList ID="viewby" runat="server" OnSelectedIndexChanged="viewby_SelectedIndexChanged" ValidateRequestMode="Enabled" AutoPostBack="True">
                 <asp:ListItem>View By Department</asp:ListItem>
@@ -204,10 +203,12 @@
             <br />
             <br />
                 <div id="Print"> 
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" Height="140px" OnPageIndexChanging="GridView1_PageIndexChanging" Width="772px" CssClass="table table-striped table-bordered table-condensed">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True"  OnPageIndexChanging="GridView1_PageIndexChanging" Width="772px" CssClass="table table-striped table-bordered table-condensed" SortedDescendingCellStyle-VerticalAlign="NotSet" EditRowStyle-Height="35px">
+                <EditRowStyle Height="35px" />
+                <HeaderStyle Height="35px" />
             </asp:GridView>
                     </div>
-                <asp:Button ID="p" runat="server" Text="Print" Width="69px" OnClientClick="PrintGridView()" />
+                <asp:Button ID="p" runat="server" Text="Print" Width="87px" OnClientClick="PrintGridView()" CssClass="btn btn-info" />
                 <div> 
 
               </div>
