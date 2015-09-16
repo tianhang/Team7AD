@@ -366,5 +366,21 @@ namespace ClassLibraryBL.EntityFacade
             int x = Convert.ToInt32(n.SingleOrDefault());
             return x ;
         }
+        /////////////////mobile///////////////////////////////
+        public List<purchaseEntity> getPurchaseOrder()
+        {
+            var n = from a in ctx.purchases
+                    select new purchaseEntity
+                    {
+                        purchaserId = a.purchaserId,
+                        supplierId = a.supplierId,
+                        purchaseDate = a.purchaseDate,
+                        userId = a.userId,
+                        expectedDeliveryDate = a.expectedDeliveryDate,
+                        status = a.status
+                    };
+            return n.ToList();
+
+        }
     }
 }

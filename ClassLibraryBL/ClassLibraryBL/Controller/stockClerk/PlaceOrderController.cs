@@ -61,6 +61,11 @@ namespace ClassLibraryBL.Controller.stockClerk
        {
            return f.findsupplier(itemcode);
        }
+        //MOBILE
+        public List<purchaseEntity> getPurchaseOrder()
+        {
+            return f.getPurchaseOrder();
+        }
     }
     
 }

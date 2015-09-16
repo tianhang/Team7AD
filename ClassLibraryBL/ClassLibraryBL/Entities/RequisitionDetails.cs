@@ -14,9 +14,9 @@ namespace ClassLibraryBL.Entities
         string unit;
         string name;
         string status_dept;
-        
 
-        [DataMember]
+
+           [DataMember]
         public string Status_dept
         {
             get { return status_dept; }

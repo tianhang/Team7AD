@@ -138,7 +138,6 @@ namespace ClassLibraryBL.EntityFacade
                                         where x.disbursementId == z.disbursementId && z.itemId == y.itemId && x.disbursementId == session
                                         select new { y.description, z.collectQty});
                             return data.ToList();
-
                         }
 
                         public Object getCollectionPoint(String value)
@@ -179,6 +178,50 @@ namespace ClassLibraryBL.EntityFacade
                             return data.ToList();
                         }
         //Du du
+                        //mobile//////////////////////////////////////////////////
+
+                        public List<RequisitionMix> getCurrentList2(String v)
+                        {
+                            var data = from f in cntx.disbursements
+                                       join d in cntx.departments on f.departmentId equals d.departmentId
+                                       join di in cntx.disbursement_item on f.disbursementId equals di.disbursementId
+                                       join i in cntx.items on di.itemId equals i.itemId
+                                       join c in cntx.categories on i.categoryId equals c.categoryId
+                                       where d.deptName == v && f.status == "WaitingCollection"
+                                       select new RequisitionMix
+                                       {
+                                           itemID = i.itemId,
+                                           Category = c.categoryName,
+                                           Itemname = i.description,
+                                           amount = di.collectQty,
+                                           Unit = i.unit,
+                                           Bin = i.binNumber
+                                       };
+                            return data.ToList();
+                        }
+
+
+                        //public List<disbursementEntity> getCurrentList2(String value)
+                        //{
+
+                        //    var data = from f in cntx.disbursements
+                        //               join d in cntx.departments on f.departmentId equals d.departmentId
+                        //               where d.deptName == value
+                        //               where f.status == "WaitingCollection"
+                        //               select new disbursementEntity
+                        //               {
+                        //                   disbursementId = f.disbursementId,
+                        //                   deptName = d.deptName,
+                        //                   collectionDate = f.collectDate,
+                        //                   status = f.status
+                        //               };
+
+               
+                        //    return data.ToList();
+                        //}
+
+
+
 
     }
 }

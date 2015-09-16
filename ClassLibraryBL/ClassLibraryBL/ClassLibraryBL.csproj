@@ -79,21 +79,11 @@
     <Compile Include="Controller\stockClerk\PlaceOrderController.cs" />
     <Compile Include="Controller\stockClerk\ProcessDiscrepancyController.cs" />
     <Compile Include="Controller\stockClerk\ProcessRequistionController.cs" />
+    <Compile Include="Controller\stockClerk\ProcessStockAdjustmentController.cs" />
     <Compile Include="Controller\stockClerk\ViewDisbursementListController.cs" />
     <Compile Include="Controller\stockClerk\ViewInventoryController.cs" />
     <Compile Include="Controller\stockClerk\ViewPendingFormController.cs" />
     <Compile Include="Controller\stockClerk\ViewRetrievalFormController.cs" />
-    <Compile Include="Entities\Department.cs" />
-    <Compile Include="Entities\DisbursementList.cs" />
-    <Compile Include="Entities\DiscrepancyItemMix.cs" />
-    <Compile Include="Entities\DiscrepancyMixBean.cs" />
-    <Compile Include="Entities\itemValidate.cs" />
-    <Compile Include="Entities\Purchaseitem111.cs" />
-    <Compile Include="Entities\ReportOrderEntity.cs" />
-    <Compile Include="Entities\RequestItem.cs" />
-    <Compile Include="Entities\RequestThreeMonthsEntity.cs" />
-    <Compile Include="Entities\RequisitionDetails.cs" />
-    <Compile Include="Controller\stockClerk\ProcessStockAdjustmentController.cs" />
     <Compile Include="Controller\stockSupervisor\ViewReportController.cs" />
     <Compile Include="Controller\stockManager\ApproveStockAdjustmentController.cs" />
     <Compile Include="Controller\stockSupervisor\ApproveStockAdjustmentController.cs" />
@@ -113,6 +103,23 @@
     <Compile Include="discrepancy_item.cs">
       <DependentUpon>LogicUniv.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\departmentEntity.cs" />
+    <Compile Include="Entities\disbursementEntity.cs" />
+    <Compile Include="Entities\DisbursementList.cs" />
+    <Compile Include="Entities\discrepancyDetailEntityMobile.cs" />
+    <Compile Include="Entities\discrepancyEntity.cs" />
+    <Compile Include="Entities\DiscrepancyItemMix.cs" />
+    <Compile Include="Entities\DiscrepancyMixBean.cs" />
+    <Compile Include="Entities\itemEntity.cs" />
+    <Compile Include="Entities\itemValidate.cs" />
+    <Compile Include="Entities\purchaseEntity.cs" />
+    <Compile Include="Entities\Purchaseitem111.cs" />
+    <Compile Include="Entities\ReportOrderEntity.cs" />
+    <Compile Include="Entities\RequestItem.cs" />
+    <Compile Include="Entities\RequestThreeMonthsEntity.cs" />
+    <Compile Include="Entities\RequisitionDetails.cs" />
+    <Compile Include="Entities\requisitionEntity.cs" />
     <Compile Include="Entities\RequisitionMix.cs" />
     <Compile Include="Entities\ShoppingItem.cs" />
     <Compile Include="Entities\SupplieritemMix.cs" />

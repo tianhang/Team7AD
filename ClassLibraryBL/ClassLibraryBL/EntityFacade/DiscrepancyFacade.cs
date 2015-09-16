@@ -187,6 +187,64 @@ namespace ClassLibraryBL.EntityFacade
 
 
         //PENG XIAO MENG***************************************
+
+        ///////////////////////////mobile///////////////////////////////
+        public List<discrepancyEntity> ListHistory2()
+        {
+            var data = from d in lg.discrepancies
+                       select new discrepancyEntity
+                       {
+                           discrepancyId = d.discrepancyId,
+                           reportDate = d.reportDate,
+                           totalPrice = d.totalPrice,
+                           status = d.status,
+                           Remark = d.Remark,
+                           userId = d.userId
+                       };
+            return data.ToList();
+        }
+
+
+        public List<discrepancyDetailEntityMobile> getDiscrepanyDetail2(String id)
+        {
+            int getId = Convert.ToInt32(id);
+            var data = from d in lg.discrepancies
+                       join di in lg.discrepancy_item on d.discrepancyId equals di.discrepancyId
+                       join i in lg.items on di.itemId equals i.itemId
+                       join c in lg.categories on i.categoryId equals c.categoryId
+                       where d.discrepancyId == getId
+                       select new discrepancyDetailEntityMobile
+                       {
+                           categoryName = c.categoryName,
+                           description = i.description,
+                           balance = i.balance,
+                           unit = i.unit,
+                           type = di.type,
+                           Remark = d.Remark,
+                           status = d.status
+                       };
+            return data.ToList();
+        }
+
+        public void confirmOperation2(List<discrepancyDetailEntityMobile> ddem, User u)
+        {
+            for (int i = 0; i < ddem.Count; i++)
+            {
+
+                String category = ddem[i].categoryName;
+                String description = ddem[i].description;
+                int amount = ddem[i].balance;
+                String unit = ddem[i].unit;
+                String type = ddem[i].type;
+                String remark = ddem[i].Remark;
+                DateTime reportdate = DateTime.Now;
+                addToDiscrepancyTable(description, reportdate, remark, u.UserId, 50, amount, type);
+
+            }
+        }
+
+
+
     }
     
 }

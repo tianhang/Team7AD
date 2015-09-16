@@ -50,5 +50,20 @@ namespace ClassLibraryBL.Controller.stockClerk
         {
             return df.getDiscrepanyDetail(id);
         }
+        //////////////////////mobile//////////////////
+        public List<discrepancyEntity> ListHistory2()
+        {
+            return df.ListHistory2();
+        }
+
+        public List<discrepancyDetailEntityMobile> getDiscrepanyDetail2(string id)
+        {
+            return df.getDiscrepanyDetail2(id);
+        }
+
+        public void confirmOperation2(List<discrepancyDetailEntityMobile> ddem, User u)
+        {
+            df.confirmOperation2(ddem, u);
+        }
     }
 }

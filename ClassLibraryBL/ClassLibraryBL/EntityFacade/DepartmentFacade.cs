@@ -80,7 +80,14 @@ namespace ClassLibraryBL.EntityFacade
             return query.ToList();
         }
 
+        //mobile
+        public List<department> GetDepName2()
+        {
+            var query = from d in luse.departments
+                        select d;
 
+            return query.ToList();
+        }
 
     }
 }

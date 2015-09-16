@@ -377,6 +377,126 @@ namespace ClassLibraryBL.EntityFacade
         }
         //**********************************DU DU********************************
 
+
+        //**********************************tianhang********************************
+        public List<requisition> getAllRequisition()
+        {
+            var data = from r in luse.requisitions select r;
+
+            return data.ToList();
+        }
+
+        public List<requisitionEntity> getRequisition2()
+        {
+            DateTime dt = DateTime.Now;
+            int weeknow = Convert.ToInt32(DateTime.Now.DayOfWeek);
+            int dayspan = (-1) * weeknow;
+            DateTime dt2 = dt.AddMonths(1);
+            DateTime monday = DateTime.Now.AddDays(dayspan);
+            var data = from r in luse.requisitions
+                       join d in luse.departments on r.departmentId equals d.departmentId
+                       where r.requestDate >= monday
+                       select new requisitionEntity
+                       {
+                           requisitionId = r.requisitionId,
+                           requestDate = r.requestDate,
+                           deptName = d.deptName,
+                           status = r.status,
+                           departmentId = d.departmentId,
+                           userId = r.userId,
+                           rejectReason = r.rejectReason
+                       };
+            return data.ToList();
+        }
+
+        //public List<requisitionEntity> getRequisition3()
+        //{
+
+        //    var data = from r in luse.requisitions
+        //               join d in luse.departments on r.departmentId equals d.departmentId
+        //               select new requisitionEntity
+        //               {
+        //                   requisitionId = r.requisitionId,
+        //                   requestDate = r.requestDate,
+        //                   deptName = d.deptName,
+        //                   status = r.status,
+        //                   departmentId = d.departmentId,
+        //                   userId = r.userId,
+        //                   rejectReason = r.rejectReason
+        //               };
+        //    return data.ToList();
+        //}
+        public List<requisitionEntity> getPendingRequisition()
+        {
+            DateTime dt = DateTime.Now;
+            int weeknow = Convert.ToInt32(DateTime.Now.DayOfWeek);
+            int dayspan = (-1) * weeknow;
+            DateTime dt2 = dt.AddMonths(1);
+            DateTime monday = DateTime.Now.AddDays(dayspan);
+            var data = from r in luse.requisitions
+                       join d in luse.departments on r.departmentId equals d.departmentId
+                       where r.status == "PendingForOrder"
+                       where r.requestDate >= monday
+                       select new requisitionEntity
+                       {
+                           requisitionId = r.requisitionId,
+                           requestDate = r.requestDate,
+                           deptName = d.deptName,
+                           status = r.status,
+                           departmentId = d.departmentId,
+                           userId = r.userId,
+                           rejectReason = r.rejectReason
+                       };
+            return data.ToList();
+        }
+        public List<requisitionEntity> getWaitingRequisition()
+        {
+            DateTime dt = DateTime.Now;
+            int weeknow = Convert.ToInt32(DateTime.Now.DayOfWeek);
+            int dayspan = (-1) * weeknow;
+            DateTime dt2 = dt.AddMonths(1);
+            DateTime monday = DateTime.Now.AddDays(dayspan);
+            var data = from r in luse.requisitions
+                       join d in luse.departments on r.departmentId equals d.departmentId
+                       where r.status == "WaitingCollection"
+                       where r.requestDate >= monday
+                       select new requisitionEntity
+                       {
+                           requisitionId = r.requisitionId,
+                           requestDate = r.requestDate,
+                           deptName = d.deptName,
+                           status = r.status,
+                           departmentId = d.departmentId,
+                           userId = r.userId,
+                           rejectReason = r.rejectReason
+                       };
+            return data.ToList();
+        }
+
+        public List<requisitionEntity> getCompletedRequisition()
+        {
+            DateTime dt = DateTime.Now;
+            int weeknow = Convert.ToInt32(DateTime.Now.DayOfWeek);
+            int dayspan = (-1) * weeknow;
+            DateTime dt2 = dt.AddMonths(1);
+            DateTime monday = DateTime.Now.AddDays(dayspan);
+            var data = from r in luse.requisitions
+                       join d in luse.departments on r.departmentId equals d.departmentId
+                       where r.status == "Completed"
+                       where r.requestDate >= monday
+                       select new requisitionEntity
+                       {
+                           requisitionId = r.requisitionId,
+                           requestDate = r.requestDate,
+                           deptName = d.deptName,
+                           status = r.status,
+                           departmentId = d.departmentId,
+                           userId = r.userId,
+                           rejectReason = r.rejectReason
+                       };
+            return data.ToList();
+        }
+        //**********************************tianhang********************************
         
         //**** Peng xiao meng ********************
         public List<RequisitionMix> currentweekbyitem()
